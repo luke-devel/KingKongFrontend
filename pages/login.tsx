@@ -6,8 +6,8 @@ export default function Login() {
     <div>
       <div className="topHeader">
         <Header />
-        <div id="contact" class="container">
-		<form class="card4">
+        <div id="contact" className="container">
+		<form className="card4">
 
 			<h1>Login</h1>
 
@@ -17,7 +17,7 @@ export default function Login() {
 			<label>Phone Number</label>	
 			<input type="Number" name="phoneno"/>
 					
-			<div class="signupbtn3">
+			<div className="signupbtn3">
 			<input type="submit" name="signup" value="Submit"/>
 			</div>
 
