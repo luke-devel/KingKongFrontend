@@ -213,15 +213,15 @@ export default function Home() {
         </div>
 
         <div className="lastSection" style={bottomStyle}>
-          <h3>Simple, Transparent Pricing.</h3>
-          <h1>Any site, Any size, ONE PRICE</h1>
+          <h3 style={{margin: 20, fontSize: 30, paddingTop: 50}}>Simple, Transparent Pricing.</h3>
+          <h1 style={{fontWeight: 500, fontSize: 60, margin: 20}}>Any site, Any size, ONE PRICE</h1>
 
-          <p>Unlimited WebSites & Usage</p>
+          <p style={{margin: 20, fontSize: 30}}>Unlimited WebSites & Usage</p>
 
-          <div className="priced">
+          <div className="priced" style={{margin: 5}}>
             <sup>$</sup>0.99 / <span>day</span>
           </div>
-          <div className="secbtn2">
+          <div className="secbtn2" style={{paddingBottom: 60}}>
             <button>Secure my website</button>
           </div>
         </div>
@@ -230,6 +230,7 @@ export default function Home() {
           .lastSection {
             flex-direction: column;
             text-align: center;
+            justify-content: center;
           }
         `}</style>
         <Footer />
