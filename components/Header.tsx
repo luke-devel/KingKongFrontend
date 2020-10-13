@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 import Router from "next/router";
 
-export default function index() {
+export default function Header() {
+  // TODO: set click to toggle className for #menu on and off
+  const [menuToggle, setMenuToggle] = useState("off");
+
+  const toggleMenu = () => {
+    menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
+  };
+
   return (
-    <header>
+    <header style={{marginBottom: 0}}>
       <nav>
-        <a href="/" className="logo">
-          <img src="img/logo.png" />
-        </a>
+        <Link href="/">
+          <a className="logo">
+            <img src="img/logo.png" />
+          </a>
+        </Link>
 
         <ul className="navul">
           <li>
@@ -33,11 +43,14 @@ export default function index() {
         </ul>
 
         <div className="nav">
-          <a href="#menu" id="toggle">
+          <a href="#menu" id="toggle" className={menuToggle} onClick={toggleMenu}>
             <span></span>
           </a>
           <div id="menu">
             <ul>
+            <li>
+                <a href="/">Home </a>
+              </li>
               <li>
                 <a href="/pricing">Pricing </a>
               </li>
