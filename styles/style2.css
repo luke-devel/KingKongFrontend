@@ -299,7 +299,7 @@ table.halftb{
 .lastsec{
 	padding-top: 90px;
 	height: 400px;
-	background: url(../img/Union2.png);
+	/* background: url(../img/Union2.png); */
 	background-repeat: no-repeat;
 	display: flex;
 	background-position: center;
