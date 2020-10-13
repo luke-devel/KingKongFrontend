@@ -4,28 +4,29 @@ import Footer from "../components/Footer";
 export default function Login() {
   return (
     <div>
-      <div className="topHeader">
-        <Header />
-        <div id="contact" class="container">
-		<form class="card4">
+      <div style={{ backgroundImage: `url('img/Union.png')`, backgroundRepeat: "no-repeat", backgroundPosition: "top right",
+		backgroundSize: "contain"}}>
+	  <Header />
+        <div id="contact" className="container">
+          <form className="card4">
+            <h1>Login</h1>
 
-			<h1>Login</h1>
+            <label>Email Address</label>
+            <input type="email" name="emailadd" />
 
-			<label>Email Address</label>
-			<input type="email" name="emailadd"/>
-					
-			<label>Phone Number</label>	
-			<input type="Number" name="phoneno"/>
-					
-			<div class="signupbtn3">
-			<input type="submit" name="signup" value="Submit"/>
-			</div>
+            <label>Phone Number</label>
+            <input type="Number" name="phoneno" />
 
+            <div className="signupbtn3">
+              <input type="submit" name="signup" value="Submit" />
+            </div>
+          </form>
+        </div>
 
-		</form>
-	</div>
-        <Footer />
-      </div>
+	  </div>
+      
+	  <Footer />
+
     </div>
   );
 }

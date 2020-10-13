@@ -11,12 +11,22 @@ export default function index() {
 
         <ul className="navul">
           <li>
-            <a className="price" href="http://moorent.com/pricing.html">
+            <a className="price" href="/pricing">
               Pricing{" "}
             </a>
           </li>
           <li>
-            <a href="" className="logbtn">
+            <a className="price" href="/contact">
+              Contact{" "}
+            </a>
+          </li>
+          <li>
+            <a className="price" href="/faq">
+              FAQ{" "}
+            </a>
+          </li>
+          <li>
+            <a href="/login" className="logbtn">
               Login
             </a>
           </li>

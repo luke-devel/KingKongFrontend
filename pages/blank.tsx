@@ -4,11 +4,18 @@ import Footer from "../components/Footer";
 export default function Blank() {
   return (
     <div>
-      <div className="topHeader">
+      <div
+        style={{
+          backgroundImage: `url('img/Union.png')`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "top right",
+          backgroundSize: "contain",
+        }}
+      >
         <Header />
-  
-        <Footer />
       </div>
+
+      <Footer />
     </div>
   );
 }
