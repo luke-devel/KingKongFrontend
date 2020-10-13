@@ -5,7 +5,7 @@ export default function index() {
   return (
     <footer>
       <div className="logo">
-        <a href="http://moorent.com/" className="logo">
+        <a href="/" className="logo">
           <img src="img/logo.png" />
         </a>
       </div>
@@ -13,17 +13,16 @@ export default function index() {
       <div className="footmenu">
         <ul>
           <li>
-            <a href="http://moorent.com/pricing.html">Pricing </a>
+            <a href="/pricing">Pricing </a>
           </li>
           <li>
-            <a href="http://moorent.com/contact.html">Contact </a>
+            <a href="/contact">Contact </a>
           </li>
           <li>
-            <a href="http://moorent.com/faq.html">FAQ </a>
+            <a href="/faq">FAQ </a>
           </li>
-
           <li>
-            <a href="http://moorent.com/" className="logoutbtn">
+            <a href="login/" className="logoutbtn">
               Login
             </a>
           </li>

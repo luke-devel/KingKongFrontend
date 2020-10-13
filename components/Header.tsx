@@ -5,7 +5,7 @@ export default function index() {
   return (
     <header>
       <nav>
-        <a href="http://moorent.com/" className="logo">
+        <a href="/" className="logo">
           <img src="img/logo.png" />
         </a>
 
@@ -36,23 +36,22 @@ export default function index() {
           <a href="#menu" id="toggle">
             <span></span>
           </a>
-
           <div id="menu">
             <ul>
               <li>
-                <a href="http://moorent.com/pricing.html">Pricing </a>
+                <a href="/pricing">Pricing </a>
               </li>
               <li>
-                <a href="http://moorent.com/contact.html">Contact</a>
+                <a href="/contact">Contact</a>
               </li>
               <li>
-                <a href="http://moorent.com/faq.html">FAQ</a>
+                <a href="/faq">FAQ</a>
               </li>
               <li>
-                <a href="http://moorent.com/settings.html"> Settings</a>
+                <a href="/settings"> Settings</a>
               </li>
               <li>
-                <a href="#" className="logbtn">
+                <a href="/login" className="logbtn">
                   Login
                 </a>
               </li>
