@@ -13,8 +13,8 @@ export default function Blank() {
         }}
       >
         <Header />
+        
       </div>
-
       <Footer />
     </div>
   );
