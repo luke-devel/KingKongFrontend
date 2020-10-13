@@ -8,16 +8,12 @@ const colStyles = {
 };
 
 const bottomStyle = {
-  height: 400,
   background: `url('img/Union2.png')`,
   backgroundRepeat: "no-repeat",
-  display: "flex",
   backgroundPosition: "center",
   backgroundSize: "contain",
-  alignContent: "center",
-  alignItems: "center",
-  marginTop: 30,
-  marginBottom: 50
+  flexDirection: "column" as "column",
+  textAlign: "center" as "center"
 };
 
 export default function Home() {
@@ -212,27 +208,19 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="lastSection" style={bottomStyle}>
-          <h3 style={{margin: 20, fontSize: 30, paddingTop: 50}}>Simple, Transparent Pricing.</h3>
-          <h1 style={{fontWeight: 500, fontSize: 60, margin: 20}}>Any site, Any size, ONE PRICE</h1>
+        <div className="row" style={bottomStyle}>
+          <h3>Simple, Transparent Pricing.</h3>
+          <h1>Any site, Any size, ONE PRICE</h1>
 
-          <p style={{margin: 20, fontSize: 30}}>Unlimited WebSites & Usage</p>
+          <p >Unlimited WebSites & Usage</p>
 
-          <div className="priced" style={{margin: 5}}>
+          <div className="priced">
             <sup>$</sup>0.99 / <span>day</span>
           </div>
-          <div className="secbtn2" style={{paddingBottom: 60}}>
+          <div className="secbtn2" >
             <button>Secure my website</button>
           </div>
         </div>
-
-        <style jsx>{`
-          .lastSection {
-            flex-direction: column;
-            text-align: center;
-            justify-content: center;
-          }
-        `}</style>
         <Footer />
       </div>
     </div>
