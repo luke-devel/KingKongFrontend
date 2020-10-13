@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -13,7 +14,7 @@ const bottomStyle = {
   backgroundPosition: "center",
   backgroundSize: "contain",
   flexDirection: "column" as "column",
-  textAlign: "center" as "center"
+  textAlign: "center" as "center",
 };
 
 export default function Home() {
@@ -49,9 +50,11 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <div className="secbtn">
-            <button>Secure my website</button>
-          </div>
+          <Link href="/pricing">
+            <div className="secbtn">
+              <button>Secure my website</button>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -72,10 +75,11 @@ export default function Home() {
             <div className="secbtn1">
               <button>Backup Now</button>
             </div>
-
-            <div className="hidbtn">
-              <button>Secure my website</button>
-            </div>
+            <Link href="/pricing">
+              <div className="hidbtn">
+                <button>Secure my website</button>
+              </div>
+            </Link>
           </div>
           <div className="rightcol">
             <img id="img1" className="mac" src="img/mackbook.png" />
@@ -95,10 +99,11 @@ export default function Home() {
             <div className="secbtn1">
               <button>Backup Now</button>
             </div>
-
-            <div className="hidbtn">
-              <button>Secure my website</button>
-            </div>
+            <Link href="/pricing">
+              <div className="hidbtn">
+                <button>Secure my website</button>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="row">
@@ -112,9 +117,11 @@ export default function Home() {
             <div className="secbtn1">
               <button>Backup Now</button>
             </div>
-            <div className="hidbtn">
-              <button>Secure my website</button>
-            </div>
+            <Link href="/pricing">
+              <div className="hidbtn">
+                <button>Secure my website</button>
+              </div>
+            </Link>
           </div>
           <div className="rightcol">
             <img
@@ -137,9 +144,11 @@ export default function Home() {
             <div className="secbtn1">
               <button>Backup Now</button>
             </div>
-            <div className="hidbtn">
-              <button>Secure my website</button>
-            </div>
+            <Link href="/pricing">
+              <div className="hidbtn">
+                <button>Secure my website</button>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -212,14 +221,16 @@ export default function Home() {
           <h3>Simple, Transparent Pricing.</h3>
           <h1>Any site, Any size, ONE PRICE</h1>
 
-          <p >Unlimited WebSites & Usage</p>
+          <p>Unlimited WebSites & Usage</p>
 
           <div className="priced">
             <sup>$</sup>0.99 / <span>day</span>
           </div>
-          <div className="secbtn2" >
-            <button>Secure my website</button>
-          </div>
+          <Link href="/pricing">
+            <div className="secbtn2">
+              <button>Secure my website</button>
+            </div>
+          </Link>
         </div>
         <Footer />
       </div>
