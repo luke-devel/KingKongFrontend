@@ -1,67 +1,72 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+const colStyles = {
+  backgroundImage: `url('img/Union1.png')`,
+  backgroundRepeat: "no-repeat",
+  justifyContent: "center",
+};
+
+const bottomStyle = {
+  height: 400,
+  background: `url('img/Union2.png')`,
+  backgroundRepeat: "no-repeat",
+  display: "flex",
+  backgroundPosition: "center",
+  backgroundSize: "contain",
+  alignContent: "center",
+  alignItems: "center",
+  marginTop: 30,
+  marginBottom: 50
+};
+
 export default function Home() {
   return (
     <div>
-      <div className="topHeader">
-      <Header />
-      <div className="header">
-        <h1>One platform to secure all your websites.</h1>
-        <h3>Backup & Restore in ONE CLICK.</h3>
-        <p>
-          30,000 websites are hacked every day. Over 10 thousand sites are lost
-          due to broken Backup files.
-        </p>
+      <div
+        className="topHeader"
+        style={{
+          marginBottom: 90,
+          backgroundImage: `url('img/Union.png')`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "top right",
+          backgroundSize: "contain",
+        }}
+      >
+        <Header />
+        <div className="header">
+          <h1>One platform to secure all your websites.</h1>
+          <h3>Backup & Restore in ONE CLICK.</h3>
+          <p>
+            30,000 websites are hacked every day. Over 10 thousand sites are
+            lost due to broken Backup files.
+          </p>
 
-        <div className="twoop">
-          <ul>
-            <li>
-              <img src="img/tick.png" /> <p>30-day risk free money back</p>
-            </li>{" "}
-            <li>
-              <img src="img/tick.png" />
-              <p>Cancel anytime</p>
-            </li>
-          </ul>
-        </div>
-        <div className="secbtn">
-          <button>Secure my website</button>
+          <div className="twoop">
+            <ul>
+              <li>
+                <img src="img/tick.png" /> <p>30-day risk free money back</p>
+              </li>{" "}
+              <li>
+                <img src="img/tick.png" />
+                <p>Cancel anytime</p>
+              </li>
+            </ul>
+          </div>
+          <div className="secbtn">
+            <button>Secure my website</button>
+          </div>
         </div>
       </div>
-      </div>
-     
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
       <div className="container">
-        <div className="row1">
-          <div className="leftcol">
+        <div
+          className="row1"
+          style={{
+            marginBottom: 90,
+          }}
+        >
+          <div className="leftcol" style={colStyles}>
             <h3>Eezy peezy Dashboard</h3>
             <p>
               Backup all your websites, irrespective of the hosting provider, in
@@ -84,7 +89,7 @@ export default function Home() {
           <div className="rightcol">
             <img id="img2" className="mac" src="img/device.png" />
           </div>
-          <div className="leftcol">
+          <div className="leftcol" style={colStyles}>
             <h3>Works on all your devices </h3>
             <p>
               User Panel works seamlessly on every device. No need to download
@@ -101,7 +106,7 @@ export default function Home() {
           </div>
         </div>
         <div className="row">
-          <div className="leftcol">
+          <div className="leftcol" style={colStyles}>
             <h3>Stay connected on the move</h3>
             <p>
               Backup & Restore on the go. Quickly connect using a smartphone. It
@@ -127,7 +132,7 @@ export default function Home() {
           <div className="rightcol">
             <img id="img4" className="mac" src="img/iPhone-Xs 1.png" />
           </div>
-          <div className="leftcol">
+          <div className="leftcol" style={colStyles}>
             <h3>Email alerts </h3>
             <p>
               Relax, and grab a coffee. We alert you every time a backup/restore
@@ -207,7 +212,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="row lastsec">
+        <div className="lastSection" style={bottomStyle}>
           <h3>Simple, Transparent Pricing.</h3>
           <h1>Any site, Any size, ONE PRICE</h1>
 
@@ -220,6 +225,13 @@ export default function Home() {
             <button>Secure my website</button>
           </div>
         </div>
+
+        <style jsx>{`
+          .lastSection {
+            flex-direction: column;
+            text-align: center;
+          }
+        `}</style>
         <Footer />
       </div>
     </div>
