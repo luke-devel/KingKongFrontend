@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -23,20 +24,20 @@ export default function Register() {
   const passwordChange = (e) => {
     setPassword(e.target.value);
   };
-  const onRegister = (event) => {
+  const onRegister = async (event) => {
     event.preventDefault();
     console.log(name, phoneNumber, email, password);
-    // Axios("http://localhost:3000/api/register", {
-    //   method: "post",
-    //   data: {
-    //     name: name,
-    //     username: username,
-    //     email: email,
-    //     password: password,
-    //   },
-    // })
-    console.log('hello world');
-  }
+    let res = await Axios("http://localhost:3000/api/register", {
+      method: "post",
+      data: {
+        name: name,
+        email: email,
+        phone: phoneNumber,
+        password: password,
+      },
+    });
+    console.log(res);
+  };
   return (
     <div>
       <div
@@ -48,24 +49,31 @@ export default function Register() {
         }}
       >
         <Header />
-        <div id="register" className="container" style={{marginTop: 10}}>
+        <div id="register" className="container" style={{ marginTop: 10 }}>
           {/* need to fix for different screen sizes */}
-          <form className="card" style={{marginLeft: 'auto', marginRight: 'auto', width: "25em"}}> 
+          <form
+            className="card"
+            style={{ marginLeft: "auto", marginRight: "auto", width: "25em" }}
+          >
             <h1>Register</h1>
 
             <label>Full Name</label>
-            <input type="text" name="fullname" onChange={nameChange}/>
+            <input type="text" name="fullname" onChange={nameChange} />
 
             <label>Phone Number</label>
-            <input type="text" name="phoneno" onChange={phoneNumberChange}/>
+            <input type="text" name="phoneno" onChange={phoneNumberChange} />
 
             <label>Email Address</label>
-            <input type="email" name="emailadd"  onChange={emailChange}/>
+            <input type="email" name="emailadd" onChange={emailChange} />
 
             <label>Password</label>
-            <input type="password" name="password" onChange={passwordChange}/>
+            <input type="password" name="password" onChange={passwordChange} />
 
-            <div className="signupbtn" style={{paddingTop: 10}} onClick={onRegister}>
+            <div
+              className="signupbtn"
+              style={{ paddingTop: 10 }}
+              onClick={onRegister}
+            >
               <input type="submit" name="signup" value="Sign Up" />
             </div>
 
