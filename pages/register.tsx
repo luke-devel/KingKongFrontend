@@ -24,21 +24,24 @@ export default function Register({ serverPort }) {
   const passwordChange = (e) => {
     setPassword(e.target.value);
   };
+
   const onRegister = async (event) => {
     event.preventDefault();
-    console.log(name, phoneNumber, email, password, "port:", serverPort);
     try {
-      let res = await Axios(`http://localhost:${serverPort}/api/register`, {
-        method: "post",
-        data: {
-          name: name,
-          email: email,
-          phone: phoneNumber,
-          password: password,
-        },
-      });
+      let res = await Axios(
+        `/api/register`,
+        {
+          method: "post",
+          data: {
+            name: name,
+            email: email,
+            phone: phoneNumber,
+            password: password,
+          },
+        }
+      );
     } catch (error) {
-      console.log(`http://localhost:${serverPort}/api/register`);
+      console.log(`Error: ${error}`);
     }
   };
   return (
@@ -93,7 +96,3 @@ export default function Register({ serverPort }) {
     </div>
   );
 }
-
-Register.getInitialProps = async () => {
-  return { serverPort: process.env.PORT };
-};
