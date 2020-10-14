@@ -27,7 +27,7 @@ export default function Register() {
   const onRegister = async (event) => {
     event.preventDefault();
     console.log(name, phoneNumber, email, password);
-    let res = await Axios("http://localhost:3000/api/register", {
+    let res = await Axios(`http://localhost:${process.env.PORT}/api/register`, {
       method: "post",
       data: {
         name: name,
