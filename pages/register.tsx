@@ -3,7 +3,7 @@ import Axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-export default function Register() {
+export default function Register({ serverPort }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -26,17 +26,20 @@ export default function Register() {
   };
   const onRegister = async (event) => {
     event.preventDefault();
-    console.log(name, phoneNumber, email, password);
-    let res = await Axios(`http://localhost:${process.env.PORT}/api/register`, {
-      method: "post",
-      data: {
-        name: name,
-        email: email,
-        phone: phoneNumber,
-        password: password,
-      },
-    });
-    console.log(res);
+    console.log(name, phoneNumber, email, password, "port:", serverPort);
+    try {
+      let res = await Axios(`http://localhost:${serverPort}/api/register`, {
+        method: "post",
+        data: {
+          name: name,
+          email: email,
+          phone: phoneNumber,
+          password: password,
+        },
+      });
+    } catch (error) {
+      console.log(`http://localhost:${serverPort}/api/register`);
+    }
   };
   return (
     <div>
@@ -90,3 +93,7 @@ export default function Register() {
     </div>
   );
 }
+
+Register.getInitialProps = async () => {
+  return { serverPort: process.env.PORT };
+};
