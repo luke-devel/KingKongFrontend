@@ -8,7 +8,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     const hash = await bcrypt.hash(req.body.password, 10);
     const response = await axios({
       method: "POST",
-      url: `${process.env.REQ_URL}/registeruser`,
+      url: `${process.env.REQ_URL}/api/registeruser`,
       headers: {
         fullname: req.body.name,
         phone: req.body.phone,
