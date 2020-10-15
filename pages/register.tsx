@@ -28,18 +28,15 @@ export default function Register({ serverPort }) {
   const onRegister = async (event) => {
     event.preventDefault();
     try {
-      let res = await Axios(
-        `/api/register`,
-        {
-          method: "post",
-          data: {
-            name: name,
-            email: email,
-            phone: phoneNumber,
-            password: password,
-          },
-        }
-      );
+      let res = await Axios(`/api/register`, {
+        method: "post",
+        data: {
+          name: name,
+          email: email,
+          phone: phoneNumber,
+          password: password,
+        },
+      });
     } catch (error) {
       console.log(`Error: ${error}`);
     }
@@ -55,13 +52,18 @@ export default function Register({ serverPort }) {
         }}
       >
         <Header />
-        <div id="register" className="container" style={{ marginTop: 10 }}>
+        <div id="register" className="container">
           {/* need to fix for different screen sizes */}
           <form
             className="card"
-            style={{ marginLeft: "auto", marginRight: "auto", width: "20em" }}
+            style={{
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "23em",
+              paddingTop: 10,
+            }}
           >
-            <h1>Register</h1>
+            <h1 style={{ textAlign: "center" }}>Register</h1>
 
             <label>Full Name</label>
             <input type="text" name="fullname" onChange={nameChange} />
@@ -83,9 +85,23 @@ export default function Register({ serverPort }) {
               <input type="submit" name="signup" value="Sign Up" />
             </div>
 
-            <div className="twosc" style={{paddingTop: 20}}>
-              <a href="/login"style={{fontSize: 24}}>Already have an account?</a>{" "}
-              <a className="log" href="/login" style={{border: "2px solid #FFFFFF", paddingTop: 10, paddingBottom: 10, paddingLeft: 30, paddingRight: 30, width: '3em', borderRadius: 5}}>
+            <div className="twosc" style={{ paddingTop: 20 }}>
+              <a href="/login" style={{ fontSize: 24 }}>
+                Already have an account?
+              </a>{" "}
+              <a
+                className="log"
+                href="/login"
+                style={{
+                  border: "2px solid #FFFFFF",
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  paddingLeft: 30,
+                  paddingRight: 30,
+                  width: "3em",
+                  borderRadius: 5,
+                }}
+              >
                 Log In
               </a>
             </div>
