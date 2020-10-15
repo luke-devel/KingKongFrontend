@@ -59,7 +59,7 @@ export default function Register({ serverPort }) {
           {/* need to fix for different screen sizes */}
           <form
             className="card"
-            style={{ marginLeft: "auto", marginRight: "auto", width: "25em" }}
+            style={{ marginLeft: "auto", marginRight: "auto", width: "20em" }}
           >
             <h1>Register</h1>
 
@@ -83,9 +83,9 @@ export default function Register({ serverPort }) {
               <input type="submit" name="signup" value="Sign Up" />
             </div>
 
-            <div className="twosc">
-              <a href="#">Already have an account?</a>{" "}
-              <a className="log" href="#">
+            <div className="twosc" style={{paddingTop: 20}}>
+              <a href="/login"style={{fontSize: 24}}>Already have an account?</a>{" "}
+              <a className="log" href="/login" style={{border: "2px solid #FFFFFF", paddingTop: 10, paddingBottom: 10, paddingLeft: 30, paddingRight: 30, width: '3em', borderRadius: 5}}>
                 Log In
               </a>
             </div>

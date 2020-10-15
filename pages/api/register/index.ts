@@ -1,7 +1,9 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
 import axios from "axios";
 import bcrypt from "bcrypt";
 
-export default async function (req, res) {
+export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
     const hash = await bcrypt.hash(req.body.password, 10);
     const response = await axios({
