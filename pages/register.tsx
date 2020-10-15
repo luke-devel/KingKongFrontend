@@ -59,7 +59,7 @@ export default function Register({ serverPort }) {
           {/* need to fix for different screen sizes */}
           <form
             className="card"
-            style={{ marginLeft: "auto", marginRight: "auto", width: "20em" }}
+            style={{ marginLeft: "auto", marginRight: "auto", width: "22em" }}
           >
             <h1>Register</h1>
 
