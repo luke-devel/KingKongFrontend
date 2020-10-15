@@ -4,6 +4,7 @@
 export default async function (req, res) {
   let user;
   try {
+    console.log(req.body);
     // const hash = await bcrypt.hash(req.body.password, 10);
     // user = await db.user.create({
     //   name: req.body.name,
