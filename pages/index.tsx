@@ -50,11 +50,11 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          <Link href="/pricing">
-            <div className="secbtn">
+          <div className="secbtn">
+            <Link href="/pricing">
               <button>Secure my website</button>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -73,7 +73,9 @@ export default function Home() {
               and we start.
             </p>
             <div className="secbtn1">
-              <button>Backup Now</button>
+              <Link href="/pricing">
+                <button>Backup Now</button>
+              </Link>
             </div>
             <Link href="/pricing">
               <div className="hidbtn">
@@ -97,13 +99,15 @@ export default function Home() {
               devices.
             </p>
             <div className="secbtn1">
-              <button>Backup Now</button>
+              <Link href="/pricing">
+                <button>Backup Now</button>
+              </Link>
             </div>
-            <Link href="/pricing">
-              <div className="hidbtn">
+            <div className="hidbtn">
+              <Link href="/pricing">
                 <button>Secure my website</button>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="row">
@@ -115,13 +119,15 @@ export default function Home() {
               meeting or clubbing with your buddies.
             </p>
             <div className="secbtn1">
-              <button>Backup Now</button>
+              <Link href="/pricing">
+                <button>Backup Now</button>
+              </Link>
             </div>
-            <Link href="/pricing">
-              <div className="hidbtn">
+            <div className="hidbtn">
+              <Link href="/pricing">
                 <button>Secure my website</button>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
           <div className="rightcol">
             <img
@@ -142,13 +148,15 @@ export default function Home() {
               is initiated or completed.
             </p>
             <div className="secbtn1">
-              <button>Backup Now</button>
+              <Link href="/pricing">
+                <button>Backup Now</button>
+              </Link>
             </div>
-            <Link href="/pricing">
-              <div className="hidbtn">
+            <div className="hidbtn">
+              <Link href="/pricing">
                 <button>Secure my website</button>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -226,11 +234,11 @@ export default function Home() {
           <div className="priced">
             <sup>$</sup>0.99 / <span>day</span>
           </div>
-          <Link href="/pricing">
-            <div className="secbtn2">
+          <div className="secbtn2">
+            <Link href="/pricing">
               <button>Secure my website</button>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
         <Footer />
       </div>
