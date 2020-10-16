@@ -11,7 +11,7 @@ export default function Header() {
   };
 
   return (
-    <header style={{marginBottom: 0}}>
+    <header style={{ marginBottom: 0 }}>
       <nav>
         <Link href="/">
           <a className="logo">
@@ -43,12 +43,22 @@ export default function Header() {
         </ul>
 
         <div className="nav">
-          <a href="#menu" id="toggle" className={menuToggle} onClick={toggleMenu}>
+          <a
+            href="#menu"
+            id="toggle"
+            className={menuToggle}
+            onClick={toggleMenu}
+            style={{
+              marginTop: "2em",
+              marginRight: ".5em",
+              width: "1.5em",
+            }}
+          >
             <span></span>
           </a>
           <div id="menu">
             <ul>
-            <li>
+              <li>
                 <a href="/">Home </a>
               </li>
               <li>
