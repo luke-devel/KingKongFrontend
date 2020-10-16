@@ -1,28 +1,33 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from "next";
 
 import axios from "axios";
 import bcrypt from "bcrypt";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
-    const hash = await bcrypt.hash(req.body.password, 10);
-    const response = await axios({
-      method: "POST",
-      url: `${process.env.REQ_URL}/api/registeruser`,
-      headers: {
-        fullname: req.body.name,
-        phone: req.body.phone,
-        email: req.body.email,
-        password: hash,
-      },
-    });
-    // console.log(response.status);
-    // Success returned from Database
-    response.status === 253 ? res.status(253) : res.status(400);
-    res.end();
+    try {
+      const hash = await bcrypt.hash(req.body.password, 10);
+      const response = await axios({
+        method: "POST",
+        url: `${process.env.REQ_URL}/api/registeruser`,
+        headers: {
+          fullname: req.body.name,
+          phone: req.body.phone,
+          email: req.body.email,
+          password: hash,
+        },
+      });
+      // Success returned from Database successfully
+      response.status === 253 && res.status(253);
+      res.end();
+    } catch (err) {
+      console.log("here");
+      err.response.status === 409 && res.status(409);
+      res.end();
+    }
   } catch (err) {
     // error
-    // console.log("err in api/regiter/index.js sequelize,", err)
+    console.log("Error in register API, bad request. Sending res.status(400)");
     res.status(400);
     res.end();
   }
