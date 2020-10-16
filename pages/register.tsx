@@ -1,13 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
-export default function Register({ serverPort }) {
+export default function Register() {
+  const router = useRouter();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const nameChange = (e) => {
     setName(e.target.value);
@@ -28,21 +43,72 @@ export default function Register({ serverPort }) {
   const onRegister = async (event) => {
     event.preventDefault();
     try {
-      let res = await Axios(`/api/register`, {
-        method: "post",
-        data: {
-          name: name,
-          email: email,
-          phone: phoneNumber,
-          password: password,
-        },
-      });
+      try {
+        let res = await Axios(`/api/register`, {
+          method: "post",
+          data: {
+            name: name,
+            email: email,
+            phone: phoneNumber,
+            password: password,
+          },
+        });
+        console.log(res.status);
+        res.status === 253 && router.push("/checkout");
+      } catch (error) {
+        throw error.response.status;
+      }
     } catch (error) {
-      console.log(`Error: ${error}`);
+      // Duplicate email
+      if (error === 409) {
+        console.log("duplicate email");
+        handleClickOpen();
+      } else {
+        console.log("Other Error");
+        console.log(`Error: ${error}`);
+      }
     }
   };
   return (
     <div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        PaperProps={{
+          style: {
+            backgroundColor: "#212121",
+            boxShadow:
+              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
+          },
+        }}
+      >
+        <DialogTitle
+          id="alert-dialog-title"
+          style={{ color: "white", fontSize: "" }}
+        >
+          {"Your email has already been registered."}
+        </DialogTitle>
+        <DialogActions style={{ justifyContent: "center" }}>
+          <a
+            className="log"
+            href="/login"
+            style={{
+              border: "2px solid #FFFFFF",
+              paddingTop: 10,
+              paddingBottom: 10,
+              paddingLeft: 30,
+              paddingRight: 30,
+              marginBottom: 20,
+              width: "3em",
+              borderRadius: 5,
+            }}
+          >
+            Log In
+          </a>
+        </DialogActions>
+      </Dialog>
       <div
         style={{
           backgroundImage: `url('img/Union.png')`,
