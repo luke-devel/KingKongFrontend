@@ -12,7 +12,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         url: `${process.env.REQ_URL}/api/registeruser`,
         headers: {
           fullname: req.body.name,
-          phone: req.body.phone,
           email: req.body.email,
           password: hash,
         },
@@ -21,12 +20,19 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       response.status === 253 && res.status(253);
       res.end();
     } catch (err) {
-      console.log("here");
+      console.log(`${process.env.REQ_URL}/api/registeruser`);
+      console.log({
+        fullname: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+      });
+
       err.response.status === 409 && res.status(409);
       res.end();
     }
   } catch (err) {
     // error
+    console.log(err);
     console.log("Error in register API, bad request. Sending res.status(400)");
     res.status(400);
     res.end();
