@@ -59,7 +59,7 @@ export default function Register({ serverPort }) {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              width: "23em",
+              width: "25em",
               paddingTop: 10,
             }}
           >
