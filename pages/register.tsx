@@ -85,6 +85,9 @@ export default function Register() {
       if (password !== password2) {
         throw "password != password2";
       }
+      if (!name || !email) {
+        Router.reload();
+      }
       try {
         let res = await Axios(`/api/register`, {
           method: "post",
