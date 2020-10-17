@@ -240,8 +240,8 @@ export default function Register() {
               paddingTop: 10,
             }}
           >
-            <h1 style={{ textAlign: "center" }}>Register</h1>
-            <label>Full Name</label>
+            <h1 style={{ textAlign: "center", marginTop: '.5em', margin: 0, width: "100%" }}>Register</h1>
+            <label style={{marginTop: 5}}>Full Name</label>
             <input type="text" name="fullname" onChange={nameChange} />
             {/* <label>Phone Number</label>
             <input type="text" name="phoneno" onChange={phoneNumberChange} /> */}
@@ -257,12 +257,12 @@ export default function Register() {
             />
             <div
               className="signupbtn"
-              style={{ paddingTop: 10, marginBottom: 0 }}
+              style={{ paddingTop: 10, marginBottom: '2em' }}
             >
               <NoSsr>
                 <StyledButton2
                   onClick={onRegister}
-                  style={{ fontSize: "1.8em", marginBottom: ".3em" }}
+                  style={{ fontSize: "2.4em", marginBottom: ".4em" }}
                 >
                   Sign Up
                 </StyledButton2>
@@ -270,11 +270,11 @@ export default function Register() {
             </div>
             <a
               href="/login"
-              style={{ paddingTop: "1em", fontSize: 18, fontStyle: "italic" }}
+              style={{ fontSize: '1.5em' }}
             >
               Already have an account?
-            </a>{" "}
-            <div className="twosc" style={{ paddingTop: 20, marginBottom: 0 }}>
+            </a>
+            <div className="twosc" style={{ paddingTop: 20, marginBottom: '2em' }}>
               <NoSsr>
                 <StyledButton2
                   onClick={() => router.push("/login")}

@@ -72,7 +72,7 @@ export default function CheckoutLanding() {
               >
                 <p id="newp">Payment Partner</p>
               </div>
-              <h2 style={{fontSize: 30}}>Loading...</h2>
+              <h2 style={{fontSize: 30}}>Redirecting you to Stripe now...</h2>
             </div>
           </div>
         </div>
