@@ -14,7 +14,7 @@ export default function Header() {
       <nav>
         <Link href="/">
           <a className="logo">
-            <img src="../img/logo.png" />
+            <img src="/img/logo.png" />
           </a>
         </Link>
 
