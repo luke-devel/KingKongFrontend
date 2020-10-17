@@ -8,6 +8,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { withStyles } from "@material-ui/core/styles";
+import { NoSsr } from "@material-ui/core";
 import Router from "next/router";
 
 export default function Register() {
@@ -18,8 +19,39 @@ export default function Register() {
   // const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [dupEmailOpen, setDupEmailOpen] = React.useState(false);
-  const [badPassAlert, setBadPassAlert] = React.useState(false);
+  const [dupEmailOpen, setDupEmailOpen] = useState(false);
+  const [badPassAlert, setBadPassAlert] = useState(false);
+  const [isAllowed, setIsAllowed] = useState(true);
+
+  const StyledButton2 = withStyles({
+    root: {
+      // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 5,
+      backgroundColor:
+        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      border: "1px solid #ffffff",
+      fontSize: "3em",
+      color: "white",
+      height: "2em",
+      width: "7em",
+      padding: "0 30px",
+      fontWeight: "bold",
+      // position: "absolute",
+      bottom: 0,
+      "&:hover": {
+        // fontStyle: "italic",
+        fontWeight: "bold",
+        backgroundColor:
+          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        color: "#black",
+        transform: "scale(1.05)",
+        transitionDuration: ".5s",
+      },
+    },
+    label: {
+      textTransform: "capitalize",
+    },
+  })(Button);
 
   const StyledButton = withStyles({
     root: {
@@ -80,6 +112,7 @@ export default function Register() {
   };
 
   const onRegister = async (event) => {
+    setIsAllowed(false);
     event.preventDefault();
     try {
       if (password !== password2) {
@@ -181,7 +214,9 @@ export default function Register() {
           {"Passwords do not match."}
         </DialogTitle>
         <DialogActions style={{ justifyContent: "center" }}>
-          <StyledButton onClick={handleBadPassAlertClose}>Try Again</StyledButton>
+          <StyledButton onClick={handleBadPassAlertClose}>
+            Try Again
+          </StyledButton>
         </DialogActions>
       </Dialog>
 
@@ -223,9 +258,15 @@ export default function Register() {
             <div
               className="signupbtn"
               style={{ paddingTop: 10, marginBottom: 0 }}
-              onClick={onRegister}
             >
-              <input type="submit" name="signup" value="Sign Up" />
+              <NoSsr>
+                <StyledButton2
+                  onClick={onRegister}
+                  style={{ fontSize: "2.4em", marginBottom: 0 }}
+                >
+                  Sign Up
+                </StyledButton2>
+              </NoSsr>
             </div>
             <a
               href="/login"
@@ -234,22 +275,14 @@ export default function Register() {
               Already have an account?
             </a>{" "}
             <div className="twosc" style={{ paddingTop: 20, marginBottom: 0 }}>
-              <a
-                className="log"
-                href="/login"
-                style={{
-                  border: "2px solid #FFFFFF",
-                  paddingTop: 10,
-                  paddingBottom: 10,
-                  paddingLeft: 30,
-                  paddingRight: 30,
-                  width: "3em",
-                  borderRadius: 5,
-                  marginBottom: 0,
-                }}
-              >
-                Log In
-              </a>
+              <NoSsr>
+                <StyledButton2
+                  onClick={() => router.push("/login")}
+                  style={{ fontSize: 20, width: "8em" }}
+                >
+                  Log In
+                </StyledButton2>
+              </NoSsr>
             </div>
           </form>
         </div>
