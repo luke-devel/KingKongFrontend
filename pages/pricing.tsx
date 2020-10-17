@@ -80,7 +80,7 @@ export default function Pricing() {
                 <h3 className="off"> 50% OFF</h3>
                 <div style={{ marginTop: "5vh" }}>
                   <NoSsr>
-                    <StyledButton onClick={() => handleChoice(0)}>
+                    <StyledButton onClick={() => handleChoice(0)} style={{ marginBottom: '1em'}}>
                       Choose
                     </StyledButton>
                   </NoSsr>
@@ -94,7 +94,7 @@ export default function Pricing() {
                 <h3 className="off"> 30% OFF</h3>
                 <div>
                   <NoSsr>
-                    <StyledButton onClick={() => handleChoice(1)}>
+                    <StyledButton onClick={() => handleChoice(1)} style={{marginTop: '1.5em' , marginBottom: '1em'}}>
                       Choose
                     </StyledButton>
                   </NoSsr>
@@ -107,7 +107,7 @@ export default function Pricing() {
                 <h3>Monthly Billing</h3>
                 <div style={{ marginTop: "10vh" }}>
                   <NoSsr>
-                    <StyledButton onClick={() => handleChoice(2)}>
+                    <StyledButton onClick={() => handleChoice(2)} style={{marginTop: '1.5em', marginBottom: '1em'}}>
                       Choose
                     </StyledButton>
                   </NoSsr>
