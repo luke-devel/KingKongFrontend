@@ -262,7 +262,7 @@ export default function Register() {
               <NoSsr>
                 <StyledButton2
                   onClick={onRegister}
-                  style={{ fontSize: "2.4em", marginBottom: 0 }}
+                  style={{ fontSize: "1.8em", marginBottom: ".3em" }}
                 >
                   Sign Up
                 </StyledButton2>
