@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
+import { NoSsr } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import { useRouter } from "next/router";
 import Cookie from "js-cookie";
 import Header from "../components/Header";
@@ -7,6 +11,34 @@ import Footer from "../components/Footer";
 export default function Pricing() {
   const router = useRouter();
   const [state, setstate] = useState("");
+
+  const StyledButton = withStyles({
+    root: {
+      // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 10,
+      backgroundColor: "#ffffff",
+      border: "2px solid #ffffff",
+      fontSize: "2em",
+      color: "black",
+      height: "2em",
+      width: "7em",
+      padding: "0 30px",
+      fontWeight: "bold",
+      // position: "absolute",
+      bottom: 0,
+      "&:hover": {
+        // fontStyle: "italic",
+        fontWeight: "bold",
+        backgroundColor: "#ffffff",
+        color: "#black",
+        transform: "scale(1.05)",
+        transitionDuration: ".5s",
+      },
+    },
+    label: {
+      textTransform: "capitalize",
+    },
+  })(Button);
 
   const handleChoice = (choice) => {
     console.log(choice);
@@ -37,54 +69,53 @@ export default function Pricing() {
       <div className="topHeader">
         <Header />
         <div id="price" className="container">
-          <div className="pricing">
+          <div className="pricing" style={{ marginTop: 10 }}>
             <h1>Pricing</h1>
             <div className="cards">
               <div className="card">
                 <div className="priced">
                   <sup>$</sup>0.99 / <span>day</span>
                 </div>
-
                 <h3>Yearly Billing</h3>
                 <h3 className="off"> 50% OFF</h3>
-
-                <div
-                  className="pricebtn"
-                  id="0"
-                  onClick={() => handleChoice(0)}
-                >
-                  <button>Choose</button>
+                <div style={{ marginTop: "5vh" }}>
+                  <NoSsr>
+                    <StyledButton onClick={() => handleChoice(0)}>
+                      Choose
+                    </StyledButton>
+                  </NoSsr>
                 </div>
               </div>
-
               <div className="card">
                 <div className="priced">
                   <sup>$</sup>1.49 / <span>day</span>
                 </div>
-
                 <h3>6 Months Billing</h3>
                 <h3 className="off"> 30% OFF</h3>
-
-                <div className="pricebtn" onClick={() => handleChoice(1)}>
-                  <button>Choose</button>
+                <div>
+                  <NoSsr>
+                    <StyledButton onClick={() => handleChoice(1)}>
+                      Choose
+                    </StyledButton>
+                  </NoSsr>
                 </div>
               </div>
-
               <div className="card">
                 <div className="priced">
                   <sup>$</sup>1.99 / <span>day</span>
                 </div>
-
                 <h3>Monthly Billing</h3>
-
-                <div className="pricebtn1" onClick={() => handleChoice(2)}>
-                  <button>Choose</button>
+                <div style={{ marginTop: "10vh" }}>
+                  <NoSsr>
+                    <StyledButton onClick={() => handleChoice(2)}>
+                      Choose
+                    </StyledButton>
+                  </NoSsr>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     </div>
