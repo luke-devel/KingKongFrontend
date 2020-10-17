@@ -6,7 +6,7 @@ export default function index() {
     <footer>
       <div className="logo">
         <a href="/" className="logo">
-          <img src="img/logo.png" />
+          <img src="../img/logo.png" />
         </a>
       </div>
 
