@@ -3,7 +3,6 @@ import Link from "next/link";
 import Router from "next/router";
 
 export default function Header() {
-  // TODO: set click to toggle className for #menu on and off
   const [menuToggle, setMenuToggle] = useState("off");
 
   const toggleMenu = () => {

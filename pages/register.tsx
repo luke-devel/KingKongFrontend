@@ -131,7 +131,7 @@ export default function Register() {
           },
         });
         console.log(res.status);
-        res.status === 253 && router.push("/checkout");
+        res.status === 253 && router.push("/checkout/landing");
       } catch (error) {
         if (error.response.status) {
           throw error.response.status;
@@ -262,7 +262,7 @@ export default function Register() {
               <NoSsr>
                 <StyledButton2
                   onClick={onRegister}
-                  style={{ fontSize: "2.4em", marginBottom: 0 }}
+                  style={{ fontSize: "1.8em", marginBottom: ".3em" }}
                 >
                   Sign Up
                 </StyledButton2>
