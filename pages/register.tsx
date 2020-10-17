@@ -131,7 +131,7 @@ export default function Register() {
           },
         });
         console.log(res.status);
-        res.status === 253 && router.push("/checkout");
+        res.status === 253 && router.push("/checkout/landing");
       } catch (error) {
         if (error.response.status) {
           throw error.response.status;
