@@ -21,6 +21,7 @@
     "stripe": "^8.114.0"
   },
   "devDependencies": {
+    "@material-ui/icons": "^4.9.1",
     "@types/node": "^14.11.8",
     "@types/react": "^16.9.51",
     "@types/stripe-v3": "^3.1.21",
