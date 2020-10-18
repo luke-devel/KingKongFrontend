@@ -6,7 +6,7 @@ import Cookie from 'js-cookie'
 export default function CheckoutLanding() {
   useEffect(() => {
     // Update the document title using the browser API
-    !Cookie.get('planChoice') ? handleNoPlan() : handlePlan(Cookie.get('planChoice'))
+    // !Cookie.get('planChoice') ? handleNoPlan() : handlePlan(Cookie.get('planChoice'))
   },[]);
 
   const handlePlan = async (params: any) => {
