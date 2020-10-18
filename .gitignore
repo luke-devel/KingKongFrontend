@@ -16,3 +16,4 @@ yarn.lock
 .vercel
 
 next-env.d.ts
+next.config.js
