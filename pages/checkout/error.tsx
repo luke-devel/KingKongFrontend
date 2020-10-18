@@ -24,9 +24,9 @@ export default function Pending() {
             className="card"
             style={{ marginLeft: "auto", marginRight: "auto" }}
           >
-          
+       
             <p id="newp" style={{ fontSize: "1.7em" }}>
-              Payment Result
+              Oops! Something went wrong. Please return to the homepage.
             </p>
           </div>
         </div>

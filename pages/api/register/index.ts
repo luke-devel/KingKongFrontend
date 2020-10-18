@@ -21,8 +21,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         response.status === 253 && res.status(253);
         res.end();
       } catch (error) {
-        console.log('err here');
+        console.log(process.env.REQ_URL);
+        console.log('err here', error);
         console.log(`${process.env.REQ_URL}/api/registeruser`);
+        error.response.status === 409 && res.status(409);
+      res.end();
       }
      
     } catch (err) {

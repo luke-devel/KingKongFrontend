@@ -10,6 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/styles": "^4.10.0",
+    "@stripe/stripe-js": "^1.10.0",
     "axios": "^0.20.0",
     "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
@@ -26,6 +27,6 @@
     "@types/react": "^16.9.51",
     "@types/stripe-v3": "^3.1.21",
     "babel-plugin-styled-components": "^1.11.1",
-    "typescript": "^4.0.3"
+    "typescript": "3.8"
   }
 }
