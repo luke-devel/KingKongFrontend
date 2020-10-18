@@ -9,6 +9,8 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 console.log(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default function CheckoutLanding() {
+  console.log('in checkout landing env => ', process.env.PUB_HOST_NAME);
+  
   const router = useRouter();
 
   const [planChoice, setPlanChoice] = useState(Cookie.get("planChoice"));
