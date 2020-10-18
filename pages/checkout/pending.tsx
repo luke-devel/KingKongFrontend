@@ -1,9 +1,36 @@
+
+import { useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import VerifiedCheck from "../../components/VerifiedCheck";
-import Stripe from "../../components/Stripe";
+import Cookie from "js-cookie";
 
-export default function Pending() {
+export default function CheckoutPending() {
+  useEffect(() => {
+    // Update the document title using the browser API
+    !Cookie.get("planChoice")
+      ? handleNoPlan()
+      : handlePlan(Cookie.get("planChoice"));
+  }, []);
+
+  const handlePlan = async (params: any) => {
+    console.log("plan", params);
+    switch (params) {
+      case 0:
+        // 360 one time payment for year
+
+        break;
+      case 1:
+        //  one time payment for 6 months
+
+        break;
+      case 2:
+        // $ 62/month billing
+        break;
+      default:
+      // invalid params
+    }
+  };
+
   const handleNoPlan = async () => {
     console.log("no plan");
   };
@@ -24,15 +51,38 @@ export default function Pending() {
             className="card"
             style={{ marginLeft: "auto", marginRight: "auto" }}
           >
-            <Stripe />
-            <VerifiedCheck />
-            <p id="newp" style={{ fontSize: "1.7em" }}>
-              Your Payment is....
-            </p>
+            <div className="checkoutright" style={{ padding: 0 }}>
+              <div className="twoopc">
+                <ul style={{ justifyContent: "center" }}>
+                  <li>
+                    <img src="../img/tick.png" />
+                    <p
+                      id="newp"
+                      style={{ marginBlockStart: 0, marginBlockEnd: 0 }}
+                    >
+                      Verified by
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className="imgco">
+                <img src="../img/stripe.png" />
+                <img className="himg" src="../img/stripemob.png" />
+              </div>
+
+              <div
+                id="hida"
+                className="cal"
+                style={{ justifyContent: "center" }}
+              >
+                <p id="newp">Payment Partner</p>
+              </div>
+              <h2 style={{ fontSize: 30 }}>One Moment...</h2>
+            </div>
           </div>
         </div>
       </div>
       <Footer />
     </div>
   );
-}
+ }

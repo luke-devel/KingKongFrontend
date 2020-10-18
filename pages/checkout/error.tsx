@@ -1,12 +1,10 @@
+
+import { useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Stripe from "../../components/Stripe";
+import Cookie from "js-cookie";
 
-export default function Pending() {
-  const handleNoPlan = async () => {
-    console.log("no plan");
-  };
-
+export default function CheckoutError() {
   return (
     <div>
       <div
@@ -21,20 +19,16 @@ export default function Pending() {
         <div id="register" className="container">
           <div
             className="card"
-            style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center", padding: '3em' }}
+            style={{ marginLeft: "auto", marginRight: "auto" }}
           >
-
-            <Stripe/>
-            <div style={{ whiteSpace: "nowrap"}}>
-            <p id="newp" style={{ fontSize: "2em", fontWeight: "bold", }}>
-             Payment Success!
-            </p>
-            </div>
-         
+            <div className="checkoutright" style={{ padding: 0 }}>
+              </div>
+              <h2 style={{ fontSize: 30 }}>Oops ! Something went wrong!</h2>
+              <h2 style={{ fontSize: 30 }}>If problem persists, please contact support.</h2>
           </div>
         </div>
       </div>
       <Footer />
     </div>
   );
-}
+ }

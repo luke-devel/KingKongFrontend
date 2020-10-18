@@ -1,36 +1,44 @@
 import { useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Cookie from 'js-cookie'
+import Cookie from "js-cookie";
+import { loadStripe } from "@stripe/stripe-js";
 
-export default function CheckoutLanding() {
-  useEffect(() => {
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY)
+
+export default async function CheckoutLanding() {
+  useEffect(async() => {
     // Update the document title using the browser API
-    !Cookie.get('planChoice') ? handleNoPlan() : handlePlan(Cookie.get('planChoice'))
-  },[]);
+    !Cookie.get("planChoice")
+      ? handleNoPlan()
+      : handlePlan(Cookie.get("planChoice"));
+
+    const { sessionId } = await fetch('/api/checkout/session')
+
+  }, []);
 
   const handlePlan = async (params: any) => {
-    console.log('plan', params)
-    switch(params) {
+    console.log("plan", params);
+    switch (params) {
       case 0:
         // 360 one time payment for year
 
         break;
       case 1:
-      //  one time payment for 6 months
+        //  one time payment for 6 months
 
         break;
       case 2:
         // $ 62/month billing
         break;
       default:
-        // invalid params
+      // invalid params
     }
-  }
+  };
 
   const handleNoPlan = async () => {
-    console.log('no plan')
-  }
+    console.log("no plan");
+  };
 
   return (
     <div>
@@ -44,9 +52,11 @@ export default function CheckoutLanding() {
       >
         <Header />
         <div id="register" className="container">
-          <div className="card" style={{ marginLeft: "auto",
-              marginRight: "auto",}}>
-            <div className="checkoutright">
+          <div
+            className="card"
+            style={{ marginLeft: "auto", marginRight: "auto" }}
+          >
+            <div className="checkoutright" style={{ padding: 0 }}>
               <div className="twoopc">
                 <ul style={{ justifyContent: "center" }}>
                   <li>
@@ -72,7 +82,7 @@ export default function CheckoutLanding() {
               >
                 <p id="newp">Payment Partner</p>
               </div>
-              <h2 style={{fontSize: 30}}>Redirecting you to Stripe now...</h2>
+              <h2 style={{ fontSize: 30 }}>Sending you to Stripe now.</h2>
             </div>
           </div>
         </div>
