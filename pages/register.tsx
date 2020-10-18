@@ -32,7 +32,6 @@ export default function Register() {
       border: "1px solid #ffffff",
       fontSize: "calc(1vw + 4vh)",
       color: "white",
-      width: "30vw",
       padding: "0 30px",
       fontWeight: "bold",
       // position: "absolute",
@@ -62,7 +61,6 @@ export default function Register() {
       fontSize: "calc(1vw + 2vh)",
       color: "white",
       height: "2em",
-      width: "7em",
       padding: "0 30px",
       fontWeight: "bold",
       // position: "absolute",
@@ -286,7 +284,6 @@ export default function Register() {
               <NoSsr>
                 <StyledButton
                   onClick={() => router.push("/login")}
-                  style={{ fontSize: 'calc(1vw + 2vh)'}}
                 >
                   Log In
                 </StyledButton>
