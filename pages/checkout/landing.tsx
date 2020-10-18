@@ -6,6 +6,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/router";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+console.log(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default function CheckoutLanding() {
   const router = useRouter();
