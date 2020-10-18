@@ -6,19 +6,25 @@ import bcrypt from "bcrypt";
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
     try {
-      const hash = await bcrypt.hash(req.body.password, 10);
-      const response = await axios({
-        method: "POST",
-        url: `${process.env.REQ_URL}/api/registeruser`,
-        headers: {
-          fullname: req.body.name,
-          email: req.body.email,
-          password: hash,
-        },
-      });
-      // Success returned from Database successfully
-      response.status === 253 && res.status(253);
-      res.end();
+      try {
+        const hash = await bcrypt.hash(req.body.password, 10);
+        const response = await axios({
+          method: "POST",
+          url: `${process.env.REQ_URL}/api/registeruser`,
+          headers: {
+            fullname: req.body.name,
+            email: req.body.email,
+            password: hash,
+          },
+        });
+        // Success returned from Database successfully
+        response.status === 253 && res.status(253);
+        res.end();
+      } catch (error) {
+        console.log('err here');
+        console.log(`${process.env.REQ_URL}/api/registeruser`);
+      }
+     
     } catch (err) {
       console.log(`${process.env.REQ_URL}/api/registeruser`);
       console.log({
