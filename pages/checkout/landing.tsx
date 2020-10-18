@@ -14,20 +14,20 @@ export default function CheckoutLanding() {
 
   useEffect(() => {
     // Update the document title using the browser API
-    planChoice === '0' && handlePlan('PRICE_ID_MONTHLY_USD') && console.log('here');
+    planChoice === "0" &&
+      handlePlan("PRICE_ID_MONTHLY_USD") &&
+      console.log("here");
   }, []);
 
   const handlePlan = async (query: string) => {
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({
-          lineItems: [
-            { price: process.env.PRICE_ID_MONTHLY_USD, quantity: 1 },
-          ],
-          mode: "subscription",
-          successUrl: `${process.env.PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
-          cancelUrl: `${process.env.PUB_HOST_NAME}/pricing`,
-        });
-    }
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: process.env.PRICE_ID_MONTHLY_USD, quantity: 1 }],
+      mode: "subscription",
+      successUrl: `${process.env.PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${process.env.PUB_HOST_NAME}/pricing`,
+    });
+    console.log(error);s
   };
 
   const handleNoPlan = async () => {
