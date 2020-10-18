@@ -12,11 +12,12 @@ const StyledButton = withStyles({
     backgroundColor:
       "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     border: "1px solid #ffffff",
-    fontSize: "calc(1vw + 1.5vh)",
+    fontSize: "calc(1vw + 1vh)",
     color: "white",
     padding: "0 30px",
     fontWeight: "bold",
-    margin: '-1vh',
+    width: '8vw',
+    margin: '-3vh',
     marginLeft: '1vh',
     // position: "absolute",
     "&:hover": {
