@@ -14,34 +14,21 @@ export default function CheckoutLanding() {
 
   useEffect(() => {
     // Update the document title using the browser API
-    handlePlan();
+    console.log('in useEffect', planChoice);
+    
+    planChoice === '0' && handlePlan('PRICE_ID_MONTHLY_USD');
   }, []);
 
-  const handlePlan = async () => {
-    switch (planChoice) {
-      case "0":
-        // 360 one time payment for year
+  const handlePlan = async (query: string) => {
         const stripe = await stripePromise;
-
         const { error } = await stripe.redirectToCheckout({
           lineItems: [
-            // Replace with the ID of your price
-            { price: process.env.PRICE_ID_MONTHLY_USD, quantity: 1 },
+            { price: process.env.query, quantity: 1 },
           ],
           mode: "subscription",
           successUrl: `${process.env.PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
           cancelUrl: `${process.env.PUB_HOST_NAME}/pricing`,
         });
-        break;
-      case 1:
-        //  one time payment for 6 months
-
-        break;
-      case 2:
-        // $ 62/month billing
-        break;
-      default:
-      // invalid params
     }
   };
 
