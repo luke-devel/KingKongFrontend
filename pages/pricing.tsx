@@ -46,17 +46,17 @@ export default function Pricing() {
     switch (choice) {
       case 0:
         // cheapest plan
-        Cookie.set("planChoice", 0);
+        Cookie.set("planChoice", 1);
         Router.push("/register");
         break;
       case 1:
         // med plan
-        Cookie.set("planChoice", 1);
+        Cookie.set("planChoice", 2);
         Router.push("/register");
         break;
       case 2:
         // top plan
-        Cookie.set("planChoice", 2);
+        Cookie.set("planChoice", 3);
         Router.push("/register");
         break;
       default:

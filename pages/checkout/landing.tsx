@@ -15,7 +15,7 @@ export default function CheckoutLanding() {
 
   useEffect(() => {
     // Update the document title using the browser API
-    planChoice === "0" &&
+    planChoice === "1" &&
       handlePlan("PRICE_ID_MONTHLY_USD") &&
       console.log("here");
   }, []);
