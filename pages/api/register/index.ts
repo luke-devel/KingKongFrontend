@@ -26,7 +26,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         email: req.body.email,
         password: req.body.password,
       });
-
+      !err.response.status && res.end();
       err.response.status === 409 && res.status(409);
       res.end();
     }
