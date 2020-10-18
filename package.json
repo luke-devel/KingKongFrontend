@@ -20,7 +20,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "stripe": "^8.114.0",
-    "swr": "^0.3.5"
+    "swr": "^0.3.5",
+    "tawkto-react": "^1.0.11"
   },
   "devDependencies": {
     "@material-ui/icons": "^4.9.1",
