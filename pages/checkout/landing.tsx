@@ -7,15 +7,15 @@ import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY)
 
 export default async function CheckoutLanding() {
-  useEffect(async() => {
-    // Update the document title using the browser API
-    !Cookie.get("planChoice")
-      ? handleNoPlan()
-      : handlePlan(Cookie.get("planChoice"));
+  // useEffect(async() => {
+  //   // Update the document title using the browser API
+  //   !Cookie.get("planChoice")
+  //     ? handleNoPlan()
+  //     : handlePlan(Cookie.get("planChoice"));
 
-    const { sessionId } = await fetch('/api/checkout/session')
+  //   const { sessionId } = await fetch('/api/checkout/session')
 
-  }, []);
+  // }, []);
 
   const handlePlan = async (params: any) => {
     console.log("plan", params);
