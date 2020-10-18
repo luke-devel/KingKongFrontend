@@ -30,7 +30,7 @@ export default function Register() {
       backgroundColor:
         "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       border: "1px solid #ffffff",
-      fontSize: "3em",
+      fontSize: "calc(1vw + 4vh)",
       color: "white",
       height: "2em",
       width: "7em",
@@ -56,16 +56,26 @@ export default function Register() {
   const StyledButton = withStyles({
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      borderRadius: 3,
-      backgroundColor: "#8F8F8F",
-      border: "2px solid #8F8F8F",
-      fontWeight: "bold",
-      fontSize: 18,
-      color: "black",
-      height: 48,
+      borderRadius: 5,
+      backgroundColor:
+        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      border: "1px solid #ffffff",
+      fontSize: "calc(1vw + 2vh)",
+      color: "white",
+      height: "2em",
+      width: "7em",
       padding: "0 30px",
+      fontWeight: "bold",
+      // position: "absolute",
+      bottom: 0,
       "&:hover": {
-        color: "#8F8F8F",
+        // fontStyle: "italic",
+        fontWeight: "bold",
+        backgroundColor:
+          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        color: "#black",
+        transform: "scale(1.05)",
+        transitionDuration: ".5s",
       },
     },
     label: {
@@ -262,7 +272,6 @@ export default function Register() {
               <NoSsr>
                 <StyledButton2
                   onClick={onRegister}
-                  style={{ fontSize: "calc(1vw + 4vh)" }}
                 >
                   Sign Up
                 </StyledButton2>
@@ -276,12 +285,11 @@ export default function Register() {
             </a>
             <div className="twosc" style={{ marginTop: '2vh', marginBottom: '1.5vh' }}>
               <NoSsr>
-                <StyledButton2
+                <StyledButton
                   onClick={() => router.push("/login")}
-                  style={{ fontSize: 'calc(1vw + 2vh)'}}
                 >
                   Log In
-                </StyledButton2>
+                </StyledButton>
               </NoSsr>
             </div>
           </form>
