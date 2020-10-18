@@ -6,10 +6,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/router";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-console.log(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+console.log('in checkout landing env 1 => ', process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default function CheckoutLanding() {
-  console.log('in checkout landing env => ', process.env.PUB_HOST_NAME);
+  console.log('in checkout landing env 2 => ', process.env.PUB_HOST_NAME);
   
   const router = useRouter();
 
