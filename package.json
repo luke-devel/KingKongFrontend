@@ -19,7 +19,8 @@
     "next-images": "^1.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "stripe": "^8.114.0"
+    "stripe": "^8.114.0",
+    "swr": "^0.3.5"
   },
   "devDependencies": {
     "@material-ui/icons": "^4.9.1",

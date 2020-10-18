@@ -229,7 +229,7 @@ export default function Register() {
         }}
       >
         <Header />
-        <div id="register" className="container">
+        <div id="register" className="container" style={{marginTop: '2vh'}}>
           {/* need to fix for different screen sizes */}
           <form
             className="card"
@@ -257,12 +257,12 @@ export default function Register() {
             />
             <div
               className="signupbtn"
-              style={{ paddingTop: 10, marginBottom: '2em' }}
+              style={{marginBottom: '2vh', marginTop: '3vh' }}
             >
               <NoSsr>
                 <StyledButton2
                   onClick={onRegister}
-                  style={{ fontSize: "2.4em", marginBottom: ".4em" }}
+                  style={{ fontSize: "calc(1vw + 4vh)" }}
                 >
                   Sign Up
                 </StyledButton2>
@@ -274,11 +274,11 @@ export default function Register() {
             >
               Already have an account?
             </a>
-            <div className="twosc" style={{ paddingTop: 20, marginBottom: '2em' }}>
+            <div className="twosc" style={{ marginTop: '2vh', marginBottom: '1.5vh' }}>
               <NoSsr>
                 <StyledButton2
                   onClick={() => router.push("/login")}
-                  style={{ fontSize: 20, width: "8em" }}
+                  style={{ fontSize: 'calc(1vw + 2vh)'}}
                 >
                   Log In
                 </StyledButton2>
