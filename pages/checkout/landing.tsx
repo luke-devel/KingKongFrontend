@@ -5,11 +5,9 @@ import Cookie from "js-cookie";
 import { loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/router";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-console.log('in checkout landing env 1 => ', process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 export default function CheckoutLanding() {
-  console.log('in checkout landing env 2 => ', process.env.PUB_HOST_NAME);
   
   const router = useRouter();
 
@@ -25,10 +23,10 @@ export default function CheckoutLanding() {
   const handlePlan = async (query: string) => {
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
-      lineItems: [{ price: process.env.PRICE_ID_MONTHLY_USD, quantity: 1 }],
+      lineItems: [{ price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD, quantity: 1 }],
       mode: "subscription",
-      successUrl: `${process.env.PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `${process.env.PUB_HOST_NAME}/pricing`,
+      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
     });
     console.log(error);
   };
