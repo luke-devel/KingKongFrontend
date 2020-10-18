@@ -27,7 +27,7 @@ export default function CheckoutLanding() {
       successUrl: `${process.env.PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
       cancelUrl: `${process.env.PUB_HOST_NAME}/pricing`,
     });
-    console.log(error);s
+    console.log(error);
   };
 
   const handleNoPlan = async () => {
