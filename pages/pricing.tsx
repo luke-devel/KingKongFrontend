@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import VerifiedCheck from "../components/VerifiedCheck";
 
 import { NoSsr } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
@@ -7,6 +8,7 @@ import { useRouter } from "next/router";
 import Cookie from "js-cookie";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Stripe from "../components/Stripe";
 
 export default function Pricing() {
   const router = useRouter();
@@ -78,9 +80,14 @@ export default function Pricing() {
                 </div>
                 <h3>Yearly Billing</h3>
                 <h3 className="off"> 50% OFF</h3>
-                <div style={{ marginTop: "5vh" }}>
+                <Stripe />
+                <VerifiedCheck />
+                <div>
                   <NoSsr>
-                    <StyledButton onClick={() => handleChoice(0)} style={{ marginBottom: '1em'}}>
+                    <StyledButton
+                      onClick={() => handleChoice(0)}
+                      style={{ marginTop: "1.5em", marginBottom: "1em" }}
+                    >
                       Choose
                     </StyledButton>
                   </NoSsr>
@@ -92,22 +99,36 @@ export default function Pricing() {
                 </div>
                 <h3>6 Months Billing</h3>
                 <h3 className="off"> 30% OFF</h3>
+                <Stripe />
+                <VerifiedCheck />
+
                 <div>
                   <NoSsr>
-                    <StyledButton onClick={() => handleChoice(1)} style={{marginTop: '1.5em' , marginBottom: '1em'}}>
+                    <StyledButton
+                      onClick={() => handleChoice(1)}
+                      style={{ marginTop: "1.5em", marginBottom: "1em" }}
+                    >
                       Choose
                     </StyledButton>
                   </NoSsr>
                 </div>
               </div>
+
               <div className="card">
                 <div className="priced">
                   <sup>$</sup>1.99 / <span>day</span>
                 </div>
                 <h3>Monthly Billing</h3>
-                <div style={{ marginTop: "10vh" }}>
+                <h3 className="off"> No Discount</h3>
+                <Stripe />
+                <VerifiedCheck />
+
+                <div>
                   <NoSsr>
-                    <StyledButton onClick={() => handleChoice(2)} style={{marginTop: '1.5em', marginBottom: '1em'}}>
+                    <StyledButton
+                      onClick={() => handleChoice(2)}
+                      style={{ marginTop: "1.5em", marginBottom: "1em" }}
+                    >
                       Choose
                     </StyledButton>
                   </NoSsr>
