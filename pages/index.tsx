@@ -18,10 +18,9 @@ const bottomStyle = {
   flexDirection: "column" as "column",
   textAlign: "center" as "center",
 };
-const tawkToPropertyId = process.env.TAWKTO_PROPERTY_ID;
-console.log('tawkToPropertyId', tawkToPropertyId);
 
 export default function Home() {
+  const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
   useEffect(() => {
     tawkTo(tawkToPropertyId);
   }, []);
