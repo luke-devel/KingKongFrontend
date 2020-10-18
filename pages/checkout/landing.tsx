@@ -1,36 +1,53 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Cookie from 'js-cookie'
+import Cookie from "js-cookie";
+import { loadStripe } from "@stripe/stripe-js";
+import { useRouter } from "next/router";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default function CheckoutLanding() {
+  const router = useRouter();
+
+  const [planChoice, setPlanChoice] = useState(Cookie.get("planChoice"));
+
   useEffect(() => {
     // Update the document title using the browser API
-    !Cookie.get('planChoice') ? handleNoPlan() : handlePlan(Cookie.get('planChoice'))
-  },[]);
+    handlePlan();
+  }, []);
 
-  const handlePlan = async (params: any) => {
-    console.log('plan', params)
-    switch(params) {
-      case 0:
+  const handlePlan = async () => {
+    switch (planChoice) {
+      case "0":
         // 360 one time payment for year
+        const stripe = await stripePromise;
 
+        const { error } = await stripe.redirectToCheckout({
+          lineItems: [
+            // Replace with the ID of your price
+            { price: process.env.PRICE_ID_MONTHLY_USD, quantity: 1 },
+          ],
+          mode: "subscription",
+          successUrl: `${process.env.PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+          cancelUrl: `${process.env.PUB_HOST_NAME}/pricing`,
+        });
         break;
       case 1:
-      //  one time payment for 6 months
+        //  one time payment for 6 months
 
         break;
       case 2:
         // $ 62/month billing
         break;
       default:
-        // invalid params
+      // invalid params
     }
-  }
+  };
 
   const handleNoPlan = async () => {
-    console.log('no plan')
-  }
+    console.log("no plan");
+  };
 
   return (
     <div>
@@ -44,8 +61,10 @@ export default function CheckoutLanding() {
       >
         <Header />
         <div id="register" className="container">
-          <div className="card" style={{ marginLeft: "auto",
-              marginRight: "auto",}}>
+          <div
+            className="card"
+            style={{ marginLeft: "auto", marginRight: "auto" }}
+          >
             <div className="checkoutright">
               <div className="twoopc">
                 <ul style={{ justifyContent: "center" }}>
@@ -72,7 +91,8 @@ export default function CheckoutLanding() {
               >
                 <p id="newp">Payment Partner</p>
               </div>
-              <h2 style={{fontSize: 30}}>Redirecting you to Stripe now...</h2>
+              <h2 style={{ fontSize: 30 }}>You chose plan: {planChoice}</h2>
+              <h2 style={{ fontSize: 30 }}>Redirecting you to Stripe now...</h2>
             </div>
           </div>
         </div>
