@@ -10,6 +10,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { withStyles } from "@material-ui/core/styles";
 import { NoSsr } from "@material-ui/core";
 import Router from "next/router";
+import jwt_decode from "jwt-decode";
+import Cookie from "js-cookie";
 
 export default function Register() {
   const router = useRouter();
@@ -119,6 +121,8 @@ export default function Register() {
   };
 
   const onRegister = async (event) => {
+
+
     setIsAllowed(false);
     event.preventDefault();
     try {
@@ -137,7 +141,7 @@ export default function Register() {
             password: password,
           },
         });
-        console.log(res.status);
+        res.data && Cookie.set('userinfo', res.data)
         res.status === 253 && router.push("/checkout/landing");
       } catch (error) {
         if (error.response.status) {

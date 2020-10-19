@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
+import jwt from "jsonwebtoken";
 import axios from "axios";
 import bcrypt from "bcrypt";
 
@@ -17,17 +17,24 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             password: hash,
           },
         });
+        // Sign JWT token
+        // BEGIN JWT
+        var userr = "hello";
+        var emailTest = "232@gmail.com";
+        const token = jwt.sign(
+          { id: "1", fullname: req.body.name, email: req.body.email },
+          process.env.JWT_PRIVATE_KEY
+        );
         // Success returned from Database successfully
-        response.status === 253 && res.status(253);
+        response.status === 253 && res.status(253) && res.json(token);
         res.end();
       } catch (error) {
         console.log(process.env.REQ_URL);
-        console.log('err here', error);
+        console.log("err here", error);
         console.log(`${process.env.REQ_URL}/api/registeruser`);
         error.response.status === 409 && res.status(409);
-      res.end();
+        res.end();
       }
-     
     } catch (err) {
       console.log(`${process.env.REQ_URL}/api/registeruser`);
       console.log({

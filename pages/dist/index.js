@@ -1,42 +1,37 @@
-import Link from "next/link";
-import { useEffect } from "react";
-import tawkTo from "tawkto-react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
-const colStyles = {
-  backgroundImage: `url('img/Union1.png')`,
-  backgroundRepeat: "no-repeat",
-  justifyContent: "center",
+"use strict";
+exports.__esModule = true;
+var link_1 = require("next/link");
+var react_1 = require("react");
+var tawkto_react_1 = require("tawkto-react");
+var Header_1 = require("../components/Header");
+var Footer_1 = require("../components/Footer");
+var colStyles = {
+    backgroundImage: "url('img/Union1.png')",
+    backgroundRepeat: "no-repeat",
+    justifyContent: "center"
 };
-
-const bottomStyle = {
-  background: `url('img/Union2.png')`,
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  backgroundSize: "contain",
-  flexDirection: "column" as "column",
-  textAlign: "center" as "center",
+var bottomStyle = {
+    background: "url('img/Union2.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    flexDirection: "column",
+    textAlign: "center"
 };
-
-export default function Home() {
-const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
-  useEffect(() => {
-    tawkTo(tawkToPropertyId);
-  }, []);
-  return (
-    <div>
-      <div
-        className="topHeader"
-        style={{
-          marginBottom: 90,
-          backgroundImage: `url('img/Union.png')`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "top right",
-          backgroundSize: "contain",
-        }}
-      >
-        <Header />
+function Home() {
+    var tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
+    react_1.useEffect(function () {
+        tawkto_react_1["default"](tawkToPropertyId);
+    }, []);
+    return (<div>
+      <div className="topHeader" style={{
+        marginBottom: 90,
+        backgroundImage: "url('img/Union.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top right",
+        backgroundSize: "contain"
+    }}>
+        <Header_1["default"] />
         <div className="header" style={{ marginTop: "10vh" }}>
           <h1>One platform to secure all your websites.</h1>
           <h3>Backup & Restore in ONE CLICK.</h3>
@@ -48,29 +43,26 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
           <div className="twoop">
             <ul>
               <li>
-                <img src="img/tick.png" /> <p>30-day risk free money back</p>
+                <img src="img/tick.png"/> <p>30-day risk free money back</p>
               </li>{" "}
               <li>
-                <img src="img/tick.png" />
+                <img src="img/tick.png"/>
                 <p>Cancel anytime</p>
               </li>
             </ul>
           </div>
           <div className="secbtn">
-            <Link href="/pricing">
+            <link_1["default"] href="/pricing">
               <button>Secure my website</button>
-            </Link>
+            </link_1["default"]>
           </div>
         </div>
       </div>
 
       <div className="container">
-        <div
-          className="row1"
-          style={{
-            marginBottom: 90,
-          }}
-        >
+        <div className="row1" style={{
+        marginBottom: 90
+    }}>
           <div className="leftcol" style={colStyles}>
             <h3>Eezy peezy Dashboard</h3>
             <p>
@@ -79,23 +71,23 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
               and we start.
             </p>
             <div className="secbtn1">
-              <Link href="/pricing">
+              <link_1["default"] href="/pricing">
                 <button>Backup Now</button>
-              </Link>
+              </link_1["default"]>
             </div>
-            <Link href="/pricing">
+            <link_1["default"] href="/pricing">
               <div className="hidbtn">
                 <button>Secure my website</button>
               </div>
-            </Link>
+            </link_1["default"]>
           </div>
           <div className="rightcol">
-            <img id="img1" className="mac" src="img/mackbook.png" />
+            <img id="img1" className="mac" src="img/mackbook.png"/>
           </div>
         </div>
         <div className="row">
           <div className="rightcol">
-            <img id="img2" className="mac" src="img/device.png" />
+            <img id="img2" className="mac" src="img/device.png"/>
           </div>
           <div className="leftcol" style={colStyles}>
             <h3>Works on all your devices </h3>
@@ -105,14 +97,14 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
               devices.
             </p>
             <div className="secbtn1">
-              <Link href="/pricing">
+              <link_1["default"] href="/pricing">
                 <button>Backup Now</button>
-              </Link>
+              </link_1["default"]>
             </div>
             <div className="hidbtn">
-              <Link href="/pricing">
+              <link_1["default"] href="/pricing">
                 <button>Secure my website</button>
-              </Link>
+              </link_1["default"]>
             </div>
           </div>
         </div>
@@ -125,27 +117,23 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
               meeting or clubbing with your buddies.
             </p>
             <div className="secbtn1">
-              <Link href="/pricing">
+              <link_1["default"] href="/pricing">
                 <button>Backup Now</button>
-              </Link>
+              </link_1["default"]>
             </div>
             <div className="hidbtn">
-              <Link href="/pricing">
+              <link_1["default"] href="/pricing">
                 <button>Secure my website</button>
-              </Link>
+              </link_1["default"]>
             </div>
           </div>
           <div className="rightcol">
-            <img
-              id="img3"
-              className="mac"
-              src="img/iPhone-XS-Longscroll-Mockup 1.png"
-            />
+            <img id="img3" className="mac" src="img/iPhone-XS-Longscroll-Mockup 1.png"/>
           </div>
         </div>
         <div className="row">
           <div className="rightcol">
-            <img id="img4" className="mac" src="img/iPhone-Xs 1.png" />
+            <img id="img4" className="mac" src="img/iPhone-Xs 1.png"/>
           </div>
           <div className="leftcol" style={colStyles}>
             <h3>Email alerts </h3>
@@ -154,14 +142,14 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
               is initiated or completed.
             </p>
             <div className="secbtn1">
-              <Link href="/pricing">
+              <link_1["default"] href="/pricing">
                 <button>Backup Now</button>
-              </Link>
+              </link_1["default"]>
             </div>
             <div className="hidbtn">
-              <Link href="/pricing">
+              <link_1["default"] href="/pricing">
                 <button>Secure my website</button>
-              </Link>
+              </link_1["default"]>
             </div>
           </div>
         </div>
@@ -179,7 +167,7 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
             {" "}
             <ul>
               <li>
-                <img src="img/tick.png" /> <p>Your data is safe.</p>
+                <img src="img/tick.png"/> <p>Your data is safe.</p>
               </li>
             </ul>
           </div>
@@ -187,7 +175,7 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
 
         <div className="row">
           <div className="lcol">
-            <img src="img/cloud-computing.png" />
+            <img src="img/cloud-computing.png"/>
             <h1>Backup On Demand</h1>
             <p>
               Create backups with one click. Anywhere, Anytime. Manage
@@ -195,7 +183,7 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
             </p>
           </div>
           <div className="lcol">
-            <img src="img/restore.png" />
+            <img src="img/restore.png"/>
             <h1>Restore On Demand</h1>
             <p>
               Recreate your website exactly like you left it, with one-click
@@ -205,14 +193,14 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
         </div>
         <div className="row">
           <div className="lcol">
-            <img src="img/calendar.png" />
+            <img src="img/calendar.png"/>
             <h1>Schedule for later </h1>
             <p>
               Running Late? Schedule for Auto Backup or Restore with one click.
             </p>
           </div>
           <div className="lcol">
-            <img src="img/robotic.png" />
+            <img src="img/robotic.png"/>
             <h1>Auto-Pilot Mode </h1>
             <p>Relationship Manager takes care of periodic Backup/Restore.</p>
           </div>
@@ -220,7 +208,7 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
 
         <div className="row">
           <div className="lcol">
-            <img src="img/customer-service 1.png" />
+            <img src="img/customer-service 1.png"/>
             <h1>
               Dedicated Personal <br /> Relationship Manager
             </h1>
@@ -241,13 +229,13 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
             <sup>$</sup>0.99 / <span>day</span>
           </div>
           <div className="secbtn2">
-            <Link href="/pricing">
+            <link_1["default"] href="/pricing">
               <button>Secure my website</button>
-            </Link>
+            </link_1["default"]>
           </div>
         </div>
-        <Footer />
+        <Footer_1["default"] />
       </div>
-    </div>
-  );
+    </div>);
 }
+exports["default"] = Home;
