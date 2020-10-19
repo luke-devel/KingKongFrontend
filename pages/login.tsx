@@ -14,7 +14,7 @@ export default function Login() {
             <label>Email Address</label>
             <input type="email" name="emailadd" />
 
-            <label>Phone Number</label>
+            <label>Password</label>
             <input type="Number" name="phoneno" />
 
             <div className="signupbtn3">
