@@ -19,8 +19,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         });
         // Sign JWT token
         // BEGIN JWT
-        var userr = "hello";
-        var emailTest = "232@gmail.com";
         const token = jwt.sign(
           { id: "1", fullname: req.body.name, email: req.body.email },
           process.env.JWT_PRIVATE_KEY
