@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useEffect } from "react";
+import tawkTo from "tawkto-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -18,6 +20,10 @@ const bottomStyle = {
 };
 
 export default function Home() {
+  const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
+  useEffect(() => {
+    tawkTo(tawkToPropertyId);
+  }, []);
   return (
     <div>
       <div
@@ -31,7 +37,7 @@ export default function Home() {
         }}
       >
         <Header />
-        <div className="header" style={{marginTop: '10vh'}}>
+        <div className="header" style={{ marginTop: "10vh" }}>
           <h1>One platform to secure all your websites.</h1>
           <h3>Backup & Restore in ONE CLICK.</h3>
           <p>
