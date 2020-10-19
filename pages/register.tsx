@@ -30,7 +30,7 @@ export default function Register() {
       backgroundColor:
         "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       border: "1px solid #ffffff",
-      fontSize: "3em",
+      fontSize: "calc(1vw + 4vh)",
       color: "white",
       height: "2em",
       width: "7em",
@@ -56,16 +56,26 @@ export default function Register() {
   const StyledButton = withStyles({
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      borderRadius: 3,
-      backgroundColor: "#8F8F8F",
-      border: "2px solid #8F8F8F",
-      fontWeight: "bold",
-      fontSize: 18,
-      color: "black",
-      height: 48,
+      borderRadius: 5,
+      backgroundColor:
+        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      border: "1px solid #ffffff",
+      fontSize: "calc(1vw + 2vh)",
+      color: "white",
+      height: "2em",
+      width: "7em",
       padding: "0 30px",
+      fontWeight: "bold",
+      // position: "absolute",
+      bottom: 0,
       "&:hover": {
-        color: "#8F8F8F",
+        // fontStyle: "italic",
+        fontWeight: "bold",
+        backgroundColor:
+          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        color: "#black",
+        transform: "scale(1.05)",
+        transitionDuration: ".5s",
       },
     },
     label: {
@@ -229,7 +239,7 @@ export default function Register() {
         }}
       >
         <Header />
-        <div id="register" className="container">
+        <div id="register" className="container" style={{marginTop: '2vh'}}>
           {/* need to fix for different screen sizes */}
           <form
             className="card"
@@ -257,12 +267,11 @@ export default function Register() {
             />
             <div
               className="signupbtn"
-              style={{ paddingTop: 10, marginBottom: '2em' }}
+              style={{marginBottom: '2vh', marginTop: '3vh' }}
             >
               <NoSsr>
                 <StyledButton2
                   onClick={onRegister}
-                  style={{ fontSize: "2.4em", marginBottom: ".4em" }}
                 >
                   Sign Up
                 </StyledButton2>
@@ -274,14 +283,13 @@ export default function Register() {
             >
               Already have an account?
             </a>
-            <div className="twosc" style={{ paddingTop: 20, marginBottom: '2em' }}>
+            <div className="twosc" style={{ marginTop: '2vh', marginBottom: '1.5vh' }}>
               <NoSsr>
-                <StyledButton2
+                <StyledButton
                   onClick={() => router.push("/login")}
-                  style={{ fontSize: 20, width: "8em" }}
                 >
                   Log In
-                </StyledButton2>
+                </StyledButton>
               </NoSsr>
             </div>
           </form>

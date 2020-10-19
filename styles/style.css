@@ -343,14 +343,11 @@ img.mac{
 	padding-bottom: 30px;
 }
 .card{
-	display: flex;
-	flex-direction: column;
 	margin: 0px 10px;
 	background: linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121;
 	box-shadow: -15px -15px 22px rgba(44, 44, 44, 0.5), 15px 15px 22px rgba(28, 26, 26, 0.5);
 	border-radius: 15px;
 	width: 485px;
-	text-align: left;
 }
 .card label{	
     color:white;
@@ -1392,9 +1389,7 @@ span.add{
 
 }
 p#newp{
-    font-weight: normal;
-font-size: 22px;
-line-height: 27px;
+font-weight: normal;
 color:white!important;
 }
 
