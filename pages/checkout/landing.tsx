@@ -8,22 +8,32 @@ import { useRouter } from "next/router";
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 export default function CheckoutLanding() {
-  
   const router = useRouter();
 
   const [planChoice, setPlanChoice] = useState(Cookie.get("planChoice"));
 
   useEffect(() => {
     // Update the document title using the browser API
+
     planChoice === "1" &&
-      handlePlan("PRICE_ID_MONTHLY_USD") &&
-      console.log("here");
+      handleMonthlyPlan() &&
+      console.log("Monthly plan chosen.");
+
+    planChoice === "2" &&
+      handleSixMonthPlan() &&
+      console.log("Biannually plan chosen.");
+
+    planChoice === "3" &&
+      handleYearlyPlan() &&
+      console.log("Yearly plan chosen.");
   }, []);
 
-  const handlePlan = async (query: string) => {
+  const handleMonthlyPlan = async () => {
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
-      lineItems: [{ price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD, quantity: 1 }],
+      lineItems: [
+        { price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD, quantity: 1 },
+      ],
       mode: "subscription",
       successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
       cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
@@ -31,6 +41,31 @@ export default function CheckoutLanding() {
     console.log(error);
   };
 
+  const handleSixMonthPlan = async () => {
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [
+        { price: process.env.NEXT_PUBLIC_PRICE_ID_BIYEARLY, quantity: 1 },
+      ],
+      mode: "subscription",
+      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
+    });
+    console.log(error);
+  };
+
+  const handleYearlyPlan = async () => {
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [
+        { price: process.env.NEXT_PUBLIC_PRICE_ID_YEARLY, quantity: 1 },
+      ],
+      mode: "subscription",
+      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
+    });
+    console.log(error);
+  };
   const handleNoPlan = async () => {
     console.log("no plan");
   };
@@ -77,8 +112,15 @@ export default function CheckoutLanding() {
               >
                 <p id="newp">Payment Partner</p>
               </div>
-              <h2 style={{ fontSize: 30 }}>You chose plan: {planChoice}</h2>
-              <h2 style={{ fontSize: 30 }}>Redirecting you to Stripe now...</h2>
+              <h2 style={{ fontSize: 30 }}>
+                You chose plan:{" "}
+                {planChoice
+                  ? (planChoice === "1" && `Monthly`) || ` ss`
+                  : `wwww`}
+              </h2>
+              <h2 style={{ fontSize: 30, margin: 0 }}>
+                Redirecting you to Stripe now...
+              </h2>
             </div>
           </div>
         </div>
