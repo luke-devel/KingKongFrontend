@@ -15,6 +15,8 @@ export default function CheckoutLanding() {
 
   useEffect(() => {
     // Update the document title using the browser API
+    console.log(process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD);
+    
     planChoice === "1" &&
       handlePlan("PRICE_ID_MONTHLY_USD") &&
       console.log("here");
@@ -77,8 +79,8 @@ export default function CheckoutLanding() {
               >
                 <p id="newp">Payment Partner</p>
               </div>
-              <h2 style={{ fontSize: 30 }}>You chose plan: {planChoice}</h2>
-              <h2 style={{ fontSize: 30 }}>Redirecting you to Stripe now...</h2>
+              <h2 style={{ fontSize: 30 }}>You chose plan: {planChoice ? planChoice === '1' && `Monthly` || ` ss`: `wwww`}</h2>
+              <h2 style={{ fontSize: 30, margin: 0 }}>Redirecting you to Stripe now...</h2>
             </div>
           </div>
         </div>
