@@ -15,14 +15,21 @@ export default function CheckoutLanding() {
 
   useEffect(() => {
     // Update the document title using the browser API
-    console.log('monthly', process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD);
     
-    planChoice === "1" &&
-      handlePlan("PRICE_ID_MONTHLY_USD") &&
-      console.log("here");
+    planChoice === "01" &&
+    handleMonthlyPlan() &&
+      console.log("Monthly plan chosen.");
+
+      planChoice === "2" &&
+      handleSixMonthPlan() &&
+      console.log("Biannually plan chosen.");
+
+      planChoice === "3" &&
+      handleYearlyPlan() &&
+      console.log("Biannually plan chosen.");
   }, []);
 
-  const handlePlan = async (query: string) => {
+  const handleMonthlyPlan = async () => {
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
       lineItems: [{ price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD, quantity: 1 }],
@@ -33,6 +40,28 @@ export default function CheckoutLanding() {
     console.log(error);
   };
 
+
+  const handleSixMonthPlan = async () => {
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD, quantity: 1 }],
+      mode: "subscription",
+      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
+    });
+    console.log(error);
+  };
+
+  const handleYearlyPlan = async () => {
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD, quantity: 1 }],
+      mode: "subscription",
+      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
+    });
+    console.log(error);
+  };
   const handleNoPlan = async () => {
     console.log("no plan");
   };
