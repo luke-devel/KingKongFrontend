@@ -10,6 +10,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { withStyles } from "@material-ui/core/styles";
 import { NoSsr } from "@material-ui/core";
 import Router from "next/router";
+import Cookie from "js-cookie";
 
 export default function Register() {
   const router = useRouter();
@@ -129,16 +130,22 @@ export default function Register() {
         Router.reload();
       }
       try {
-        let res = await Axios(`/api/register`, {
+        await Axios(`/api/register`, {
           method: "post",
           data: {
             name: name,
             email: email,
             password: password,
           },
-        });
-        console.log(res.status);
-        res.status === 253 && router.push("/checkout/landing");
+        }).then((res)=>{
+          console.log(res);
+          
+          if (res.status === 253 && res.data) {
+            Cookie.set("userdata", res.data);
+            router.push("/checkout/landing");
+          }
+        })
+        
       } catch (error) {
         if (error.response.status) {
           throw error.response.status;
@@ -236,7 +243,7 @@ export default function Register() {
         }}
       >
         <Header />
-        <div id="register" className="container" style={{marginTop: '2vh'}}>
+        <div id="register" className="container" style={{ marginTop: "2vh" }}>
           {/* need to fix for different screen sizes */}
           <form
             className="card"
@@ -247,8 +254,17 @@ export default function Register() {
               paddingTop: 10,
             }}
           >
-            <h1 style={{ textAlign: "center", marginTop: '.5em', margin: 0, width: "100%" }}>Register</h1>
-            <label style={{marginTop: 5}}>Full Name</label>
+            <h1
+              style={{
+                textAlign: "center",
+                marginTop: ".5em",
+                margin: 0,
+                width: "100%",
+              }}
+            >
+              Register
+            </h1>
+            <label style={{ marginTop: 5 }}>Full Name</label>
             <input type="text" name="fullname" onChange={nameChange} />
             {/* <label>Phone Number</label>
             <input type="text" name="phoneno" onChange={phoneNumberChange} /> */}
@@ -264,27 +280,21 @@ export default function Register() {
             />
             <div
               className="signupbtn"
-              style={{marginBottom: '2vh', marginTop: '3vh' }}
+              style={{ marginBottom: "2vh", marginTop: "3vh" }}
             >
               <NoSsr>
-                <StyledButton2
-                  onClick={onRegister}
-                >
-                  Sign Up
-                </StyledButton2>
+                <StyledButton2 onClick={onRegister}>Sign Up</StyledButton2>
               </NoSsr>
             </div>
-            <a
-              href="/login"
-              style={{ fontSize: '1.5em' }}
-            >
+            <a href="/login" style={{ fontSize: "1.5em" }}>
               Already have an account?
             </a>
-            <div className="twosc" style={{ marginTop: '2vh', marginBottom: '1.5vh' }}>
+            <div
+              className="twosc"
+              style={{ marginTop: "2vh", marginBottom: "1.5vh" }}
+            >
               <NoSsr>
-                <StyledButton
-                  onClick={() => router.push("/login")}
-                >
+                <StyledButton onClick={() => router.push("/login")}>
                   Log In
                 </StyledButton>
               </NoSsr>

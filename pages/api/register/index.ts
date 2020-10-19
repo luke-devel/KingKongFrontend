@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
+import jwt from "jsonwebtoken";
 import axios from "axios";
 import bcrypt from "bcrypt";
 
@@ -18,7 +18,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           },
         });
         // Success returned from Database successfully
-        response.status === 253 && res.status(253);
+        const token = jwt.sign(
+          { id: "1", fullname: req.body.name, email: req.body.email },
+          process.env.JWT_PRIVATE_KEY
+        );
+        response.status === 253 && res.status(253) && res.json(token);
         res.end();
       } catch (error) {
         console.log(process.env.REQ_URL);
