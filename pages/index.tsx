@@ -37,7 +37,7 @@ const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
         }}
       >
         <Header />
-        <div className="headers" style={{ marginTop: "10vh" }}>
+        <div className="header" style={{ marginTop: "10vh" }}>
           <h1>One platform to secure all your websites.</h1>
           <h3>Backup & Restore in ONE CLICK.</h3>
           <p>
