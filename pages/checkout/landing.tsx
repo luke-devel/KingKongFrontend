@@ -13,7 +13,7 @@ export default function CheckoutLanding() {
   useEffect(() => {
     // Update the document title using the browser API
     switch (planChoice) {
-      case "1":
+      case "3":
         // top plan
         handleYearlyPlan() && console.log("Yarly plan chosen.");
         break;
@@ -21,7 +21,7 @@ export default function CheckoutLanding() {
         // med plan
         handleSixMonthPlan() && console.log("Biannually plan chosen.");
         break;
-      case "3":
+      case "1":
         // Monthly cheapest plan
         handleMonthlyPlan() && console.log("Monthly plan chosen.");
         break;
