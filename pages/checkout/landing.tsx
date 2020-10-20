@@ -120,9 +120,9 @@ export default function CheckoutLanding() {
               <h2 style={{ fontSize: "3.5vw", margin: 0 }}>
                 You chose plan:{" "}
                 {planChoice
-                  ? (planChoice === "1" && `Monthly`) ||
+                  ? (planChoice === "1" && `Yearly`) ||
                     (planChoice === "2" && `Biannually`) ||
-                    (planChoice === "3" && `Yearly`)
+                    (planChoice === "3" && `Monthly`)
                   : "No plan chosen. Sending you back to pricing"}
               </h2>
               <h2 style={{ fontSize: "3vw", margin: "1.5vh" }}>
