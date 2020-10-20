@@ -45,17 +45,17 @@ export default function Pricing() {
     //e.preventDefault();
     switch (choice) {
       case 0:
-        // cheapest plan
+        // Yearly top plan
         Cookie.set("planChoice", 1);
         Router.push("/register");
         break;
       case 1:
-        // med plan
+        // 6 mo med plan
         Cookie.set("planChoice", 2);
         Router.push("/register");
         break;
       case 2:
-        // top plan
+        // Monthly cheapest plan
         Cookie.set("planChoice", 3);
         Router.push("/register");
         break;
