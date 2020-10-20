@@ -14,17 +14,16 @@ export default function CheckoutLanding() {
     // Update the document title using the browser API
     switch (planChoice) {
       case "1":
-        // cheapest plan
-        handleMonthlyPlan() && console.log("Monthly plan chosen.");
+        // top plan
+        handleYearlyPlan() && console.log("Yarly plan chosen.");
         break;
       case "2":
         // med plan
         handleSixMonthPlan() && console.log("Biannually plan chosen.");
         break;
       case "3":
-        // top plan
-        console.log("Yearly plan chosen.");
-        console.log(process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD);
+        // Monthly cheapest plan
+        handleMonthlyPlan() && console.log("Monthly plan chosen.");
         break;
       default:
         console.log("No plan chosen, redirecting you to pricing.");
@@ -34,16 +33,17 @@ export default function CheckoutLanding() {
   }, []);
 
   const handleMonthlyPlan = async () => {
+    console.log('in monthly price', process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY);
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
       lineItems: [
-        { price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY_USD, quantity: 1 },
+        { price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY, quantity: 1 },
       ],
-      mode: "subscription",
+      mode: "payment",
       successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
       cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
     });
-    console.log(error);
+    console.log('stripe error: error', error);
   };
 
   const handleSixMonthPlan = async () => {
