@@ -36,14 +36,12 @@ const StyledButton = withStyles({
 })(Button);
 
 export default function Pending() {
-
   const router = useRouter();
-
   const { data, error } = useSWR(
     router.query.session_id ? `/api/checkout/${router.query.session_id}` : null,
     (url) => fetch(url).then((res) => res.json())
   );
-  console.log(data);
+  error && console.log(`there was an error.`);
 
   return (
     <div>
@@ -102,7 +100,7 @@ export default function Pending() {
             >
               {data && data.payment_status === "paid"
                 ? `Thank you for your purchase! Click below to head into your user portal.`
-                : "Plase wait."}
+                : "Plase wait..."}
             </p>
             {data && data.payment_status === "paid" ? (
               <div>
@@ -117,7 +115,7 @@ export default function Pending() {
               </div>
 
             ) : (
-              <h1>hi</h1>
+              <h1>Fetching Status</h1>
             )}
           </div>
         </Grid>
