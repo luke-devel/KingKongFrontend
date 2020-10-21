@@ -28,7 +28,8 @@ export default function Register() {
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       borderRadius: 5,
-      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor:
+        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       border: "1px solid #ffffff",
       fontSize: "calc(1vw + 4vh)",
       color: "white",
@@ -39,7 +40,8 @@ export default function Register() {
       "&:hover": {
         fontStyle: "italic",
         fontWeight: "bold",
-        backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        backgroundColor:
+          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
         color: "#black",
         transform: "scale(1.05)",
         transitionDuration: ".5s",
@@ -54,7 +56,8 @@ export default function Register() {
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       borderRadius: 5,
-      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor:
+        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       border: "1px solid #ffffff",
       fontSize: "calc(1vw + 2vh)",
       color: "white",
@@ -66,7 +69,8 @@ export default function Register() {
       "&:hover": {
         // fontStyle: "italic",
         fontWeight: "bold",
-        backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        backgroundColor:
+          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
         color: "#black",
         transform: "scale(1.05)",
         transitionDuration: ".5s",
@@ -110,7 +114,32 @@ export default function Register() {
 
   const onSubmit = async (event: ButtonEvent) => {
     setIsAllowed(false);
-
+    console.log("in submit");
+    console.log(email, password);
+    try {
+      Axios("/api/login", {
+        method: "post",
+        headers: {
+          email: email,
+          password: password,
+        },
+      })
+        .then((response) => {
+          // success
+          console.log("in success");
+          Cookie.set("userdata", response.data.token);
+          Router.push("/user");
+        })
+        .catch((err) => {
+          //err handling
+          console.log(err.response.status);
+          err.response.status === 401 && setOtherErrorAlert(true);
+          err.response.status === 404 && setBadEmailAlert(true);
+          err.response.status === 405 && setBadPassAlert(true);
+        });
+    } catch (error) {
+      console.log("caught error");
+    }
   };
 
   return (
@@ -123,7 +152,8 @@ export default function Register() {
         PaperProps={{
           style: {
             backgroundColor: "#212121",
-            boxShadow: "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
+            boxShadow:
+              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
           },
         }}
       >
@@ -230,12 +260,12 @@ export default function Register() {
                 textAlign: "center",
                 marginTop: "4vh",
                 margin: 0,
-                marginBottom: "0vh",
-                fontSize: '5vh',
+                marginBottom: "-1vh",
+                fontSize: "5vh",
                 width: "100%",
               }}
             >
-              Enter your FTP/FTPS Server Info.
+              Log In
             </h1>
             <label>Email Address</label>
             <input type="email" name="emailadd" onChange={emailChange} />
@@ -249,7 +279,15 @@ export default function Register() {
                 <StyledButton2 onClick={onSubmit}>Log In</StyledButton2>
               </NoSsr>
             </div>
-            <a href="/register" style={{ fontSize: "1.5em", paddingTop: "1vh", paddingBottom:'3vh', textDecoration: "underline" }}>
+            <a
+              href="/register"
+              style={{
+                fontSize: "1.5em",
+                paddingTop: "1vh",
+                paddingBottom: "3vh",
+                textDecoration: "underline",
+              }}
+            >
               Need to register?
             </a>
           </form>

@@ -3,8 +3,8 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>;
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 import { useRouter } from "next/router";
 import Axios from "axios";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
@@ -14,7 +14,7 @@ import { NoSsr } from "@material-ui/core";
 import Router from "next/router";
 import Cookie from "js-cookie";
 
-export default function Register() {
+export default function AddSite() {
   const router = useRouter();
 
   const [serverAddress, setServerAddress] = useState("");
@@ -151,7 +151,7 @@ export default function Register() {
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.9)", marginTop: "0vh" }}
+          style={{ transform: "scale(0.7)", marginTop: "-12vh" }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -166,15 +166,16 @@ export default function Register() {
             <h4
               style={{
                 textAlign: "center",
-                marginTop: "5.5vh",
+                marginTop: "3vh",
                 marginBottom: "2vh",
                 width: "100%",
+                fontSize: "4vh"
               }}
             >
               Submit your FTP/SFTP server information below, then sit back and relax.
               
             </h4>
-            <h5 style={{fontStyle: "italic"}}>And let us handle the rest.</h5>
+            <h5 style={{fontStyle: "italic", fontSize: "3vh", marginTop: 0, marginBottom: 0}}>And let us handle the rest.</h5>
             <label>Server Address</label>
             <input
               type="email"
