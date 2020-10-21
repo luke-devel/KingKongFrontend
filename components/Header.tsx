@@ -46,9 +46,7 @@ export default function Header() {
     <header style={{ marginBottom: 0 }}>
       <nav style={{padding: '1em'}}>
         <Link href="/">
-          <a className="logo">
-            <img src="/img/logo.png" />
-          </a>
+            <img src="/img/logo.png" height="60" width="60"/>
         </Link>
 
         <ul className="navul">

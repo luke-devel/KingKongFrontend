@@ -16,7 +16,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body style={{ margin: 0, fontFamily: "Roboto" }}>
+        <body style={{ fontFamily: "Roboto" }}>
           <Main />
           <NextScript />
         </body>
