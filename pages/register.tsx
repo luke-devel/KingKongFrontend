@@ -179,8 +179,7 @@ export default function Register() {
         PaperProps={{
           style: {
             backgroundColor: "#212121",
-            boxShadow:
-              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
+            boxShadow: "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
           },
         }}
       >
@@ -218,8 +217,7 @@ export default function Register() {
         PaperProps={{
           style: {
             backgroundColor: "#212121",
-            boxShadow:
-              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
+            boxShadow: "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
           },
         }}
       >
@@ -245,7 +243,7 @@ export default function Register() {
         }}
       >
         <Header />
-        <div id="register" className="container" style={{transform: "scale(0.85)", marginTop: '-5vh' }}>
+        <div id="register" className="container" style={{transform: "scale(0.8)", marginTop: '-5vh' }}>
           {/* need to fix for different screen sizes */}
           <form
             className="card"
@@ -253,13 +251,12 @@ export default function Register() {
               marginLeft: "auto",
               marginRight: "auto",
               width: "25em",
-              paddingTop: 10,
             }}
           >
             <h1
               style={{
                 textAlign: "center",
-                marginTop: ".5em",
+                marginTop: "2vh",
                 margin: 0,
                 width: "100%",
               }}
@@ -291,16 +288,9 @@ export default function Register() {
             <a href="/login" style={{ fontSize: "1.5em" }}>
               Already have an account?
             </a>
-            <div
-              className="twosc"
-              style={{ marginTop: "2vh", marginBottom: "1.5vh" }}
-            >
-              <NoSsr>
-                <StyledButton onClick={() => router.push("/login")}>
-                  Log In
-                </StyledButton>
-              </NoSsr>
-            </div>
+            <a href="/login" style={{ fontSize: "1.5em", textDecoration: "underline", paddingBottom: "3vh" }}>
+              Log In
+            </a>
           </form>
         </div>
       </div>

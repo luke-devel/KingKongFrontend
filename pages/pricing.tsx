@@ -65,29 +65,43 @@ export default function Pricing2() {
   };
 
   return (
-    <div >
-      <Header/>
-      <div id="body" style={{padding: 40}}>
+    <div>
+      <Header />
+      <div id="body" style={{paddingRight: '10vw', paddingLeft: '10vw', paddingTop: '5vh', paddingBottom: '5vh' }}>
         <Grid
           container
-          spacing={10}
+          spacing={5}
           style={{
-            minHeight: "100%"
+            minHeight: "100%",
           }}
         >
-          <Grid item xs={12} sm={12} md={4}>
+          <Grid item xs={12} sm={12} md={4} style={{
+            minHeight: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
             <YearlyCard />
           </Grid>
-          <Grid item xs={12} sm={12} md={4}>
+          <Grid item xs={12} sm={12} md={4} style={{
+            minHeight: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
             <SixMonthCard />
           </Grid>
-          <Grid item xs={12} sm={12} md={4}>
+          <Grid item xs={12} sm={12} md={4} style={{
+            minHeight: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
             <MonthlyCard />
           </Grid>
         </Grid>
       </div>
       <Footer />
-
     </div>
   );
 }
