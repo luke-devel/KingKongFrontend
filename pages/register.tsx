@@ -230,7 +230,7 @@ export default function Register() {
           {"Passwords do not match."}
         </DialogTitle>
         <DialogActions style={{ justifyContent: "center" }}>
-          <StyledButton onClick={handleBadPassAlertClose}>
+          <StyledButton onClick={handleBadPassAlertClose} style={{marginBottom: '2vh'}}>
             Try Again
           </StyledButton>
         </DialogActions>
