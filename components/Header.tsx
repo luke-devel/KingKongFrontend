@@ -80,6 +80,7 @@ export default function Header() {
             onClick={toggleMenu}
             style={{
               width: "1.5em",
+              float: "left"
             }}
           >
             <span></span>

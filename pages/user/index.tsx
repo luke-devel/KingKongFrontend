@@ -1,8 +1,8 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Grid, { GridSpacing } from "@material-ui/core/Grid";
-import Sites from "../components/Sites";
-import ServerForm from "../components/ServerForm";
+import Sites from "../../components/Sites";
+import ServerForm from "../../components/ServerForm";
 
 const testData = [
   {
