@@ -1,7 +1,7 @@
 export default function VerifiedCheck() {
   return (
     <>
-      <div className="twoopc">
+      <div className="twoopc" style={{height: 40}}>
         <ul style={{ justifyContent: "center", marginTop: 0 }}>
           <li>
             <img src="/img/tick.png" />

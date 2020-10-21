@@ -20,7 +20,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         // Success returned from Database successfully
         const token = jwt.sign(
           { id: "1", fullname: req.body.name, email: req.body.email },
-          process.env.JWT_PRIVATE_KEY
+          process.env.JWT_PRIVATE_KEY ?? ''
         );
         response.status === 253 && res.status(253) && res.json(token);
         res.end();

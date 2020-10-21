@@ -1033,8 +1033,7 @@ p#newli, p#newp{
 }
 .priced{
     font-weight: 500;
-font-size: 40px;
-line-height: 60px;
+font-size: 100;
 }
 .priced sup{
     font-weight: 500;
@@ -1068,6 +1067,12 @@ align-items: center;
 	width: 90%;
 	margin:0px auto;
 }
+.shrink{
+	-webkit-transform:scale(0.5);
+	-moz-transform:scale(0.5);
+	-ms-transform:scale(0.5);
+	transform:scale(0.5);
+	}
 .card input, .card2 input, .card3 input, .card4 input{
 	width: 90%; margin: 0px auto; height: 40px;
 }
