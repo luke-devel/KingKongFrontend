@@ -43,7 +43,7 @@ export default function Header() {
   };
 
   return (
-    <header style={{ marginBottom: 0 }}>
+    <header style={{ margin: 0 }}>
       <nav style={{padding: '1em'}}>
         <Link href="/">
             <img src="/img/logo.png" height="60" width="60"/>
@@ -79,8 +79,6 @@ export default function Header() {
             className={menuToggle}
             onClick={toggleMenu}
             style={{
-              marginTop: "2em",
-              marginRight: ".5em",
               width: "1.5em",
             }}
           >

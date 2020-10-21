@@ -37,7 +37,7 @@ export default function Home() {
         }}
       >
         <Header />
-        <div className="header" style={{ marginTop: "10vh" }}>
+        <div className="header" style={{ marginTop: 0 }}>
           <h1>One platform to secure all your websites.</h1>
           <h3>Backup & Restore in ONE CLICK.</h3>
           <p>
