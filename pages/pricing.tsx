@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
-import VerifiedCheck from "../components/VerifiedCheck";
-import { NoSsr } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Grid, { GridSpacing } from "@material-ui/core/Grid";
 import Router from "next/router";
 import Cookie from "js-cookie";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Stripe from "../components/Stripe";
+import YearlyCard from "../components/YearlyCard";
+import SixMonthCard from "../components/SixMonthCard";
+import MonthlyCard from "../components/MonthlyCard";
 
-export default function Pricing() {
+export default function Pricing2() {
+  const [spacing, setSpacing] = React.useState<GridSpacing>(10);
   const [state, setstate] = useState("");
 
   const StyledButton = withStyles({
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       borderRadius: 5,
-      backgroundColor:
-        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       border: "1px solid #ffffff",
       fontSize: "calc(2vw + 1.5vh)",
       color: "white",
@@ -28,8 +29,7 @@ export default function Pricing() {
       "&:hover": {
         // fontStyle: "italic",
         fontWeight: "bold",
-        backgroundColor:
-          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
         color: "#black",
         transform: "scale(1.05)",
         transitionDuration: ".5s",
@@ -40,23 +40,23 @@ export default function Pricing() {
     },
   })(Button);
 
-  const handleChoice = (choice) => {
+  const handleChoice = (choice: number) => {
     console.log(choice);
     //e.preventDefault();
     switch (choice) {
       case 0:
         // Yearly top plan
-        Cookie.set("planChoice", 1);
+        Cookie.set("planChoice", "1");
         Router.push("/register");
         break;
       case 1:
         // 6 mo med plan
-        Cookie.set("planChoice", 2);
+        Cookie.set("planChoice", "2");
         Router.push("/register");
         break;
       case 2:
         // Monthly cheapest plan
-        Cookie.set("planChoice", 3);
+        Cookie.set("planChoice", "3");
         Router.push("/register");
         break;
       default:
@@ -66,75 +66,28 @@ export default function Pricing() {
 
   return (
     <div>
-      <div className="topHeader">
-        <Header />
-        <div id="price" className="container" style={{ marginTop: 0 }}>
-          <div className="pricing">
-            <h1>Pricing</h1>
-            <div className="cards">
-              <div className="card">
-                <div className="priced">
-                  <sup>$</sup>0.99 / <span>day</span>
-                </div>
-                <h3>Yearly Billing</h3>
-                <h3 className="off"> 50% OFF</h3>
-                <Stripe />
-                <VerifiedCheck />
-                <div>
-                  <NoSsr>
-                    <StyledButton
-                      onClick={() => handleChoice(0)}
-                      style={{ marginTop: "1.5em", marginBottom: "1em" }}
-                    >
-                      Choose
-                    </StyledButton>
-                  </NoSsr>
-                </div>
-              </div>
-              <div className="card">
-                <div className="priced">
-                  <sup>$</sup>1.49 / <span>day</span>
-                </div>
-                <h3>6 Months Billing</h3>
-                <h3 className="off"> 30% OFF</h3>
-                <Stripe />
-                <VerifiedCheck />
-
-                <div>
-                  <NoSsr>
-                    <StyledButton
-                      onClick={() => handleChoice(1)}
-                      style={{ marginTop: "1.5em", marginBottom: "1em" }}
-                    >
-                      Choose
-                    </StyledButton>
-                  </NoSsr>
-                </div>
-              </div>
-
-              <div className="card">
-                <div className="priced">
-                  <sup>$</sup>1.99 / <span>day</span>
-                </div>
-                <h3>Monthly Billing</h3>
-                <h3 className="off"> No Discount</h3>
-                <Stripe />
-                <VerifiedCheck />
-
-                <div>
-                  <NoSsr>
-                    <StyledButton
-                      onClick={() => handleChoice(2)}
-                      style={{ marginTop: "1.5em", marginBottom: "1em" }}
-                    >
-                      Choose
-                    </StyledButton>
-                  </NoSsr>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <Header />
+      <div id="body" style={{ height: "70vh", marginTop: '5vh'}}>
+        <Grid
+          container
+          spacing={10}
+          style={{
+            paddingLeft: "10vw",
+            paddingRight: "10vw",
+            paddingBottom: '5vh',
+            minHeight: "100%",
+          }}
+        >
+          <Grid item xs={12} sm={12} md={4}>
+            <YearlyCard />
+          </Grid>
+          <Grid item xs={12} sm={12} md={4}>
+            <SixMonthCard />
+          </Grid>
+          <Grid item xs={12} sm={12} md={4}>
+            <MonthlyCard />
+          </Grid>
+        </Grid>
         <Footer />
       </div>
     </div>

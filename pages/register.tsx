@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+type InputEvent = React.ChangeEvent<HTMLInputElement>;
+type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 import { useRouter } from "next/router";
 import Axios from "axios";
 import Header from "../components/Header";
@@ -85,7 +87,7 @@ export default function Register() {
     setDupEmailOpen(true);
   };
 
-  const handleDupEmailClose = (e) => {
+  const handleDupEmailClose = (e: ButtonEvent) => {
     setDupEmailOpen(false);
     Router.reload();
   };
@@ -94,16 +96,16 @@ export default function Register() {
     setBadPassAlert(true);
   };
 
-  const handleBadPassAlertClose = (e) => {
+  const handleBadPassAlertClose = (e: ButtonEvent) => {
     setBadPassAlert(false);
     Router.reload();
   };
 
-  const nameChange = (e) => {
+  const nameChange = (e: InputEvent) => {
     setName(e.target.value);
   };
 
-  const emailChange = (e) => {
+  const emailChange = (e: InputEvent) => {
     setEmail(e.target.value);
   };
 
@@ -111,15 +113,15 @@ export default function Register() {
   //   setPhoneNumber(e.target.value);
   // };
 
-  const passwordChange = (e) => {
+  const passwordChange = (e: InputEvent) => {
     setPassword(e.target.value);
   };
 
-  const passwordChange2 = (e) => {
+  const passwordChange2 = (e: InputEvent) => {
     setPassword2(e.target.value);
   };
 
-  const onRegister = async (event) => {
+  const onRegister = async (event: ButtonEvent) => {
     setIsAllowed(false);
     event.preventDefault();
     try {

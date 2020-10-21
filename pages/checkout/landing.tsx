@@ -5,7 +5,7 @@ import Cookie from "js-cookie";
 import { loadStripe } from "@stripe/stripe-js";
 import Router from "next/router";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY ?? '');
 
 export default function CheckoutLanding() {
   const [planChoice, setPlanChoice] = useState(Cookie.get("planChoice"));
@@ -38,41 +38,47 @@ export default function CheckoutLanding() {
 
   const handleYearlyPlan = async () => {
     const stripe = await stripePromise;
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [
-        { price: process.env.NEXT_PUBLIC_PRICE_ID_YEARLY, quantity: 1 },
-      ],
-      mode: "subscription",
-      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
-    });
-    console.log(error);
+    if (stripe) {
+      const { error } = await stripe.redirectToCheckout({
+        lineItems: [
+          { price: process.env.NEXT_PUBLIC_PRICE_ID_YEARLY, quantity: 1 },
+        ],
+        mode: "subscription",
+        successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+        cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
+      });
+      console.log(error);
+    }
   };
 
   const handleSixMonthPlan = async () => {
     const stripe = await stripePromise;
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [
-        { price: process.env.NEXT_PUBLIC_PRICE_ID_BIYEARLY, quantity: 1 },
-      ],
-      mode: "subscription",
-      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
-    });
-    console.log(error);
+    if (stripe) {
+      const { error } = await stripe.redirectToCheckout({
+        lineItems: [
+          { price: process.env.NEXT_PUBLIC_PRICE_ID_BIYEARLY, quantity: 1 },
+        ],
+        mode: "subscription",
+        successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+        cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
+      });
+      console.log(error);
+    }
   };
 
   const handleMonthlyPlan = async () => {
     const stripe = await stripePromise;
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [
-        { price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY, quantity: 1 },
-      ],
-      mode: "subscription",
-      successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
-    });
-    console.log("stripe error: error", error);
+    if (stripe) {
+      const { error } = await stripe.redirectToCheckout({
+        lineItems: [
+          { price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY, quantity: 1 },
+        ],
+        mode: "subscription",
+        successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
+        cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
+      });
+      console.log("stripe error: error", error);
+    }
   };
 
   return (

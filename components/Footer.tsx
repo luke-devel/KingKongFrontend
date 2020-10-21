@@ -3,7 +3,7 @@ import Router from "next/router";
 
 export default function index() {
   return (
-    <footer>
+    <footer style={{  bottom: 0 }} >
       <div className="logo">
         <a href="/" className="logo">
           <img src="/img/logo.png" />
