@@ -28,8 +28,7 @@ export default function Register() {
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       borderRadius: 5,
-      backgroundColor:
-        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       border: "1px solid #ffffff",
       fontSize: "calc(1vw + 4vh)",
       color: "white",
@@ -38,10 +37,9 @@ export default function Register() {
       // position: "absolute",
       bottom: 0,
       "&:hover": {
-        // fontStyle: "italic",
+        fontStyle: "italic",
         fontWeight: "bold",
-        backgroundColor:
-          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
         color: "#black",
         transform: "scale(1.05)",
         transitionDuration: ".5s",
@@ -56,8 +54,7 @@ export default function Register() {
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       borderRadius: 5,
-      backgroundColor:
-        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       border: "1px solid #ffffff",
       fontSize: "calc(1vw + 2vh)",
       color: "white",
@@ -69,8 +66,7 @@ export default function Register() {
       "&:hover": {
         // fontStyle: "italic",
         fontWeight: "bold",
-        backgroundColor:
-          "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+        backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
         color: "#black",
         transform: "scale(1.05)",
         transitionDuration: ".5s",
@@ -112,7 +108,6 @@ export default function Register() {
     setPassword(e.target.value);
   };
 
-  //!todo
   const onSubmit = async (event: ButtonEvent) => {
     setIsAllowed(false);
     console.log("in submit");
@@ -153,8 +148,7 @@ export default function Register() {
         PaperProps={{
           style: {
             backgroundColor: "#212121",
-            boxShadow:
-              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
+            boxShadow: "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
           },
         }}
       >
@@ -244,7 +238,7 @@ export default function Register() {
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.85)", marginTop: "0vh" }}
+          style={{ transform: "scale(0.9)", marginTop: "0vh" }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -259,7 +253,7 @@ export default function Register() {
             <h1
               style={{
                 textAlign: "center",
-                marginTop: "3vh",
+                marginTop: "4vh",
                 margin: 0,
                 marginBottom: "0vh",
                 width: "100%",
@@ -279,7 +273,7 @@ export default function Register() {
                 <StyledButton2 onClick={onSubmit}>Log In</StyledButton2>
               </NoSsr>
             </div>
-            <a href="/login" style={{ fontSize: "1.5em", paddingTop: "1vh", paddingBottom:'4vh' }}>
+            <a href="/register" style={{ fontSize: "1.5em", paddingTop: "1vh", paddingBottom:'3vh', textDecoration: "underline" }}>
               Need to register?
             </a>
           </form>
