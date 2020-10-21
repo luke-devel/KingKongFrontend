@@ -3,8 +3,8 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>;
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 import { useRouter } from "next/router";
 import Axios from "axios";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
@@ -14,13 +14,13 @@ import { NoSsr } from "@material-ui/core";
 import Router from "next/router";
 import Cookie from "js-cookie";
 
-export default function Register() {
+export default function AddSite() {
   const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [badPassAlert, setBadPassAlert] = useState(false);
-  const [badEmailAlert, setBadEmailAlert] = useState(false);
+  const [serverAddress, setServerAddress] = useState("");
+  const [serverPort, setServerPort] = useState("");
+  const [serverUsername, setServerUsername] = useState("");
+  const [serverPassword, setServerPassword] = useState("");
   const [otherErrorAlert, setOtherErrorAlert] = useState(false);
   const [isAllowed, setIsAllowed] = useState(true);
 
@@ -81,65 +81,31 @@ export default function Register() {
     },
   })(Button);
 
-  const handleBadPassAlert = () => {
-    setBadPassAlert(true);
-  };
-
-  const handleBadPassAlertClose = (e: ButtonEvent) => {
-    setBadPassAlert(false);
-    Router.reload();
-  };
-
-  const handleBadEmailAlert = () => {
-    setBadEmailAlert(true);
-  };
-
-  const handleBadEmailAlertClose = (e: ButtonEvent) => {
-    setBadEmailAlert(false);
-    Router.reload();
-  };
-
   const handleOtherErrorAlertClose = (e: ButtonEvent) => {
     setOtherErrorAlert(false);
     Router.reload();
   };
 
-  const emailChange = (e: InputEvent) => {
-    setEmail(e.target.value);
+  const serverAddressChange = (e: InputEvent) => {
+    setServerAddress(e.target.value);
   };
 
-  const passwordChange = (e: InputEvent) => {
-    setPassword(e.target.value);
+  const serverPortChange = (e: InputEvent) => {
+    setServerPort(e.target.value);
+  };
+
+  const serverUsernameChange = (e: InputEvent) => {
+    setServerUsername(e.target.value);
+  };
+
+  const serverPasswordChange = (e: InputEvent) => {
+    setServerPassword(e.target.value);
   };
 
   const onSubmit = async (event: ButtonEvent) => {
     setIsAllowed(false);
-    console.log("in submit");
-    console.log(email, password);
-    try {
-      Axios("/api/login", {
-        method: "post",
-        headers: {
-          email: email,
-          password: password,
-        },
-      })
-        .then((response) => {
-          // success
-          console.log("in success");
-          Cookie.set("userdata", response.data.token);
-          Router.push("/user");
-        })
-        .catch((err) => {
-          //err handling
-          console.log(err.response.status);
-          err.response.status === 401 && setOtherErrorAlert(true);
-          err.response.status === 404 && setBadEmailAlert(true);
-          err.response.status === 405 && setBadPassAlert(true);
-        });
-    } catch (error) {
-      console.log("caught error");
-    }
+    console.log(serverAddress, serverPort, serverUsername, serverPassword);
+    
   };
 
   return (
@@ -165,65 +131,7 @@ export default function Register() {
         </DialogTitle>
         <DialogActions style={{ justifyContent: "center" }}>
           <StyledButton
-            onClick={handleBadPassAlertClose}
-            style={{ marginBottom: "2vh" }}
-          >
-            Try Again
-          </StyledButton>
-        </DialogActions>
-      </Dialog>
-
-      <Dialog
-        open={badEmailAlert}
-        onClose={handleBadEmailAlertClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        PaperProps={{
-          style: {
-            backgroundColor: "#212121",
-            boxShadow:
-              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
-          },
-        }}
-      >
-        <DialogTitle
-          id="alert-dialog-title"
-          style={{ color: "white", fontSize: "" }}
-        >
-          {"Email does not exist."}
-        </DialogTitle>
-        <DialogActions style={{ justifyContent: "center" }}>
-          <StyledButton
-            onClick={handleBadPassAlertClose}
-            style={{ marginBottom: "2vh" }}
-          >
-            Try Again
-          </StyledButton>
-        </DialogActions>
-      </Dialog>
-
-      <Dialog
-        open={badPassAlert}
-        onClose={handleBadPassAlertClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-        PaperProps={{
-          style: {
-            backgroundColor: "#212121",
-            boxShadow:
-              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
-          },
-        }}
-      >
-        <DialogTitle
-          id="alert-dialog-title"
-          style={{ color: "white", fontSize: "" }}
-        >
-          {"Incorrect Password."}
-        </DialogTitle>
-        <DialogActions style={{ justifyContent: "center" }}>
-          <StyledButton
-            onClick={handleBadPassAlertClose}
+            onClick={() => Router.reload()}
             style={{ marginBottom: "2vh" }}
           >
             Try Again
@@ -243,7 +151,7 @@ export default function Register() {
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.9)", marginTop: "0vh" }}
+          style={{ transform: "scale(0.7)", marginTop: "-12vh" }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -252,35 +160,60 @@ export default function Register() {
               marginLeft: "auto",
               marginRight: "auto",
               width: "25em",
-              paddingTop: 10,
+              paddingTop: '5vh',
             }}
           >
-            <h1
+            <h4
               style={{
                 textAlign: "center",
-                marginTop: "4vh",
-                margin: 0,
-                marginBottom: "-1vh",
-                fontSize: "5vh",
+                marginTop: "3vh",
+                marginBottom: "2vh",
                 width: "100%",
+                fontSize: "4vh"
               }}
             >
-              Log In
-            </h1>
-            <label>Email Address</label>
-            <input type="email" name="emailadd" onChange={emailChange} />
-            <label>Password</label>
-            <input type="password" name="password" onChange={passwordChange} />
+              Submit your FTP/SFTP server information below, then sit back and relax.
+              
+            </h4>
+            <h5 style={{fontStyle: "italic", fontSize: "3vh", marginTop: 0, marginBottom: 0}}>And let us handle the rest.</h5>
+            <label>Server Address</label>
+            <input
+              type="email"
+              name="email"
+              onChange={serverAddressChange}
+              style={{ width: "40vh" }}
+            />
+            <label>Server Port</label>
+            <input
+              type="email"
+              name="port"
+              onChange={serverPortChange}
+              style={{ width: "40vh" }}
+            />
+            <label>Server Username</label>
+            <input
+              type="email"
+              name="username"
+              onChange={serverUsernameChange}
+              style={{ width: "40vh" }}
+            />
+            <label>Server Password</label>
+            <input
+              type="email"
+              name="serverpassword"
+              onChange={serverPasswordChange}
+              style={{ width: "40vh" }}
+            />
             <div
               className="signupbtn"
               style={{ marginBottom: "2vh", marginTop: "5vh" }}
             >
               <NoSsr>
-                <StyledButton2 onClick={onSubmit}>Log In</StyledButton2>
+                <StyledButton2 onClick={onSubmit}>Add Site</StyledButton2>
               </NoSsr>
             </div>
             <a
-              href="/register"
+              href="/faq"
               style={{
                 fontSize: "1.5em",
                 paddingTop: "1vh",
@@ -288,7 +221,7 @@ export default function Register() {
                 textDecoration: "underline",
               }}
             >
-              Need to register?
+              Need Help?
             </a>
           </form>
         </div>
