@@ -8,7 +8,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     try {
       try {
         const hash = await bcrypt.hash(req.body.password, 10);
-        const response = await axios({
+        axios({
           method: "POST",
           url: `${process.env.REQ_URL}/api/registeruser`,
           headers: {
@@ -16,22 +16,26 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             email: req.body.email,
             password: hash,
           },
-        });
+        })
+          .then((response) => {
+
+        console.log("RES ", response.status);
+        if(response.status === 253){
+          console.log('pppppp');
+          res.status(253).json(response.data.token);
+        } 
+
+          })
+          .catch((err) => console.log('we here', err));
         // Success returned from Database successfully
-        const token = jwt.sign(
-          { id: "1", fullname: req.body.name, email: req.body.email },
-          process.env.JWT_PRIVATE_KEY ?? ''
-        );
-        response.status === 253 && res.status(253) && res.json(token);
-        res.end();
+
       } catch (error) {
         console.log(process.env.REQ_URL);
-        console.log('err here', error);
+        console.log("err here", error);
         console.log(`${process.env.REQ_URL}/api/registeruser`);
         error.response.status === 409 && res.status(409);
-      res.end();
+        res.end();
       }
-     
     } catch (err) {
       console.log(`${process.env.REQ_URL}/api/registeruser`);
       console.log({
@@ -40,7 +44,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         password: req.body.password,
       });
       !err.response.status && res.end();
-      err.response.status === 409 && res.status(409);
+      err && err.response.status === 409 && res.status(409);
       res.end();
     }
   } catch (err) {

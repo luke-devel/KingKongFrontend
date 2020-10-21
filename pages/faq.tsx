@@ -9,7 +9,7 @@ export default function FAQ() {
       <div id="faq" className="container">
         <div className="pricing">
           <h1>FAQ</h1>
-          <form role="search">
+          {/* <form role="search">
             <input
               id="search"
               type="search"
@@ -18,7 +18,7 @@ export default function FAQ() {
             <button id="sform" type="submit">
               Go
             </button>
-          </form>
+          </form> */}
         </div>
 
         <div className="faqs">
