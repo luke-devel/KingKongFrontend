@@ -35,9 +35,9 @@ const StyledButton = withStyles({
   root: {
     // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     borderRadius: 5,
-    backgroundColor:"linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+    backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     border: "2px solid #ffffff",
-    fontSize: "calc(1.5vw + 1vh)",
+    fontSize: "4.5vh",
     color: "white",
     padding: "0 30px",
     fontWeight: "bold",
@@ -45,8 +45,7 @@ const StyledButton = withStyles({
     "&:hover": {
       fontStyle: "italic",
       fontWeight: "bold",
-      backgroundColor:
-        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       color: "#black",
       transform: "scale(1.05)",
       transitionDuration: ".5s",
@@ -63,7 +62,7 @@ export default function SixMonthCard() {
   const handleChoice = () => {
     Cookie.set("planChoice", "2");
     Router.push("/register");
-  }
+  };
 
   return (
     <div
@@ -76,14 +75,43 @@ export default function SixMonthCard() {
     >
       <Card className={classes.root}>
         <CardContent>
-          <div style={{ fontWeight: 500, color: "white", fontSize: '6vh', marginTop: '3vh' }}>
+          <div
+            style={{
+              fontWeight: 500,
+              color: "white",
+              fontSize: "6vh",
+              marginTop: "3vh",
+            }}
+          >
             <sup>$</sup>1.49 / <span>day</span>
           </div>
-          <h3 style={{ fontWeight: 500, color: "white", fontSize: '4vh'}}>Six Months Billing</h3>
-          <h3 style={{ fontWeight: 500, color: "white", fontSize: '4vh', marginBottom: 0}}> 30% OFF</h3>
+          <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
+            Six Months Billing
+          </h3>
+          <h3
+            style={{
+              fontWeight: 500,
+              color: "white",
+              fontSize: "4vh",
+              marginBottom: 0,
+            }}
+          >
+            {" "}
+            30% OFF
+          </h3>
           <Stripe />
-          <h3 style={{ margin:0,fontWeight: 500, color: "white", fontSize: '2vh'}}> Secure Stripe Checkout</h3>
-            <StyledButton onClick={handleChoice}>Choose</StyledButton>
+          <h3
+            style={{
+              margin: 0,
+              fontWeight: 500,
+              color: "white",
+              fontSize: "3vh",
+            }}
+          >
+            {" "}
+            Secure Stripe Checkout
+          </h3>
+          <StyledButton onClick={handleChoice}>Choose</StyledButton>
         </CardContent>
       </Card>
     </div>

@@ -65,16 +65,13 @@ export default function Pricing2() {
   };
 
   return (
-    <div>
-      <Header />
-      <div id="body" style={{ height: "70vh", marginTop: '5vh'}}>
+    <div >
+      <Header/>
+      <div id="body" style={{padding: 40}}>
         <Grid
           container
           spacing={10}
           style={{
-            paddingLeft: "10vw",
-            paddingRight: "10vw",
-            paddingBottom: '5vh',
             minHeight: "100%",
           }}
         >
@@ -88,8 +85,9 @@ export default function Pricing2() {
             <MonthlyCard />
           </Grid>
         </Grid>
-        <Footer />
       </div>
+      <Footer />
+
     </div>
   );
 }

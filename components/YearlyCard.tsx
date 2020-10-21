@@ -36,7 +36,7 @@ const StyledButton = withStyles({
     borderRadius: 5,
     backgroundColor:"linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     border: "2px solid #ffffff",
-    fontSize: "calc(1.5vw + 1vh)",
+    fontSize: "4.5vh",
     color: "white",
     padding: "0 30px",
     fontWeight: "bold",
@@ -104,10 +104,9 @@ export default function YearlyCard() {
               margin: 0,
               fontWeight: 500,
               color: "white",
-              fontSize: "2vh",
+              fontSize: "3vh",
             }}
           >
-            {" "}
             Secure Stripe Checkout
           </h3>
           <StyledButton onClick={handleChoice}>Choose</StyledButton>

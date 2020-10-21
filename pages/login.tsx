@@ -279,7 +279,7 @@ export default function Register() {
                 <StyledButton2 onClick={onSubmit}>Log In</StyledButton2>
               </NoSsr>
             </div>
-            <a href="/login" style={{ fontSize: "1.5em", paddingTop: "1vh" }}>
+            <a href="/login" style={{ fontSize: "1.5em", paddingTop: "1vh", paddingBottom:'4vh' }}>
               Need to register?
             </a>
           </form>
