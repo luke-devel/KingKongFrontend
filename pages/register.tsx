@@ -140,11 +140,11 @@ export default function Register() {
             password: password,
           },
         }).then((res)=>{
-          console.log(res);
-          
+          console.log(res.data);
           if (res.status === 253 && res.data) {
+            console.log('here');
             Cookie.set("userdata", res.data);
-            router.push("/checkout/landing");
+            Router.push("/checkout/landing");
           }
         })
         
