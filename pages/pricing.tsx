@@ -72,7 +72,7 @@ export default function Pricing2() {
           container
           spacing={10}
           style={{
-            minHeight: "100%",
+            minHeight: "100%"
           }}
         >
           <Grid item xs={12} sm={12} md={4}>
