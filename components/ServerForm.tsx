@@ -9,6 +9,6 @@ import SiteRow from "./SiteRow";
 
 export default function Sites() {
   return (
-    <SiteRow/>
+    <SiteRow siteName='hi' siteLink='foo.com' serverID='111' />
   );
 }
