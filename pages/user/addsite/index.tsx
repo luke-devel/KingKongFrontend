@@ -17,6 +17,8 @@ import Cookie from "js-cookie";
 export default function AddSite() {
   const router = useRouter();
 
+  const [token, setToken] = useState(Cookie.get("userdata"));
+  const [serverDescription, setServerDescription] = useState("");
   const [serverAddress, setServerAddress] = useState("");
   const [serverPort, setServerPort] = useState("");
   const [serverUsername, setServerUsername] = useState("");
@@ -94,6 +96,11 @@ export default function AddSite() {
     setServerPort(e.target.value);
   };
 
+  const serverDescriptionChange = (e: InputEvent) => {
+    setServerDescription(e.target.value);
+  };
+
+
   const serverUsernameChange = (e: InputEvent) => {
     setServerUsername(e.target.value);
   };
@@ -105,6 +112,22 @@ export default function AddSite() {
   const onSubmit = async (event: ButtonEvent) => {
     setIsAllowed(false);
     console.log(serverAddress, serverPort, serverUsername, serverPassword);
+    Axios(`/api/addsite`, {
+      method: "post",
+      headers: {
+        serverdescription: serverDescription,
+        serveraddress: serverAddress,
+        serverport: serverPort,
+        serverusername: serverUsername,
+        serverpassword: serverPassword,
+        token: token
+      },
+    }).then((res)=>{
+      console.log(res.status);
+        console.log('here');
+        res.status === 253 && Router.push('/user')
+        res.status === 250 && Router.push('/user')
+    })
     
   };
 
@@ -141,7 +164,7 @@ export default function AddSite() {
 
       <div
         style={{
-          backgroundImage: `url('img/Union.png')`,
+          backgroundImage: `url('/img/Union.png')`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top right",
           backgroundSize: "contain",
@@ -151,7 +174,7 @@ export default function AddSite() {
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.7)", marginTop: "-12vh" }}
+          style={{ transform: "scale(0.7)", marginTop: "-17vh" }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -176,10 +199,17 @@ export default function AddSite() {
               
             </h4>
             <h5 style={{fontStyle: "italic", fontSize: "3vh", marginTop: 0, marginBottom: 0}}>And let us handle the rest.</h5>
+            <label>Server Description</label>
+            <input
+              type="email"
+              name="description"
+              onChange={serverDescriptionChange}
+              style={{ width: "40vh" }}
+            />
             <label>Server Address</label>
             <input
               type="email"
-              name="email"
+              name="address"
               onChange={serverAddressChange}
               style={{ width: "40vh" }}
             />
