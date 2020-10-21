@@ -245,7 +245,7 @@ export default function Register() {
         }}
       >
         <Header />
-        <div id="register" className="container" style={{ marginTop: "2vh" }}>
+        <div id="register" className="container" style={{transform: "scale(0.7)", marginTop: '-15vh' }}>
           {/* need to fix for different screen sizes */}
           <form
             className="card"
