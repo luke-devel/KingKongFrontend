@@ -30,7 +30,7 @@ export default function Home() {
         className="topHeader"
         style={{
           marginBottom: 90,
-          backgroundImage: `url('img/Union.png')`,
+          backgroundImage: `url('/img/Union.png')`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top right",
           backgroundSize: "contain",
