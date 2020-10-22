@@ -233,7 +233,7 @@ export default function Register() {
 
       <div
         style={{
-          backgroundImage: `url('img/Union.png')`,
+          backgroundImage: `url('/img/Union.png')`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top right",
           backgroundSize: "contain",
