@@ -4,6 +4,7 @@ import Router from "next/router";
 import { withStyles } from "@material-ui/core/styles";
 import { NoSsr } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import Cookie from "js-cookie";
 
 const StyledButton = withStyles({
   root: {
@@ -16,9 +17,9 @@ const StyledButton = withStyles({
     color: "white",
     padding: "0 30px",
     fontWeight: "bold",
-    width: '8vw',
-    margin: '-3vh',
-    marginLeft: '1vh',
+    width: "8vw",
+    margin: "-3vh",
+    marginLeft: "1vh",
     // position: "absolute",
     "&:hover": {
       // fontStyle: "italic",
@@ -37,6 +38,14 @@ const StyledButton = withStyles({
 
 export default function Header() {
   const [menuToggle, setMenuToggle] = useState("off");
+  const [auth, setAuth] = React.useState(() => {
+    if (Cookie.get("userdata")) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  console.log(auth);
 
   const toggleMenu = () => {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
@@ -44,9 +53,9 @@ export default function Header() {
 
   return (
     <header style={{ margin: 0 }}>
-      <nav style={{padding: '1em'}}>
+      <nav style={{ padding: "1em" }}>
         <Link href="/">
-            <img src="/img/logo.png" height="60" width="60"/>
+          <img src="/img/logo.png" height="60" width="60" />
         </Link>
 
         <ul className="navul">
@@ -67,7 +76,14 @@ export default function Header() {
           </li>
           <li>
             <NoSsr>
-              <StyledButton onClick={()=>Router.push('/login')}>Login</StyledButton>
+            {!auth ? (
+                  <StyledButton onClick={() => Router.push("/login")}>
+                  Login
+                </StyledButton>
+                ): <StyledButton onClick={() => Router.push("/user")} style={{ minWidth: '5vw', fontSize: '1.2vw'}}>
+                User Dashboard
+              </StyledButton>}
+              
             </NoSsr>
           </li>
         </ul>
@@ -80,7 +96,7 @@ export default function Header() {
             onClick={toggleMenu}
             style={{
               width: "1.5em",
-              float: "left"
+              float: "left",
             }}
           >
             <span></span>
@@ -103,9 +119,13 @@ export default function Header() {
                 <a href="/settings"> Settings</a>
               </li>
               <li>
-                <a href="/login" className="logbtn">
-                  Login
-                </a>
+                {!auth ? (
+                  <a href="/login" className="logbtn">
+                    Login
+                  </a>
+                ): <a href="/user" className="logbtn">
+                User Dashboard
+              </a>}
               </li>
             </ul>
           </div>
