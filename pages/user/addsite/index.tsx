@@ -199,7 +199,7 @@ export default function AddSite() {
               
             </h4>
             <h5 style={{fontStyle: "italic", fontSize: "3vh", marginTop: 0, marginBottom: 0}}>And let us handle the rest.</h5>
-            <label>Server Description</label>
+            <label>Server Name</label>
             <input
               type="email"
               name="description"

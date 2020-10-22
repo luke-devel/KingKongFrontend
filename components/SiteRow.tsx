@@ -1,25 +1,25 @@
 export default function SiteRow({ siteName, siteLink, serverID }) {
   return (
-    <tr>
+    <tr >
       <td>
-        <a href="#">Shopify Store</a>
+        <a id={serverID}>{siteName}</a>
       </td>
       <td>
-        <a href="www.mytshirts.com">www.mytshiwwww32132332322332rts.com</a>
+        <a href={siteLink}>{siteLink}</a>
       </td>
       <td className="imgtd">
         <a href="#">
-          <img className="tbimg" src="img/cloud-computing.png" />
+          <img className="tbimg" src="/img/cloud-computing.png" />
         </a>
       </td>
       <td className="imgtd">
         <a href="#">
-          <img className="tbimg" src="img/calendar.png" />
+          <img className="tbimg" src="/img/calendar.png" />
         </a>
       </td>
       <td className="imgtd">
         <a href="#">
-          <img className="tbimg" src="img/remove 1.png" />
+          <img className="tbimg" src="/img/remove 1.png" />
         </a>
       </td>
     </tr>
