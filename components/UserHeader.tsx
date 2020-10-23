@@ -64,7 +64,7 @@ export default function UserHeader() {
     <header style={{ margin: 0 }}>
       <nav style={{ padding: "1em" }}>
         <Link href="/">
-          <img src="/img/logo.png" height="95" width="90" />
+          <img src="/img/logo.png" height="95" width="90" style={{cursor: "pointer"}} />
         </Link>
         <ul className="navul">
           <li>
