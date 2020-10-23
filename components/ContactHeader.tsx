@@ -69,7 +69,7 @@ export default function UserHeader() {
         <ul className="navul">
           <li>
             {!auth ? (
-              <Link href="/faq">
+              <Link href="/pricing">
                 <a className="price" style={{ fontSize: 20 }}>
                   Pricing
                 </a>
