@@ -19,31 +19,43 @@ export default function Sites() {
   }, []);
 
   const fun = async () => {
-    const token = await Cookie.get("userdata");
-    const decoded = await jwt_decode(token);
-    try {
-      console.log(decoded.id, decoded.email);
-      await Axios(`/api/query/${decoded.id}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      })
-        .then((res) => {
-          console.log("res", res.data);
-          setUserSites(res.data);
+    if (Cookie.get("userdata")) {
+      const token = await Cookie.get("userdata");
+      const decoded = await jwt_decode(token);
+      try {
+        console.log(decoded.id, decoded.email);
+        await Axios(`/api/query/${decoded.id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
         })
-        .catch((err) => console.log("err", err));
-    } catch (error) {
-      console.log("the err");
+          .then((res) => {
+            console.log("res", res.data);
+            setUserSites(res.data);
+          })
+          .catch((err) => console.log("err", err));
+      } catch (error) {
+        console.log("the err");
+      }
+    }
+    else{
+      console.log('no cookie, from sites.tsx');
+      
     }
   };
 
-const siteData = userSites.map(({serverdescription, serveraddress}, index)=>{
-  return(
-    <SiteRow siteName={serverdescription} siteLink={serveraddress} serverID={index} />
-  )
-})
+  const siteData = userSites.map(
+    ({ serverdescription, serveraddress }, index) => {
+      return (
+        <SiteRow
+          siteName={serverdescription}
+          siteLink={serveraddress}
+          serverID={index}
+        />
+      );
+    }
+  );
 
   return <>{siteData}</>;
 }

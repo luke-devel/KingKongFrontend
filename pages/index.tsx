@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import Cookie from "js-cookie";
+import React, { useEffect } from "react";
 import tawkTo from "tawkto-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -20,6 +21,13 @@ const bottomStyle = {
 };
 
 export default function Home() {
+  const [auth, setAuth] = React.useState(() => {
+    if (Cookie.get("userdata")) {
+      return true;
+    } else {
+      return false;
+    }
+  });
   const tawkToPropertyId = process.env.NEXT_PUBLIC_TAWKTO_PROPERTY_ID;
   useEffect(() => {
     tawkTo(tawkToPropertyId);
@@ -37,7 +45,7 @@ export default function Home() {
         }}
       >
         <Header />
-        <div className="header" style={{ marginTop: '5vh' }}>
+        <div className="header" style={{ marginTop: "5vh" }}>
           <h1>One platform to secure all your websites.</h1>
           <h3>Backup & Restore in ONE CLICK.</h3>
           <p>
@@ -58,7 +66,7 @@ export default function Home() {
           </div>
           <div className="secbtn">
             <Link href="/pricing">
-              <button>Secure my website</button>
+              <button style={{ cursor: "pointer" }}>Secure my website</button>
             </Link>
           </div>
         </div>
@@ -78,16 +86,17 @@ export default function Home() {
               one simple and easy to use dashboard. Just enter your FTP details
               and we start.
             </p>
-            <div className="secbtn1">
-              <Link href="/pricing">
-                <button>Backup Now</button>
-              </Link>
+            <div className="secbtn1" style={{ cursor: "pointer" }}>
+              {!auth ? (
+                <Link href="/pricing">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              ) : (
+                <Link href="/user">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              )}
             </div>
-            <Link href="/pricing">
-              <div className="hidbtn">
-                <button>Secure my website</button>
-              </div>
-            </Link>
           </div>
           <div className="rightcol">
             <img id="img1" className="mac" src="img/mackbook.png" />
@@ -105,14 +114,26 @@ export default function Home() {
               devices.
             </p>
             <div className="secbtn1">
-              <Link href="/pricing">
-                <button>Backup Now</button>
-              </Link>
+              {!auth ? (
+                <Link href="/pricing">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              ) : (
+                <Link href="/user">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              )}
             </div>
             <div className="hidbtn">
-              <Link href="/pricing">
-                <button>Secure my website</button>
-              </Link>
+              {!auth ? (
+                <Link href="/pricing">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              ) : (
+                <Link href="/user">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -125,9 +146,15 @@ export default function Home() {
               meeting or clubbing with your buddies.
             </p>
             <div className="secbtn1">
-              <Link href="/pricing">
-                <button>Backup Now</button>
-              </Link>
+              {!auth ? (
+                <Link href="/pricing">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              ) : (
+                <Link href="/user">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              )}
             </div>
             <div className="hidbtn">
               <Link href="/pricing">
@@ -154,9 +181,15 @@ export default function Home() {
               is initiated or completed.
             </p>
             <div className="secbtn1">
-              <Link href="/pricing">
-                <button>Backup Now</button>
-              </Link>
+              {!auth ? (
+                <Link href="/pricing">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              ) : (
+                <Link href="/user">
+                  <button style={{ cursor: "pointer" }}>Backup Now</button>
+                </Link>
+              )}
             </div>
             <div className="hidbtn">
               <Link href="/pricing">
@@ -241,9 +274,15 @@ export default function Home() {
             <sup>$</sup>0.99 / <span>day</span>
           </div>
           <div className="secbtn2">
-            <Link href="/pricing">
-              <button>Secure my website</button>
-            </Link>
+            {!auth ? (
+              <Link href="/pricing">
+                <button style={{ cursor: "pointer" }}>Secure my website</button>
+              </Link>
+            ) : (
+              <Link href="/user">
+                <button style={{ cursor: "pointer" }}>Secure my website</button>
+              </Link>
+            )}
           </div>
         </div>
         <Footer />

@@ -78,7 +78,7 @@ export default function UserHeader() {
               <Link href="/user">
                 <a
                   className="price"
-                  style={{ fontSize: 20 }}
+                  style={{ borderBottom: "2px solid white", fontSize: 20 }}
                 >
                   User Panel
                 </a>

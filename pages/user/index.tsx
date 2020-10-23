@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Header from "../../components/UserHeader";
 import Footer from "../../components/Footer";
 import Grid, { GridSpacing } from "@material-ui/core/Grid";
 import Sites from "../../components/Sites";

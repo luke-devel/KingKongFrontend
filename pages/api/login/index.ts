@@ -24,7 +24,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             response.status === 253 && res.status(253).json(response.data); // good res, user is logged in
           })
           .catch((err) => {
-            console.log("err", err.response.status);
+            console.log("err", err);
             err.response.status === 404 && res.status(404).json("no email"); // no email exists
             err.response.status === 405 &&
               res.status(405).json("incorrect password"); // wrong pasword

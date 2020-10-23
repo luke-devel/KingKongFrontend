@@ -100,7 +100,6 @@ export default function AddSite() {
     setServerDescription(e.target.value);
   };
 
-
   const serverUsernameChange = (e: InputEvent) => {
     setServerUsername(e.target.value);
   };
@@ -113,22 +112,23 @@ export default function AddSite() {
     setIsAllowed(false);
     console.log(serverAddress, serverPort, serverUsername, serverPassword);
     Axios(`/api/addsite`, {
-      method: "post",
+      method: "POST",
       headers: {
         serverdescription: serverDescription,
         serveraddress: serverAddress,
         serverport: serverPort,
         serverusername: serverUsername,
         serverpassword: serverPassword,
-        token: token
+        token: token,
       },
-    }).then((res)=>{
-      console.log(res.status);
-        console.log('here');
-        res.status === 253 && Router.push('/user')
-        res.status === 250 && Router.push('/user')
     })
-    
+      .then((res) => {
+        console.log("res");
+      })
+      .catch((err) => {
+        //! to handle err here
+        console.log("handle errerr addsite main,", err);
+      });
   };
 
   return (
@@ -183,7 +183,7 @@ export default function AddSite() {
               marginLeft: "auto",
               marginRight: "auto",
               width: "25em",
-              paddingTop: '5vh',
+              paddingTop: "5vh",
             }}
           >
             <h4
@@ -192,13 +192,22 @@ export default function AddSite() {
                 marginTop: "3vh",
                 marginBottom: "2vh",
                 width: "100%",
-                fontSize: "4vh"
+                fontSize: "4vh",
               }}
             >
-              Submit your FTP/SFTP server information below, then sit back and relax.
-              
+              Submit your FTP/SFTP server information below, then sit back and
+              relax.
             </h4>
-            <h5 style={{fontStyle: "italic", fontSize: "3vh", marginTop: 0, marginBottom: 0}}>And let us handle the rest.</h5>
+            <h5
+              style={{
+                fontStyle: "italic",
+                fontSize: "3vh",
+                marginTop: 0,
+                marginBottom: 0,
+              }}
+            >
+              And let us handle the rest.
+            </h5>
             <label>Server Name</label>
             <input
               type="email"
