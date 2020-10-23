@@ -1,9 +1,9 @@
 import React from "react";
-import Router from "next/router";
+import Link from "next/link";
 
 export default function index() {
   return (
-    <footer style={{  bottom: 0 }} >
+    <footer style={{ bottom: 0 }}>
       <div className="logo">
         <a href="/" className="logo">
           <img src="/img/logo.png" />
@@ -12,26 +12,37 @@ export default function index() {
 
       <div className="footmenu">
         <ul>
-          <li>
-            <a href="/pricing">Pricing </a>
-          </li>
-          <li>
-            <a href="/contact">Contact </a>
-          </li>
-          <li>
-            <a href="/faq">FAQ </a>
-          </li>
-          <li>
-            <a href="login/" className="logoutbtn">
-              Login
-            </a>
-          </li>
+          <Link href="/pricing">
+            <li>
+              <a style={{cursor: "pointer"}}>Pricing </a>
+            </li>
+          </Link>
+          <Link href="/contact">
+            <li>
+              <a href="/contact">Contact </a>
+            </li>
+          </Link>
+          <Link href="/faq">
+            <li>
+              <a style={{cursor: "pointer"}}>FAQ </a>
+            </li>
+          </Link>
+          <Link href="/login">
+            <li>
+              <a className="logoutbtn">Login</a>
+            </li>
+          </Link>
         </ul>
       </div>
 
       <div className="footabt">
+        <Link href="tel:123-456-7890">
+
         <p>+33-78-774300</p>
-        <p>contact@kingkongbackups.com</p>
+        </Link>
+        <Link href="mailto:contact@kingkongbackups.com">
+          <p style={{cursor: "pointer"}}>contact@kingkongbackups.com</p>
+        </Link>
         <p className="lastone">
           7 Rue d'Antin Lille - 59800
           <br />
