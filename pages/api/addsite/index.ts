@@ -17,7 +17,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     case "POST":
       try {
         const letsResponse = await Axios(
-          `${process.env.REQ_URL}/api/addsite2`,
+          `${process.env.REQ_URL}/api/addsite`,
           {
             method: "POST",
             headers: {
@@ -30,10 +30,12 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             },
           }
         );
-        console.log(letsResponse.data);
-        res.end("hi");
+        console.log(letsResponse.status);
+        if(letsResponse.status === 253){
+          res.status(253).end();
+        }
       } catch (error) {
-        console.log("heres the err");
+        console.log("heres the err", error);
         res.status(401).json("bad request");
       }
 

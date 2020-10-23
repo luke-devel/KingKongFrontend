@@ -84,7 +84,7 @@ export default function FaqHeader() {
           </li>
           <li>
             <Link href="/contact">
-              <a className="price" >Contact</a>
+              <a className="price">Contact</a>
             </Link>
           </li>
           <li>
@@ -143,8 +143,8 @@ export default function FaqHeader() {
                 </Link>
               </li>
               <li>
-                <Link href="/settings">
-                  <a> Settings</a>
+                <Link href="/user">
+                  <a>User Panel</a>
                 </Link>
               </li>
               <li>

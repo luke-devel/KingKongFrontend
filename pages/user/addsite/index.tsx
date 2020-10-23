@@ -123,11 +123,17 @@ export default function AddSite() {
       },
     })
       .then((res) => {
-        console.log("res");
+        console.log(res);
+        if(res.status === 253){
+          Router.push('/user')
+        }
       })
       .catch((err) => {
         //! to handle err here
-        console.log("handle errerr addsite main,", err);
+        console.log("handle errerr addsite main,", err.response.status);
+        if(err.response.status === 401){
+          setOtherErrorAlert(true);
+        }
       });
   };
 
@@ -174,7 +180,7 @@ export default function AddSite() {
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.7)", marginTop: "-17vh" }}
+          style={{ transform: "scale(0.7)", marginTop: "-17vh", zIndex: 100 }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -184,6 +190,7 @@ export default function AddSite() {
               marginRight: "auto",
               width: "25em",
               paddingTop: "5vh",
+              zIndex: 100
             }}
           >
             <h4

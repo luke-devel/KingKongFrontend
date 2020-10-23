@@ -145,8 +145,8 @@ export default function ContactHeader() {
                 </Link>
               </li>
               <li>
-                <Link href="/settings">
-                  <a> Settings</a>
+                <Link href="/user">
+                  <a>User Panel</a>
                 </Link>
               </li>
               <li>

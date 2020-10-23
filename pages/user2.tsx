@@ -69,10 +69,43 @@ export default function User() {
                   </tr>
                 </thead>
                 <tbody>
-                  <Sites />
+                  {/* <Sites /> */}
                 </tbody>
               </table>
             </div>
+
+            <div className="row" style={{display: "block"}}>
+          <div className="headtb2">
+            <a href="#" className="heada">
+              My backups
+            </a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <a href="#">Name</a>
+                </th>
+                <th>
+                  <a href="#">URL</a>
+                </th>
+                <th>
+                  <a href="#">ID</a>
+                </th>
+                <th>
+                  <a href="#">Last Backup</a>
+                </th>
+                <th className="imgtd">
+                  <a href="#">Restore</a>
+                </th>
+                <th className="imgtd">
+                  <a href="#">Remove</a>
+                </th>
+              </tr>
+            </thead>
+</table></div>
+
+
           </div>
         </Grid>
       </div>

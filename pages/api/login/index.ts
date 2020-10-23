@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   if(!req.headers.email || !req.headers.password){
-    res.status(401).json("bad request");
+    return res.status(401).json("bad request");
   }
   switch (req.method) {
     case "POST":
@@ -33,7 +33,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         console.log("heres the err", error);
         res.status(401).json("bad request");
       }
-
       break;
     default:
       res.end("you need to post");
