@@ -1,5 +1,7 @@
-import Header from "../components/Header";
+import Header from "../components/ContactHeader";
 import Footer from "../components/Footer";
+import Router from "next/router";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -25,10 +27,11 @@ export default function Contact() {
 
             <label>Message</label>
             <textarea></textarea>
-
-            <div className="signupbtn2">
-              <input type="submit" name="signup" value="Submit" />
-            </div>
+            <Link href="/">
+              <div className="signupbtssn2">
+                <input type="submit" name="signup" value="Submit" />
+              </div>
+            </Link>
 
             <div className="hidep">
               {" "}

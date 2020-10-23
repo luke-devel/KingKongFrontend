@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/FaqHeader";
 import Footer from "../components/Footer";
 
 export default function FAQ() {
@@ -130,7 +130,15 @@ export default function FAQ() {
           </div>
         </div>
 
-        <div id="hh" className="row lastsec" style={{backgroundImage: `url('img/Union2.png')`, paddingTop: 0, paddingBottom: 30}}>
+        <div
+          id="hh"
+          className="row lastsec"
+          style={{
+            backgroundImage: `url('img/Union2.png')`,
+            paddingTop: 0,
+            paddingBottom: 30,
+          }}
+        >
           <h3>Do you have questions ? </h3>
 
           <h4>Need to change/remove subscription?</h4>
@@ -143,8 +151,6 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-
- 
 
       <Footer />
     </div>

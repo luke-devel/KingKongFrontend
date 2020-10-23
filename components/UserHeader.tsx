@@ -18,7 +18,7 @@ const StyledButton = withStyles({
     padding: "10 30px",
     fontWeight: "bold",
     minWidth: 90,
-    width:  "calc(1vw + 2vh)",
+    width: "calc(1vw + 2vh)",
     minHeight: 25,
     margin: "-3vh",
     marginLeft: "1vh",
@@ -66,17 +66,24 @@ export default function UserHeader() {
         <Link href="/">
           <img src="/img/logo.png" height="95" width="90" />
         </Link>
-
         <ul className="navul">
           <li>
-            <Link href="/faq">
-              <a
-                className="price"
-                style={{ borderBottom: "2px solid white", fontSize: 20 }}
-              >
-                User Panel
-              </a>
-            </Link>
+            {!auth ? (
+              <Link href="/faq">
+                <a className="price" style={{ fontSize: 20 }}>
+                  Pricing
+                </a>
+              </Link>
+            ) : (
+              <Link href="/user">
+                <a
+                  className="price"
+                  style={{ borderBottom: "2px solid white", fontSize: 20 }}
+                >
+                  User Panel
+                </a>
+              </Link>
+            )}
           </li>
           <li>
             <Link href="/contact">
@@ -97,9 +104,7 @@ export default function UserHeader() {
                   Login
                 </StyledButton>
               ) : (
-                <StyledButton onClick={logOut}>
-                  Logout
-                </StyledButton>
+                <StyledButton onClick={logOut}>Logout</StyledButton>
               )}
             </NoSsr>
           </li>

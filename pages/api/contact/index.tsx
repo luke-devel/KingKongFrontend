@@ -7,6 +7,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // if (!req.dat.id || !req.headers.email) {
   //   res.status(405).json("no headers");
   // }
+    res.status(253).json("hi");
+
   const backendRes = await Axios(`${process.env.REQ_URL}/api/query/${id}`, {
     method: "GET",
     headers:{
@@ -15,5 +17,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   });
   console.log(backendRes.status);
 
-  backendRes.status === 253 && res.json(JSON.parse(backendRes.data));
+  backendRes.status === 253 && res.status(253).json(JSON.parse(backendRes.data));
 };

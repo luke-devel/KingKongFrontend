@@ -64,22 +64,19 @@ export default function UserHeader() {
     <header style={{ margin: 0 }}>
       <nav style={{ padding: "1em" }}>
         <Link href="/">
-          <img src="/img/logo.png" height="95" width="90" style={{cursor: "pointer"}} />
+          <img src="/img/logo.png" height="95" width="90" />
         </Link>
         <ul className="navul">
           <li>
             {!auth ? (
-              <Link href="/pricing">
+              <Link href="/faq">
                 <a className="price" style={{ fontSize: 20 }}>
                   Pricing
                 </a>
               </Link>
             ) : (
               <Link href="/user">
-                <a
-                  className="price"
-                  style={{ fontSize: 20 }}
-                >
+                <a className="price" style={{ fontSize: 20 }}>
                   User Panel
                 </a>
               </Link>
@@ -87,7 +84,9 @@ export default function UserHeader() {
           </li>
           <li>
             <Link href="/contact">
-              <a className="price">Contact</a>
+              <a className="price" style={{ borderBottom: "2px solid white" }}>
+                Contact
+              </a>
             </Link>
           </li>
           <li>
