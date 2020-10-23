@@ -65,7 +65,9 @@ export default function User() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>{/* <Sites /> */}</tbody>
+                <tbody>
+                  <Sites />
+                </tbody>
               </table>
               <div className="row" style={{ display: "block" }}>
                 <div className="headtb2">
@@ -99,13 +101,13 @@ export default function User() {
                   <tbody>
                     <tr>
                       <td>
-                        <a href="#">Shopify Store</a>
+                        <a href="#">To Do</a>
                       </td>
                       <td>
-                        <a href="www.mytshirts.com">www.mytshirts.com</a>
+                        <a href="www.mytshirts.com">To Do</a>
                       </td>
                       <td>
-                        <a href="#">126547</a>
+                        <a href="#">To Do</a>
                       </td>
                       <td>
                         <a href="#">9/7/2010</a>
@@ -149,7 +151,7 @@ export default function User() {
                 <tbody>
                   <tr>
                     <td>
-                      <a href="#">Mark Jones</a>
+                      <a href="#">To Do</a>
                     </td>
                     <td>
                       <a href="#">Monthly</a>
