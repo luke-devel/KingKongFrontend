@@ -144,9 +144,11 @@ export default function PricingHeader() {
                 </Link>
               </li>
               <li>
-                <Link href="/settings">
-                  <a> Settings</a>
-                </Link>
+              <Link href="/user">
+                <a >
+                  User Panel
+                </a>
+              </Link>
               </li>
               <li>
                 {!auth ? (

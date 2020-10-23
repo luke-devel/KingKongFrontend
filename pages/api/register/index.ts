@@ -7,6 +7,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
     try {
       try {
+        console.log("made it here");
+
         const hash = await bcrypt.hash(req.body.password, 10);
         axios({
           method: "POST",
@@ -18,17 +20,19 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           },
         })
           .then((response) => {
-
-        console.log("RES ", response.status);
-        if(response.status === 253){
-          console.log('pppppp');
-          res.status(253).json(response.data.token);
-        } 
-
+            console.log("RES ", response.status);
+            if (response.status === 253) {
+              console.log("pppppp");
+              res.status(253).json(response.data.token);
+            }
           })
-          .catch((err) => console.log('we here', err));
+          .catch((err) => {
+            console.log("we3 here", err);
+            if (err.response.status === 409) {
+              res.status(409).end()
+            }
+          });
         // Success returned from Database successfully
-
       } catch (error) {
         console.log(process.env.REQ_URL);
         console.log("err here", error);

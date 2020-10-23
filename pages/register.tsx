@@ -152,7 +152,7 @@ export default function Register() {
         if (error.response.status) {
           throw error.response.status;
         } else {
-          console.log("Error in onRegister().");
+          console.log("Error in onRegister().",error);
         }
       }
     } catch (error) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import { withStyles } from "@material-ui/core/styles";
@@ -47,15 +47,15 @@ const logOut = () => {
 
 export default function UserHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
-  const [auth, setAuth] = React.useState(() => {
+  const [auth, setAuth] = useState(false);
+  useEffect(() => {
+    // Update the document title using the browser API
     if (Cookie.get("userdata")) {
-      return true;
-    } else {
-      return false;
-    }
-  });
+      setAuth(true);
   console.log(auth);
 
+    }
+  }, []);
   const toggleMenu = () => {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
   };
@@ -64,7 +64,12 @@ export default function UserHeader() {
     <header style={{ margin: 0 }}>
       <nav style={{ padding: "1em" }}>
         <Link href="/">
-          <img src="/img/logo.png" height="95" width="90" style={{cursor: "pointer"}} />
+          <img
+            src="/img/logo.png"
+            height="95"
+            width="90"
+            style={{ cursor: "pointer" }}
+          />
         </Link>
         <ul className="navul">
           <li>
@@ -76,10 +81,7 @@ export default function UserHeader() {
               </Link>
             ) : (
               <Link href="/user">
-                <a
-                  className="price"
-                  style={{ fontSize: 20 }}
-                >
+                <a className="price" style={{ fontSize: 20 }}>
                   User Panel
                 </a>
               </Link>
@@ -119,11 +121,12 @@ export default function UserHeader() {
             style={{
               width: "1.5em",
               float: "left",
+             
             }}
           >
             <span></span>
           </a>
-          <div id="menu">
+          <div id="menu" style={{ zIndex: 400}}> 
             <ul>
               <li>
                 <Link href="/">
@@ -146,9 +149,11 @@ export default function UserHeader() {
                 </Link>
               </li>
               <li>
-                <Link href="/settings">
-                  <a> Settings</a>
-                </Link>
+              <Link href="/user">
+                <a >
+                  User Panel
+                </a>
+              </Link>
               </li>
               <li>
                 {!auth ? (

@@ -2,7 +2,7 @@ import Header from "../../components/UserHeader";
 import Footer from "../../components/Footer";
 import Grid, { GridSpacing } from "@material-ui/core/Grid";
 import Sites from "../../components/Sites";
-import ServerForm from "../../components/ServerForm";
+import Link from "next/link";
 
 const testData = [
   {
@@ -43,9 +43,9 @@ export default function User() {
               <a href="" className="heada">
                 My Sites
               </a>
-              <a href="/user/addsite" className="headaa">
-                Add site
-              </a>
+              <Link href="/user/addsite">
+                <a className="headaa">Add site</a>
+              </Link>
             </div>
             <div className="">
               <table>
@@ -61,9 +61,6 @@ export default function User() {
                       <a href="#">Backup</a>
                     </th>
                     <th className="imgtd">
-                      <a href="#">Schedule</a>
-                    </th>
-                    <th className="imgtd">
                       <a href="#">Remove</a>
                     </th>
                   </tr>
@@ -72,6 +69,115 @@ export default function User() {
                   <Sites />
                 </tbody>
               </table>
+              <div className="row" style={{ display: "block" }}>
+                <div className="headtb2">
+                  <a href="#" className="heada">
+                    My backups
+                  </a>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        <a href="#">Name</a>
+                      </th>
+                      <th>
+                        <a href="#">URL</a>
+                      </th>
+                      <th>
+                        <a href="#">ID</a>
+                      </th>
+                      <th>
+                        <a href="#">Last Backup</a>
+                      </th>
+                      <th className="imgtd">
+                        <a href="#">Restore</a>
+                      </th>
+                      <th className="imgtd">
+                        <a href="#">Remove</a>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <a href="#">To Do</a>
+                      </td>
+                      <td>
+                        <a href="www.mytshirts.com">To Do</a>
+                      </td>
+                      <td>
+                        <a href="#">To Do</a>
+                      </td>
+                      <td>
+                        <a href="#">9/7/2010</a>
+                      </td>
+                      <td className="imgtd">
+                        <a href="#">
+                          <img className="tbimg" src="img/restore (1).png" />
+                        </a>
+                      </td>
+                      <td className="imgtd">
+                        <a href="#">
+                          <img className="tbimg" src="img/remove 1.png" />
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="row" style={{ display: "block" }}>
+              <div className="headtb2">
+                <a href="#" className="heada">
+                  My Subscriptions
+                </a>
+              </div>
+              <table className="halftb">
+                <thead>
+                  <tr>
+                    <th>
+                      <a href="#">Name</a>
+                    </th>
+                    <th>
+                      <a href="#">Subscription</a>
+                    </th>
+                    <th>
+                      <a href="#">FTP</a>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="#">To Do</a>
+                    </td>
+                    <td>
+                      <a href="#">Monthly</a>
+                    </td>
+                    <td>
+                      <a href="#">129.736.3927</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div
+              className="row lastsec"
+              style={{
+                display: "block",
+                backgroundImage: `url('img/Union2.png')`,
+                paddingTop: 110,
+                paddingBottom: 0,
+              }}
+            >
+              <h3>Need to change/remove subscription?</h3>
+
+              <div className="secbtn2">
+                <button>Request a change</button>
+              </div>
             </div>
           </div>
         </Grid>
@@ -80,5 +186,3 @@ export default function User() {
     </div>
   );
 }
-
-//!get initial props of ftp server info.

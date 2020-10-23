@@ -14,11 +14,6 @@ export default function SiteRow({ siteName, siteLink, serverID }) {
       </td>
       <td className="imgtd">
         <a href="#">
-          <img className="tbimg" src="/img/calendar.png" />
-        </a>
-      </td>
-      <td className="imgtd">
-        <a href="#">
           <img className="tbimg" src="/img/remove 1.png" />
         </a>
       </td>
