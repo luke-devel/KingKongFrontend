@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import Grid, { GridSpacing } from "@material-ui/core/Grid";
 import Router from "next/router";
 import Cookie from "js-cookie";
-import Header from "../components/Header";
+import Header from "../components/PricingHeader";
 import Footer from "../components/Footer";
 import YearlyCard from "../components/YearlyCard";
 import SixMonthCard from "../components/SixMonthCard";

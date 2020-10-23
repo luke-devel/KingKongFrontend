@@ -45,7 +45,7 @@ const logOut = () => {
   Router.push("/");
 };
 
-export default function UserHeader() {
+export default function ContactHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
   const [auth, setAuth] = React.useState(() => {
     if (Cookie.get("userdata")) {

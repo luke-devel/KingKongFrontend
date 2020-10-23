@@ -45,7 +45,7 @@ const logOut = () => {
   Router.push("/");
 };
 
-export default function FaqHeader() {
+export default function PricingHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
   const [auth, setAuth] = React.useState(() => {
     if (Cookie.get("userdata")) {
@@ -70,7 +70,10 @@ export default function FaqHeader() {
           <li>
             {!auth ? (
               <Link href="/pricing">
-                <a className="price" style={{ fontSize: 20 }}>
+                <a
+                  className="price"
+                  style={{ fontSize: 20, borderBottom: "2px solid white" }}
+                >
                   Pricing
                 </a>
               </Link>
@@ -84,14 +87,12 @@ export default function FaqHeader() {
           </li>
           <li>
             <Link href="/contact">
-              <a className="price" >Contact</a>
+              <a className="price">Contact</a>
             </Link>
           </li>
           <li>
             <Link href="/faq">
-              <a className="price" style={{ borderBottom: "2px solid white" }}>
-                FAQ
-              </a>
+              <a className="price">FAQ</a>
             </Link>
           </li>
           <li>
