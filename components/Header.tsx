@@ -45,7 +45,7 @@ const logOut = () => {
   Router.push("/");
 };
 
-export default function Header() {
+export default function UserHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
   const [auth, setAuth] = React.useState(() => {
     if (Cookie.get("userdata")) {
@@ -64,23 +64,37 @@ export default function Header() {
     <header style={{ margin: 0 }}>
       <nav style={{ padding: "1em" }}>
         <Link href="/">
-          <img src="/img/logo.png" height="60" width="60" />
+          <img src="/img/logo.png" height="95" width="90" />
         </Link>
-
         <ul className="navul">
           <li>
-            <Link href="/pricing">
-              <a>Pricing </a>
-            </Link>
+            {!auth ? (
+              <Link href="/faq">
+                <a className="price" style={{ fontSize: 20 }}>
+                  Pricing
+                </a>
+              </Link>
+            ) : (
+              <Link href="/faq">
+                <a
+                  className="price"
+                  style={{ borderBottom: "2px solid white", fontSize: 20 }}
+                >
+                  User Panel
+                </a>
+              </Link>
+            )}
           </li>
           <li>
             <Link href="/contact">
-              <a>Contact</a>
+              <a className="price">Contact</a>
             </Link>
           </li>
           <li>
             <Link href="/faq">
-              <a>FAQ</a>
+              <a className="price" href="/faq">
+                FAQ
+              </a>
             </Link>
           </li>
           <li>
@@ -112,28 +126,38 @@ export default function Header() {
           <div id="menu">
             <ul>
               <li>
-                <a href="/">Home </a>
+                <Link href="/">
+                  <a>Home </a>
+                </Link>
               </li>
               <li>
-                <a href="/pricing">Pricing </a>
+                <Link href="/pricing">
+                  <a>Pricing </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <Link href="/contact">
+                  <a>Contact</a>
+                </Link>
               </li>
               <li>
-                <a href="/faq">FAQ</a>
+                <Link href="/faq">
+                  <a>FAQ</a>
+                </Link>
               </li>
               <li>
-                <a href="/settings"> Settings</a>
+                <Link href="/settings">
+                  <a> Settings</a>
+                </Link>
               </li>
               <li>
                 {!auth ? (
-                  <a href="/login" className="logbtn">
-                    Login
-                  </a>
+                  <Link href="/login">
+                    <a className="logbtn">Login</a>
+                  </Link>
                 ) : (
-                  <a href="/user" className="logbtn">
-                    User Dashboard
+                  <a onClick={logOut} className="logbtn">
+                    Logout
                   </a>
                 )}
               </li>
