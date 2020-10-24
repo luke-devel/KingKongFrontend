@@ -26,16 +26,18 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
               serverport: req.headers.serverport,
               serverusername: req.headers.serverusername,
               serverpassword: req.headers.serverpassword,
-              token: req.headers.token,
+              token: req.cookies.usertoken,
             },
           }
         );
-        console.log(letsResponse.status);
-        if(letsResponse.status === 253){
-          res.status(253).end();
+        if(letsResponse.data.message === 'Success'){
+          res.json({ message: "Success" });
+        }
+        else{
+          res.json({ message: "Opps! Something went wrong" });
         }
       } catch (error) {
-        console.log("heres the err", error);
+        console.log("heres the err");
         res.status(401).json("bad request");
       }
 

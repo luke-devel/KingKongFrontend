@@ -139,20 +139,22 @@ export default function Register() {
             email: email,
             password: password,
           },
-        }).then((res)=>{
-          console.log(res.data);
-          if (res.status === 253 && res.data) {
-            console.log('here');
-            Cookie.set("userdata", res.data);
-            Router.push("/checkout/landing");
+        }).then((response) => {
+          if (response.data.authToken) {
+            Cookie.set("usertoken", response.data.authToken, {
+              sameSite: "strict",
+            });
+            Router.push("/user");
+          } else {
+            console.log("in fail");
+            Router.reload();
           }
-        })
-        
+        });
       } catch (error) {
         if (error.response.status) {
           throw error.response.status;
         } else {
-          console.log("Error in onRegister().",error);
+          console.log("Error in onRegister().", error);
         }
       }
     } catch (error) {
@@ -179,7 +181,8 @@ export default function Register() {
         PaperProps={{
           style: {
             backgroundColor: "#212121",
-            boxShadow: "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
+            boxShadow:
+              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
           },
         }}
       >
@@ -217,7 +220,8 @@ export default function Register() {
         PaperProps={{
           style: {
             backgroundColor: "#212121",
-            boxShadow: "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
+            boxShadow:
+              "-25px -20px 300px rgba(44, 44, 44, 0.5), 10px 10px 22px rgba(28, 26, 26, 0.5)",
           },
         }}
       >
@@ -228,7 +232,10 @@ export default function Register() {
           {"Passwords do not match."}
         </DialogTitle>
         <DialogActions style={{ justifyContent: "center" }}>
-          <StyledButton onClick={handleBadPassAlertClose} style={{marginBottom: '2vh'}}>
+          <StyledButton
+            onClick={handleBadPassAlertClose}
+            style={{ marginBottom: "2vh" }}
+          >
             Try Again
           </StyledButton>
         </DialogActions>
@@ -243,7 +250,11 @@ export default function Register() {
         }}
       >
         <Header />
-        <div id="register" className="container" style={{transform: "scale(0.8)", marginTop: '-5vh' }}>
+        <div
+          id="register"
+          className="container"
+          style={{ transform: "scale(0.8)", marginTop: "-5vh" }}
+        >
           {/* need to fix for different screen sizes */}
           <form
             className="card"
@@ -288,7 +299,14 @@ export default function Register() {
             <a href="/login" style={{ fontSize: "1.5em" }}>
               Already have an account?
             </a>
-            <a href="/login" style={{ fontSize: "1.5em", textDecoration: "underline", paddingBottom: "3vh" }}>
+            <a
+              href="/login"
+              style={{
+                fontSize: "1.5em",
+                textDecoration: "underline",
+                paddingBottom: "3vh",
+              }}
+            >
               Log In
             </a>
           </form>

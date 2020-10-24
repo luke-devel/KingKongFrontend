@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Axios from "axios";
 import Link from "next/link";
 import Router from "next/router";
 import { withStyles } from "@material-ui/core/styles";
 import { NoSsr } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Cookie from "js-cookie";
+import Axios from "axios";
 
 const StyledButton = withStyles({
   root: {
@@ -41,12 +41,11 @@ const StyledButton = withStyles({
 
 const logOut = () => {
   // set loggedIn cookie to false, and logging user out, sending them back to index
-  console.log("Logging user out.");
   Cookie.remove("usertoken");
-  Router.push("/");
+  Router.reload();
 };
 
-export default function UserHeader() {
+export default function IndexHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
   const [auth, setAuth] = useState(false);
 
@@ -65,8 +64,9 @@ export default function UserHeader() {
       });
       if (resData.data.message === "Authenticated") {
         setAuth(true);
-      } else {
-        console.log("No Auth");
+      }
+      else{
+        console.log('No Auth');
       }
     } catch (error) {
       console.log("err in auth process");
@@ -77,12 +77,6 @@ export default function UserHeader() {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
   };
 
-  const logOut = () => {
-    // set loggedIn cookie to false, and logging user out, sending them back to index
-    console.log("Logging user out.");
-    Cookie.remove("usertoken");
-    Router.push("/");
-  };
   return (
     <header style={{ margin: 0 }}>
       <nav style={{ padding: "1em" }}>
@@ -97,17 +91,14 @@ export default function UserHeader() {
         <ul className="navul">
           <li>
             {!auth ? (
-              <Link href="/p">
+              <Link href="/pricing">
                 <a className="price" style={{ fontSize: 20 }}>
                   Pricing
                 </a>
               </Link>
             ) : (
               <Link href="/user">
-                <a
-                  className="price"
-                  style={{ borderBottom: "2px solid white", fontSize: 20 }}
-                >
+                <a className="price" style={{ fontSize: 20 }}>
                   User Panel
                 </a>
               </Link>
@@ -151,7 +142,7 @@ export default function UserHeader() {
           >
             <span></span>
           </a>
-          <div id="menu">
+          <div id="menu" style={{ zIndex: 400 }}>
             <ul>
               <li>
                 <Link href="/">

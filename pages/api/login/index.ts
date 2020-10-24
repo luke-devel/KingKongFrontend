@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
-  if(!req.headers.email || !req.headers.password){
+  if(!req.body.email || !req.body.password){
     return res.status(401).json("bad request");
   }
   switch (req.method) {
@@ -13,25 +13,28 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       console.log("we posted");
       try {
         Axios(`${process.env.REQ_URL}/api/login`, {
-          method: "post",
-          headers: {
-            email: req.headers.email,
-            password: req.headers.password,
+          method: "POST",
+          data: {
+            email: req.body.email,
+            password: req.body.password,
           },
         })
           .then((response) => {
-            console.log(res.status);
-            response.status === 253 && res.status(253).json(response.data); // good res, user is logged in
+            console.log(response.data);
+            if(response.data.authToken){
+              res.json({ authToken: response.data.authToken });
+            }
+            else{
+              res.json({ message: "Opps! Something went wrong." });
+            }
           })
           .catch((err) => {
             console.log("err", err);
-            err.response.status === 404 && res.status(404).json("no email"); // no email exists
-            err.response.status === 405 &&
-              res.status(405).json("incorrect password"); // wrong pasword
+            res.json({ message: "Opps! Something went wrong." });
           });
       } catch (error) {
         console.log("heres the err", error);
-        res.status(401).json("bad request");
+        res.json({ message: "Opps! Something went wrong." });
       }
       break;
     default:
