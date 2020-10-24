@@ -84,10 +84,13 @@ footer {
   background: #1b1b1b;
   padding: 30px 40px;
   width: 96%;
-  margin: 0px auto;
-  display: flex;
+  display: grid;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-align-content: center;
   align-content: center;
+  grid-template-columns: 15% auto 15%;
+  word-break: unset;
 }
 .footmenu ul {
   list-style: none;
@@ -96,7 +99,6 @@ footer {
   text-align: center;
 }
 .footmenu {
-  margin: 0px auto;
   font-weight: 300;
   flex: 1;
 }
@@ -132,7 +134,6 @@ footer {
   top: 0;
   right: 0;
   z-index: 1000;
-  align-content: ;
   margin-right: 15px;
 }
 
@@ -472,12 +473,7 @@ li a.userp {
 nav a.logo {
   margin: 0;
 }
-.logo,
-.footabt {
-  margin: 0px 30px;
-  margin-right: 140px;
-  width: 15%;
-}
+
 /**register**/
 
 @media screen and (min-width: 200px) and (max-width: 690px) {
@@ -661,12 +657,7 @@ nav a.logo {
   img {
     margin: 0px 0;
   }
-  footer {
-    background: #1b1b1b;
-    flex-direction: column;
-    margin: 50px auto 0px auto;
-    padding: 60px 0px 90px 0;
-  }
+
   .footmenu ul {
     display: flex;
     padding: 0;
@@ -840,27 +831,55 @@ button#hidme {
 }
 
 /* responsive */
-
 @media (max-width: 760px) {
   .logo,
   .footabt {
-    margin: 0px 30px;
-    margin-right: 30px;
-    margin-right: 140px;
-    width: 15%;
+    width: 100%;
     display: grid;
     align-content: center;
     align-self: center;
     align-items: center;
-    justify-content: ;
+    justify-content: center;
   }
   .row h3 {
-	line-height: 0px;
-	font-size: small!important;
+    line-height: 0px;
+    font-size: small !important;
   }
   .row h1 {
-	line-height: 0px;
-	font-size: 40px!important;
-	line-height: 40px;
+    line-height: 0px;
+    font-size: 40px !important;
+    line-height: 40px;
   }
+
+  .nav {
+    display: flex !important;
+    flex-direction: row-reverse;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+  }
+  footer {
+    background: #1b1b1b;
+    display: flex;
+    flex: 1;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    padding: 50px 0px ;
+    right: 0;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    margin: 0px 0px;
+  }
+  .footmenu {
+    font-weight: 300;
+    display: grid;
+
+ }
 }
