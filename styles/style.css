@@ -540,49 +540,6 @@ a.log{
     text-decoration:none;
 }
 
-footer{
-	padding: 30px 40px ;
-    background: #1B1B1B;
-	width: 100%;
-	margin: 0px auto;
-	display: flex;
-	align-items: center;
-	align-content: center;
-}
-.footmenu ul{
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	text-align:center;
-
-}
-.footmenu{
-	margin: 0px auto;
-	font-weight: 300;
-	flex: 1;
-}
-.footmenu li a{
-	font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 23px;
-    color: #FFFFFF;
-}
-.footabt p{
-
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 30px;
-text-decoration-line: underline;
-color: #FFFFFF;
-margin-block-start: 10px;
-margin-block-end: 10px;
-text-align: left;
-}
-
 /* Important styles */
 #toggle {
   display: block;
@@ -689,9 +646,7 @@ color: #FFFFFF;border-bottom:2px solid white;
 .logoutbtn{
 display: none;
 }
-.logo, .footabt{
-	margin: 0px 43px;
-}
+
 nav a.logo{
 	margin: 0;
 }
@@ -952,27 +907,7 @@ color: #8F8F8F;
 img{
 	margin:0px 0;
 }
-footer{	 	 background: #1B1B1B;
 
-	flex-direction: column;
-	margin: 50px auto 0px auto;
-	padding: 60px 0px 90px 0;
-}
-.footmenu ul{display: flex;
-    padding: 0;
-	flex-direction: column;
-	margin: 20px auto;
-
-}
-.footmenu li{display:flex;
-justify-content:center;
-	padding-top: 20px;
-}
-.footabt p{
-    font-size:13px;
-    text-decoration:none;
-	text-align: center;
-}
 p.last{
 	font-size: 22px;
 	line-height: 1.6em;
@@ -1150,14 +1085,7 @@ line-height: 47px !important;
 	margin-bottom:30px!important;
 	line-height:47px!important;
 }
-.footel{
-	margin-top: 50px!important;
-	width: 100%;
-	font-weight: normal;
-    font-size: 22px!important;
-    line-height: 27px!important;
-	text-align: center;
-}
+
 .successcard span{
 	font-weight: 500;
     font-size: 36px;
@@ -1387,14 +1315,7 @@ span.add{
 	flex-direction: column;
 	text-align: center;
 }
-.footel{
-	font-weight: normal;
-    font-size: 28px;
-    line-height: 47px;
-    margin-top:200px;
-    color: #A7A2A2;
-	margin-bottom: 50px;
-}
+
 #success{
 	margin-bottom: 0px;
 
@@ -1469,3 +1390,4 @@ line-height: 54px;
 	outline:none;
 	border:none;
 }
+

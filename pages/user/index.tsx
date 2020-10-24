@@ -22,13 +22,12 @@ const testData = [
 
 export default function User() {
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <div>
       <Header />
       <div
         id="body"
         style={{
-          paddingTop: "5vh",
-          paddingBottom: "5vh",
+    
         }}
       >
         <Grid

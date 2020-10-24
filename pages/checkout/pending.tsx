@@ -60,7 +60,7 @@ export default function Pending() {
             style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
           >
             <a className="logo" style={{ marginTop: "1.5em" }}>
-              <img className="logo-image" style={{width:"120px !important", height:"120px !important"}} src="/img/logo.png" />
+              <img  src="/img/logo.png" />
             </a>
             <p
               style={{
