@@ -18,6 +18,8 @@ const bottomStyle = {
   backgroundSize: "contain",
   flexDirection: "column" as "column",
   textAlign: "center" as "center",
+  paddingTop:"280px",
+  lineHeight: 0
 };
 
 export default function Home() {
@@ -56,11 +58,11 @@ export default function Home() {
           <div className="twoop">
             <ul>
               <li>
-                <img src="img/tick.png" /> <p>30-day risk free money back</p>
+                <img src="img/tick.png" /> <p style={{color:"#ffffff"}}>30-day risk free money back</p>
               </li>{" "}
               <li>
                 <img src="img/tick.png" />
-                <p>Cancel anytime</p>
+                <p  style={{color:"#ffffff"}}>Cancel anytime</p>
               </li>
             </ul>
           </div>
@@ -212,7 +214,7 @@ export default function Home() {
             {" "}
             <ul>
               <li>
-                <img src="img/tick.png" /> <p>Your data is safe.</p>
+                <img src="img/tick.png" /> <p style={{color:"#ffffff",fontSize:"larger"}}>Your data is safe.</p>
               </li>
             </ul>
           </div>
@@ -265,8 +267,8 @@ export default function Home() {
         </div>
 
         <div className="row" style={bottomStyle}>
-          <h3>Simple, Transparent Pricing.</h3>
-          <h1>Any site, Any size, ONE PRICE</h1>
+          <h3 style={{fontSize:"2.8em"}}>Simple, Transparent Pricing.</h3>
+          <h1 style={{fontSize:"4em"}}>Any site, Any size, ONE PRICE</h1>
 
           <p>Unlimited WebSites & Usage</p>
 

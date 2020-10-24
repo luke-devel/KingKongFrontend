@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-1
 body{
 	background:#212121;
 	color:white;		
@@ -8,9 +7,12 @@ body{
 	margin: 0;
 	overflow-x: hidden;
 }
+
+
+
 .logo img{
-width: 90.65px;
-height: 95.32px;
+width: 120px;
+height: 120px;
 }
 .nav{
 	display: none;
@@ -19,8 +21,10 @@ height: 95.32px;
 nav{
 	width: 90%;
     margin: 0px auto;
-	display: flex;	padding-top: 20px;
+	display: flex;
+	padding-top: 20px;
 	justify-content: space-between;
+	align-items: center;
 }
 nav ul{
 	list-style: none;
@@ -81,11 +85,12 @@ margin: 0px auto;
 text-align: center;
 color: #FFFFFF;
 line-height: 72px;
+padding-top: 200px;
 }
 .header h3{
 font-style: normal;
 font-weight: 500;
-font-size: 65px;
+font-size: 64px;
 margin-block-start: 0px;
 margin-block-end: 0px;
 margin: 0px auto;
@@ -95,8 +100,8 @@ color: #FFFFFF;
 .header p{
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
-    line-height: 27px;
+    font-size: 17px;
+    line-height: 20px;
     color: #8F8F8F;;
 }
 .twoop ul{
@@ -221,13 +226,13 @@ img.mac{
 .milsection h1{
     font-weight: 500;
     font-size: 48px;
-    line-height: 72px;
+    line-height: 120px;
 	text-align: center;
 }
 .milsection p{
     font-weight: 500;
     font-size: 36px;
-    line-height: 54px;
+	line-height: 0px;
 }
 .lcol{
 	width: 50%;
@@ -235,8 +240,8 @@ img.mac{
 	text-align: center;
 }
 .lcol img{
-	width: 100px;
-	height: 100px;
+	width: 65px;
+	height: 65px;
 }
 .lcol h1{
 	text-align: center;
@@ -549,10 +554,12 @@ footer{
 	display: flex;
 	justify-content: center;
 	text-align:center;
+
 }
 .footmenu{
 	margin: 0px auto;
 	font-weight: 300;
+	flex: 1;
 }
 .footmenu li a{
 	font-family: Roboto;
@@ -683,7 +690,7 @@ color: #FFFFFF;border-bottom:2px solid white;
 display: none;
 }
 .logo, .footabt{
-	margin: 0px auto;
+	margin: 0px 43px;
 }
 nav a.logo{
 	margin: 0;
@@ -692,8 +699,9 @@ nav a.logo{
 display: none;
 }
 #img1{
-width: 712px;
-height: 951px;
+width: 850px;
+height: 950px;
+
 }
 
 #img2{
@@ -823,7 +831,6 @@ color:#212121;
 }
 .row1{	
     width: 100%;
-
 	flex-direction: column-reverse;
 }
 .row{		
