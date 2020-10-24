@@ -15,7 +15,7 @@ export default function Contact() {
         }}
       >
         <Header />
-        <div id="contact" className="container">
+        <div id="contact" className="container" style={{alignContent: "center"}}>
           <form className="card2">
             <h1>Get In Touch</h1>
 

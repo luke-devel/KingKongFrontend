@@ -14,8 +14,10 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 10,
     minWidth: 300,
-    background: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
-    boxShadow: "-15px -15px 22px rgba(44, 44, 44, 0.5), 15px 15px 22px rgba(28, 26, 26, 0.5)",
+    background:
+      "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+    boxShadow:
+      "-15px -15px 22px rgba(44, 44, 44, 0.5), 15px 15px 22px rgba(28, 26, 26, 0.5)",
     maxWidth: 400,
   },
   bullet: {
@@ -35,7 +37,8 @@ const StyledButton = withStyles({
   root: {
     // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     borderRadius: 5,
-    backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+    backgroundColor:
+      "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     border: "2px solid #ffffff",
     fontSize: "4.5vh",
     color: "white",
@@ -45,7 +48,8 @@ const StyledButton = withStyles({
     "&:hover": {
       fontStyle: "italic",
       fontWeight: "bold",
-      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor:
+        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       color: "#black",
       transform: "scale(1.05)",
       transitionDuration: ".5s",
@@ -61,7 +65,11 @@ export default function SixMonthCard() {
 
   const handleChoice = () => {
     Cookie.set("planChoice", "2");
-    Router.push("/register");
+    if (Cookie.get("usertoken")) {
+      Router.push("/checkout/landing");
+    } else {
+      Router.push("/register");
+    }
   };
 
   return (
