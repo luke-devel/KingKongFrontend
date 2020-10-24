@@ -17,7 +17,6 @@ import Cookie from "js-cookie";
 export default function AddSite() {
   const router = useRouter();
 
-  const [token, setToken] = useState(Cookie.get("userdata"));
   const [serverDescription, setServerDescription] = useState("");
   const [serverAddress, setServerAddress] = useState("");
   const [serverPort, setServerPort] = useState("");
@@ -119,13 +118,14 @@ export default function AddSite() {
         serverport: serverPort,
         serverusername: serverUsername,
         serverpassword: serverPassword,
-        token: token,
       },
     })
       .then((res) => {
-        console.log(res);
-        if(res.status === 253){
+        if(res.data.message === 'Success'){
           Router.push('/user')
+        }
+        else{
+          setOtherErrorAlert(true)
         }
       })
       .catch((err) => {

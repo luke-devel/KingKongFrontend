@@ -118,17 +118,22 @@ export default function Register() {
     console.log(email, password);
     try {
       Axios("/api/login", {
-        method: "post",
-        headers: {
+        method: "POST",
+        data: {
           email: email,
           password: password,
         },
       })
         .then((response) => {
           // success
-          console.log("in success");
-          Cookie.set("userdata", response.data.token);
-          Router.push("/user");
+          if (response.data.authToken) {
+            console.log("in success");
+            Cookie.set("usertoken", response.data.authToken,{ sameSite: 'strict' });
+            Router.push("/user");
+          } else {
+            console.log("in fail");
+            Router.reload();
+          }
         })
         .catch((err) => {
           //err handling

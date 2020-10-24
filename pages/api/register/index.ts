@@ -20,16 +20,16 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           },
         })
           .then((response) => {
-            console.log("RES ", response.status);
-            if (response.status === 253) {
-              console.log("pppppp");
-              res.status(253).json(response.data.token);
+            if (response.data.authToken) {
+              res.json({ authToken: response.data.authToken });
+            } else {
+              res.json({ message: "Opps! Something went wrong." });
             }
           })
           .catch((err) => {
             console.log("we3 here", err);
             if (err.response.status === 409) {
-              res.status(409).end()
+              res.status(409).end();
             }
           });
         // Success returned from Database successfully

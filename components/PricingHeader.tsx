@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import Link from "next/link";
 import Router from "next/router";
 import { withStyles } from "@material-ui/core/styles";
@@ -41,23 +42,46 @@ const StyledButton = withStyles({
 const logOut = () => {
   // set loggedIn cookie to false, and logging user out, sending them back to index
   console.log("Logging user out.");
-  Cookie.remove("userdata");
+  Cookie.remove("usertoken");
   Router.push("/");
 };
 
 export default function PricingHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
-  const [auth, setAuth] = React.useState(() => {
-    if (Cookie.get("userdata")) {
-      return true;
-    } else {
-      return false;
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    try {
+      const resData = await Axios(`/api/checkauth`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      if (resData.data.message === "Authenticated") {
+        setAuth(true);
+      } else {
+        console.log("No Auth");
+      }
+    } catch (error) {
+      console.log("err in auth process");
     }
-  });
-  console.log(auth);
+  };
 
   const toggleMenu = () => {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
+  };
+
+  const logOut = () => {
+    // set loggedIn cookie to false, and logging user out, sending them back to index
+    console.log("Logging user out.");
+    Cookie.remove("usertoken");
+    Router.push("/");
   };
 
   return (
@@ -144,11 +168,9 @@ export default function PricingHeader() {
                 </Link>
               </li>
               <li>
-              <Link href="/user">
-                <a >
-                  User Panel
-                </a>
-              </Link>
+                <Link href="/user">
+                  <a>User Panel</a>
+                </Link>
               </li>
               <li>
                 {!auth ? (
