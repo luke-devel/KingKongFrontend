@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Grid, { GridSpacing } from "@material-ui/core/Grid";
@@ -13,6 +14,31 @@ import MonthlyCard from "../components/MonthlyCard";
 export default function Pricing2() {
   const [spacing, setSpacing] = React.useState<GridSpacing>(10);
   const [state, setstate] = useState("");
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    try {
+      const resData = await Axios(`/api/checkauth`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      if (resData.data.message === "Authenticated") {
+        setAuth(true);
+      }
+      else{
+        console.log('No Auth');
+      }
+    } catch (error) {
+      console.log("err in auth process");
+    }
+  };
 
   const StyledButton = withStyles({
     root: {
@@ -47,17 +73,18 @@ export default function Pricing2() {
       case 0:
         // Yearly top plan
         Cookie.set("planChoice", "1");
-        Router.push("/register");
+        console.log(auth);
+        // Router.push("/register");
         break;
       case 1:
         // 6 mo med plan
         Cookie.set("planChoice", "2");
-        Router.push("/register");
+        // Router.push("/register");
         break;
       case 2:
         // Monthly cheapest plan
         Cookie.set("planChoice", "3");
-        Router.push("/register");
+        // Router.push("/register");
         break;
       default:
       //

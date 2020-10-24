@@ -144,7 +144,7 @@ export default function Register() {
             Cookie.set("usertoken", response.data.authToken, {
               sameSite: "strict",
             });
-            Router.push("/user");
+            Router.push("/checkout/landing");
           } else {
             console.log("in fail");
             Router.reload();

@@ -60,7 +60,12 @@ export default function YearlyCard() {
 
   const handleChoice = () => {
     Cookie.set("planChoice", "1");
-    Router.push("/register");
+    if(Cookie.get('usertoken')){
+      Router.push("/checkout/landing");
+    }
+    else{
+      Router.push("/register");
+    }
   };
 
   return (
