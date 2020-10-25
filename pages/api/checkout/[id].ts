@@ -14,7 +14,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { payment_status } = await stripe.checkout.sessions.retrieve(
       id as string
     );
-    console.log(payment_status);
     if (payment_status === "paid") {
       const addPaidUserRes = await Axios(`${process.env.REQ_URL}/api/checkauth`, {
         method: "POST",
@@ -25,7 +24,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           userToken: req.cookies.usertoken,
         },
       });
-      console.log(payment_status + "hi " + req.cookies.usertoken);
     }
     res.status(200).json({ payment_status });
   }
