@@ -8,7 +8,7 @@ export default function SiteRow({ siteName, siteLink, serverID }) {
         <a href={siteLink}>{siteLink}</a>
       </td>
       <td className="imgtd">
-        <a id={serverID}>
+        <a id={serverID} style={{margin: 0}}>
           <img
             style={{ cursor: "pointer", position: "absolute", zIndex: 1 }}
             className="tbimg"
@@ -17,7 +17,7 @@ export default function SiteRow({ siteName, siteLink, serverID }) {
         </a>
       </td>
       <td className="imgtd">
-        <a id={serverID}>
+        <a id={serverID} style={{margin: 0}}>
           <img
             onClick={() => console.log(serverID)}
             style={{ cursor: "pointer", position: "absolute", zIndex: 1 }}

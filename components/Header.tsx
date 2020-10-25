@@ -65,9 +65,8 @@ export default function UserHeader() {
       });
       if (resData.data.message === "Authenticated") {
         setAuth(true);
-      }
-      else{
-        console.log('No Auth');
+      } else {
+        console.log("No Auth");
       }
     } catch (error) {
       console.log("err in auth process");
@@ -130,7 +129,7 @@ export default function UserHeader() {
           </li>
         </ul>
 
-        <div className="nav">
+        <div className="nav" style={{ zIndex: 1 }}>
           <a
             href="#menu"
             id="toggle"
@@ -143,7 +142,7 @@ export default function UserHeader() {
           >
             <span></span>
           </a>
-          <div id="menu" style={{ zIndex: 400 }}>
+          <div id="menu">
             <ul>
               <li>
                 <Link href="/">

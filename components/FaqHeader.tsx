@@ -48,30 +48,11 @@ const logOut = () => {
 
 export default function FaqHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
-  const [auth, setAuth] = useState(false);
-
-  useEffect(() => {
-    // Update the document title using the browser API
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
-    try {
-      const resData = await Axios(`/api/checkauth`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
-      });
-      if (resData.data.message === "Authenticated") {
-        setAuth(true);
-      } else {
-        console.log("No Auth");
-      }
-    } catch (error) {
-      console.log("err in auth process");
+  const [auth, setAuth] = useState(() => {
+    if (Cookie.get("usertoken")) {
+      return true;
     }
-  };
+  });
 
   const toggleMenu = () => {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
@@ -124,7 +105,7 @@ export default function FaqHeader() {
           </li>
         </ul>
 
-        <div className="nav">
+        <div className="nav" style={{ zIndex: 1 }}>
           <a
             href="#menu"
             id="toggle"

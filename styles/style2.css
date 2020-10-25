@@ -238,13 +238,11 @@ a.heada {
   width: 80%;
 }
 a.headaa {
-  width: 160px;
-  height: 45px;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: calc(6vw+6vh);
   color: white;
-  padding: 15px 30px;
+  padding: 15px 10px;
   border: 2px solid #ffffff;
   box-sizing: border-box;
   display: flex;

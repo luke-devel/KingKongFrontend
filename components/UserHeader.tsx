@@ -137,8 +137,7 @@ export default function UserHeader() {
             </NoSsr>
           </li>
         </ul>
-
-        <div className="nav">
+        <div className="nav" style={{ zIndex: 1 }}>
           <a
             href="#menu"
             id="toggle"
