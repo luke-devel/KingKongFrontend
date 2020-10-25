@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { NoSsr } from "@material-ui/core";
+import Axios from 'axios';
 
 const StyledButton = withStyles({
   root: {
@@ -14,7 +15,7 @@ const StyledButton = withStyles({
     backgroundColor:
       "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     border: "1px solid #ffffff",
-    fontSize: "calc(2vw + 1.5vh)",
+    fontSize: "calc(2vw + 2vh)",
     color: "white",
     padding: "0 30px",
     fontWeight: "bold",
@@ -35,13 +36,36 @@ const StyledButton = withStyles({
   },
 })(Button);
 
+
+
 export default function Pending() {
   const router = useRouter();
+  const addPaidUser = async () => {
+    try {
+      const resData = await Axios(`/api/addpaiduser`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      console.log('data');
+    } catch (addPaidUserError) {
+      
+    }
+  }
+  
   const { data, error } = useSWR(
     router.query.session_id ? `/api/checkout/${router.query.session_id}` : null,
     (url) => fetch(url).then((res) => res.json())
   );
   error && console.log(`there was an error.`);
+
+  if(data && data.payment_status === 'paid'){
+    // successfully purchased, to add user as paid
+    addPaidUser()
+  }
+
+
 
   return (
     <div>
@@ -54,17 +78,30 @@ export default function Pending() {
         }}
       >
         <Header />
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={12} style={{margin: '5vw', transform: "scale(.8)"}}>
           <div
             className="card"
-            style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+            style={{
+              marginLeft: "auto",
+              marginRight: "auto",
+              textAlign: "center",
+              marginBottom: "2vh",
+              marginTop: "-9vh"
+            }}
           >
             <a className="logo" style={{ marginTop: "1.5em" }}>
-              <img className="logo-image" style={{width:"120px !important", height:"120px !important"}} src="/img/logo.png" />
+              <img
+                className="logo-image"
+                style={{
+                  width: "120px !important",
+                  height: "120px !important",
+                }}
+                src="/img/logo.png"
+              />
             </a>
             <p
               style={{
-                fontSize: "calc(2.5vw + 1.5vh)",
+                fontSize: "calc(2vw + 2vh)",
                 overflow: "hidden",
                 whiteSpace: "nowrap",
                 color: "white",
@@ -75,11 +112,11 @@ export default function Pending() {
             </p>
             <p
               style={{
-                fontSize: "calc(3vw + 1.5vh)",
+                fontSize: "calc(3vw + 3vh)",
                 color: "white",
                 marginBottom: "1vh",
                 marginTop: "0vh",
-                fontStyle: 'italic'
+                fontStyle: "italic",
               }}
             >
               {/* Uppercase payment status */}
@@ -92,7 +129,7 @@ export default function Pending() {
             </p>
             <p
               style={{
-                fontSize: "calc(1.5vw + 1.5vh)",
+                fontSize: "calc(1.5vw + 2vh)",
                 color: "white",
                 marginBottom: "1vh",
                 marginTop: "1vh",
@@ -102,20 +139,17 @@ export default function Pending() {
                 ? `Thank you for your purchase! Click below to head into your user portal.`
                 : "Plase wait..."}
             </p>
-            {data && data.payment_status === "paid" ? (
+            {data && (
               <div>
-              <NoSsr>
-                <StyledButton
-                  onClick={() => router.push('/user')}
-                  style={{ marginTop: "3vh", marginBottom: "1vh" }}
-                >
-                  Continue
-                </StyledButton>
-              </NoSsr>
+                <NoSsr>
+                  <StyledButton
+                    onClick={() => router.push("/user")}
+                    style={{ marginTop: "3vh", marginBottom: "3vh" }}
+                  >
+                    Continue
+                  </StyledButton>
+                </NoSsr>
               </div>
-
-            ) : (
-              <h1>Fetching Status</h1>
             )}
           </div>
         </Grid>

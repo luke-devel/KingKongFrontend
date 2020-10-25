@@ -29,8 +29,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             }
           })
           .catch((err) => {
-            console.log("err", err);
-            res.json({ message: "Opps! Something went wrong." });
+            console.log("err");
+            return res.json({ message: "Opps! Something went wrong." });
           });
       } catch (error) {
         console.log("heres the err", error);
