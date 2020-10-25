@@ -75,8 +75,8 @@ export default function CheckoutLanding() {
         lineItems: [
           { price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY, quantity: 1 },
         ],
-        mode:
-          process.env.NODE_ENV === "development" ? "payment" : "subscription",
+        mode: "payment",
+        // process.env.NODE_ENV === "development" ? "payment" : "subscription",
         successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
         cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
       });

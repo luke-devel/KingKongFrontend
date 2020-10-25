@@ -66,31 +66,6 @@ export default function Pricing() {
     },
   })(Button);
 
-  const handleChoice = (choice: number) => {
-    console.log(choice);
-    //e.preventDefault();
-    switch (choice) {
-      case 0:
-        // Yearly top plan
-        Cookie.set("planChoice", "1");
-        console.log(auth);
-        // Router.push("/register");
-        break;
-      case 1:
-        // 6 mo med plan
-        Cookie.set("planChoice", "2");
-        // Router.push("/register");
-        break;
-      case 2:
-        // Monthly cheapest plan
-        Cookie.set("planChoice", "3");
-        // Router.push("/register");
-        break;
-      default:
-      //
-    }
-  };
-
   return (
     <div>
       <Header />
