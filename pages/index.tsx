@@ -2,7 +2,7 @@ import Link from "next/link";
 import Cookie from "js-cookie";
 import React, { useEffect } from "react";
 import tawkTo from "tawkto-react";
-import Header from "../components/IndexHeader";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const colStyles = {
@@ -18,13 +18,13 @@ const bottomStyle = {
   backgroundSize: "contain",
   flexDirection: "column" as "column",
   textAlign: "center" as "center",
-  paddingTop: "280px",
-  lineHeight: 0,
+  paddingTop:"280px",
+  lineHeight: 0
 };
 
 export default function Home() {
   const [auth, setAuth] = React.useState(() => {
-    if (Cookie.get("usertoken")) {
+    if (Cookie.get("userdata")) {
       return true;
     } else {
       return false;
@@ -47,27 +47,10 @@ export default function Home() {
         }}
       >
         <Header />
-        <div
-          className="header"
-          style={{ marginTop: "5vh", WebkitTextSizeAdjust: "none" }}
-        >
-          <h1
-            style={{
-              fontSize: "calc((.21em + 2vmin) + (.21em + 2vmax))",
-              WebkitTextSizeAdjust: "none",
-            }}
-          >
-            One platform to secure all your websites.
-          </h1>
-          <h3
-            style={{
-              fontSize: "calc((.11em + 2vmin) + (.11em + 2vmax))",
-              WebkitTextSizeAdjust: "none",
-            }}
-          >
-            Backup & Restore in ONE CLICK.
-          </h3>
-          <p style={{ fontSize: "1vw" }}>
+        <div className="header">
+          <h1>One platform to secure all your websites.</h1>
+          <h3>Backup & Restore in ONE CLICK.</h3>
+          <p>
             30,000 websites are hacked every day. Over 10 thousand sites are
             lost due to broken Backup files.
           </p>
@@ -75,12 +58,11 @@ export default function Home() {
           <div className="twoop">
             <ul>
               <li>
-                <img src="img/tick.png" />{" "}
-                <p style={{ color: "#ffffff" }}>30-day risk free money back</p>
+                <img src="img/tick.png" /> <p style={{color:"#ffffff"}}>30-day risk free money back</p>
               </li>{" "}
               <li>
                 <img src="img/tick.png" />
-                <p style={{ color: "#ffffff" }}>Cancel anytime</p>
+                <p  style={{color:"#ffffff"}}>Cancel anytime</p>
               </li>
             </ul>
           </div>
@@ -232,10 +214,7 @@ export default function Home() {
             {" "}
             <ul>
               <li>
-                <img src="img/tick.png" />{" "}
-                <p style={{ color: "#ffffff", fontSize: "larger" }}>
-                  Your data is safe.
-                </p>
+                <img src="img/tick.png" /> <p style={{color:"#ffffff",fontSize:"larger"}}>Your data is safe.</p>
               </li>
             </ul>
           </div>
@@ -288,8 +267,8 @@ export default function Home() {
         </div>
 
         <div className="row" style={bottomStyle}>
-          <h3 style={{ fontSize: "2.8em" }}>Simple, Transparent Pricing.</h3>
-          <h1 style={{ fontSize: "4em" }}>Any site, Any size, ONE PRICE</h1>
+          <h3 style={{fontSize:"2.8em"}}>Simple, Transparent Pricing.</h3>
+          <h1 style={{fontSize:"4em"}}>Any site, Any size, ONE PRICE</h1>
 
           <p>Unlimited WebSites & Usage</p>
 
