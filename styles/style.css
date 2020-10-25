@@ -75,7 +75,7 @@ color: #FFFFFF;
 }
 
 .header{
-	margin-top: 200px;
+	margin-top: 10px;
 }
 .header h1{
 font-style: normal;
@@ -85,7 +85,7 @@ margin: 0px auto;
 text-align: center;
 color: #FFFFFF;
 line-height: 72px;
-padding-top: 200px;
+padding-top: 110px;
 }
 .header h3{
 font-style: normal;
@@ -240,13 +240,13 @@ img.mac{
 	text-align: center;
 }
 .lcol img{
-	width: 65px;
-	height: 65px;
+	width: 60px;
+	height: 60px;
 }
 .lcol h1{
 	text-align: center;
     font-weight: 500;
-    font-size: 48px;
+    font-size: 40px;
     line-height: 72px;
 }
 .lcol p{
@@ -731,7 +731,7 @@ nav{
     color: #8F8F8F;
 }
 header{
-	margin-top: 20px;
+	margin-top: 0px;
 	width: 100%;
 	background:#212121;
 	}
