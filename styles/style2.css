@@ -62,7 +62,7 @@ p {
 }
 
 .header {
-  margin-top: 200px;
+  margin-top: 0px;
 }
 .header h3 {
   font-style: normal;
@@ -518,7 +518,7 @@ nav a.logo {
   }
   .header h3 {
     font-size: 18px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
   .header p {
     margin-top: 20px;
@@ -527,7 +527,7 @@ nav a.logo {
     font-weight: 400;
   }
   header {
-    margin-top: 20px;
+    margin-top: 0px;
     width: 100%;
     background: #212121;
   }
@@ -564,7 +564,7 @@ nav a.logo {
   .header {
     text-align: center;
     width: 90%;
-    margin: 40px auto 0px auto;
+    margin: 0px auto 0px auto;
   }
   .twoop ul {
     padding-inline-start: 0px;
@@ -882,4 +882,18 @@ button#hidme {
     display: grid;
 
  }
+
+ /* Icon Center*/
+ .lcol img {
+  width: 40px;
+  height: 40px;
+}
+ .lcol h1 {
+  font-size: 30px !important;
+  line-height: 40px;
+}
+
+header{
+  margin-top: 0px;
+}
 }
