@@ -133,7 +133,7 @@ export default function ContactHeader() {
           </li>
         </ul>
 
-        <div className="nav">
+        <div className="nav" style={{zIndex: 1}}>
           <a
             href="#menu"
             id="toggle"

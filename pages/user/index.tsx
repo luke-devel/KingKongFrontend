@@ -42,10 +42,10 @@ export default function User() {
         <>
           <Header />
           <div style={{ width: "100vw", height: "100vh" }}>
-            <div id="body" style={{textAlign: "center"}}>
-                <Space size="middle" style={{marginTop: "20vh"}}>
-                  <Spin size="large" />
-                </Space>
+            <div id="body" style={{ textAlign: "center" }}>
+              <Space size="middle" style={{ marginTop: "20vh" }}>
+                <Spin size="large" />
+              </Space>
             </div>
           </div>
           <Footer />
@@ -53,32 +53,31 @@ export default function User() {
       ) : (
         <div style={{ width: "100vw", height: "100vh" }}>
           <Header />
-          <div
-            id="body"
-            style={{
-              paddingTop: "5vh",
-              paddingBottom: "5vh",
-            }}
-          >
+          <div id="body" style={{}}>
             <Grid
               container
               spacing={5}
               style={{
                 minHeight: "100%",
-                margin:0
+                margin: 0,
               }}
             >
-              <div className="row" style={{ display: "block" }}>
-                <div className="headtb">
-                  <a href="" className="heada">
+              <div className="row" style={{ display: "block" , margin: 0}}>
+                <div
+                  className="headtb"
+                  style={{ margin: 0}}
+                >
+                  <a href="" className="heada" style={{textDecoration: "underline" }}>
                     My Sites
                   </a>
                   <Link href="/user/addsite">
-                    <a className="headaa">Add site</a>
+                    <a className="headaa" style={{ zIndex: 0, fontSize: 20, minWidth: 150, maxWidth: 160, marginRight: 20}}>
+                      Add site
+                    </a>
                   </Link>
                 </div>
-                <div className="">
-                  <table>
+                <div className="" >
+                  <table >
                     <thead>
                       <tr>
                         <th>
@@ -100,9 +99,13 @@ export default function User() {
                     </tbody>
                   </table>
                   <div className="row" style={{ display: "block" }}>
-                    <div className="headtb2">
-                      <a href="#" className="heada">
-                        My backups
+                    <div className="headtb2" style={{ marginBottom: 0 }}>
+                      <a
+                        href="#"
+                        className="heada"
+                        style={{ textDecoration: "underline" }}
+                      >
+                        My Backups
                       </a>
                     </div>
                     <table>
@@ -163,7 +166,7 @@ export default function User() {
 
                 <div className="row" style={{ display: "block" }}>
                   <div className="headtb2">
-                    <a href="#" className="heada">
+                    <a href="#" className="heada" style={{textDecoration: "underline" }}>
                       My Subscriptions
                     </a>
                   </div>
