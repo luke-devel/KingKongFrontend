@@ -27,7 +27,7 @@
     "next-images": "^1.6.0",
     "node-fetch": ">=2.6.1",
     "object-path": ">=0.11.5",
-    "react": "16.13.1",
+    "react": "^17.0.1",
     "react-device-detect": "^1.14.0",
     "react-dom": "16.13.1",
     "stripe": "^8.114.0",

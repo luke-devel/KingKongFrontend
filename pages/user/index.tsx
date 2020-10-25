@@ -16,7 +16,7 @@ export default function User() {
     // Update the document title using the browser API
     checkAuth();
   }, []);
- 
+
   const checkAuth = async () => {
     try {
       const resData = await Axios(`/api/checkauth`, {
@@ -65,6 +65,7 @@ export default function User() {
               spacing={5}
               style={{
                 minHeight: "100%",
+                margin:0
               }}
             >
               <div className="row" style={{ display: "block" }}>
