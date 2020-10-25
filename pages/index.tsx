@@ -47,11 +47,11 @@ export default function Home() {
         }}
       >
         <Header />
-        <div className="header" style={{ marginTop: "5vh" }}>
-          <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>
+        <div className="header" style={{ marginTop: "5vh", WebkitTextSizeAdjust: "none" }}>
+          <h1 style={{ fontSize: "calc((.21em + 2vmin) + (.21em + 2vmax))", WebkitTextSizeAdjust: "none"}}>
             One platform to secure all your websites.
           </h1>
-          <h3 style={{ fontSize: "calc((.13em + 2vmin) + (.13em + 2vmax))" }}>Backup & Restore in ONE CLICK.</h3>
+          <h3 style={{ fontSize: "calc((.11em + 2vmin) + (.11em + 2vmax))", WebkitTextSizeAdjust: "none" }}>Backup & Restore in ONE CLICK.</h3>
           <p style={{ fontSize: "0.8vw" }}>
             30,000 websites are hacked every day. Over 10 thousand sites are
             lost due to broken Backup files.
