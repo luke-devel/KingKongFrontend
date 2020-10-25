@@ -5,7 +5,9 @@ import Cookie from "js-cookie";
 import { loadStripe } from "@stripe/stripe-js";
 import Router from "next/router";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY ?? '');
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY ?? ""
+);
 
 export default function CheckoutLanding() {
   const [planChoice, setPlanChoice] = useState(Cookie.get("planChoice"));
@@ -73,7 +75,8 @@ export default function CheckoutLanding() {
         lineItems: [
           { price: process.env.NEXT_PUBLIC_PRICE_ID_MONTHLY, quantity: 1 },
         ],
-        mode: "subscription",
+        mode:
+          process.env.NODE_ENV === "development" ? "payment" : "subscription",
         successUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/checkout/pending?session_id={CHECKOUT_SESSION_ID}`,
         cancelUrl: `${process.env.NEXT_PUBLIC_PUB_HOST_NAME}/pricing`,
       });
