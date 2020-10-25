@@ -11,7 +11,7 @@ import YearlyCard from "../components/YearlyCard";
 import SixMonthCard from "../components/SixMonthCard";
 import MonthlyCard from "../components/MonthlyCard";
 
-export default function Pricing2() {
+export default function Pricing() {
   const [spacing, setSpacing] = React.useState<GridSpacing>(10);
   const [state, setstate] = useState("");
   const [auth, setAuth] = useState(false);

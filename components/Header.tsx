@@ -49,6 +49,7 @@ const logOut = () => {
 export default function UserHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
   const [auth, setAuth] = useState(false);
+  const [zIndexMenu, setzIndexMenu] = useState(0);
 
   useEffect(() => {
     // Update the document title using the browser API
@@ -75,6 +76,7 @@ export default function UserHeader() {
 
   const toggleMenu = () => {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
+    zIndexMenu === 0 ? setzIndexMenu(1) : setzIndexMenu(0);
   };
 
   return (
@@ -129,7 +131,7 @@ export default function UserHeader() {
           </li>
         </ul>
 
-        <div className="nav" style={{ zIndex: 1 }}>
+        <div className="nav" style={{ zIndex: zIndexMenu }}>
           <a
             href="#menu"
             id="toggle"
