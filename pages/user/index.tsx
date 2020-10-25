@@ -24,12 +24,16 @@ export default function User() {
         headers: {
           Accept: "application/json",
         },
+        data: {
+          checkMember: "true",
+        },
       });
-      if (resData.data.message === "Authenticated") {
+      if (resData.data.message === "Authenticated Paid Member") {
         setAuth(true);
       } else {
-        console.log("No Auth");
-        Router.push("/");
+        console.log("Not a paid member.");
+        alert("You are not a paid member. Please subscirbe first.")
+        Router.push("/pricing");
       }
     } catch (error) {
       console.log("err in auth process");
@@ -62,22 +66,32 @@ export default function User() {
                 margin: 0,
               }}
             >
-              <div className="row" style={{ display: "block" , margin: 0}}>
-                <div
-                  className="headtb"
-                  style={{ margin: 0}}
-                >
-                  <a href="" className="heada" style={{textDecoration: "underline" }}>
+              <div className="row" style={{ display: "block", margin: 0 }}>
+                <div className="headtb" style={{ margin: 0 }}>
+                  <a
+                    href=""
+                    className="heada"
+                    style={{ textDecoration: "underline" }}
+                  >
                     My Sites
                   </a>
                   <Link href="/user/addsite">
-                    <a className="headaa" style={{ zIndex: 0, fontSize: 20, minWidth: 150, maxWidth: 160, marginRight: 20}}>
+                    <a
+                      className="headaa"
+                      style={{
+                        zIndex: 0,
+                        fontSize: 20,
+                        minWidth: 150,
+                        maxWidth: 160,
+                        marginRight: 20,
+                      }}
+                    >
                       Add site
                     </a>
                   </Link>
                 </div>
-                <div className="" >
-                  <table >
+                <div className="">
+                  <table>
                     <thead>
                       <tr>
                         <th>
@@ -166,7 +180,11 @@ export default function User() {
 
                 <div className="row" style={{ display: "block" }}>
                   <div className="headtb2">
-                    <a href="#" className="heada" style={{textDecoration: "underline" }}>
+                    <a
+                      href="#"
+                      className="heada"
+                      style={{ textDecoration: "underline" }}
+                    >
                       My Subscriptions
                     </a>
                   </div>

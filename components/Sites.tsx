@@ -18,6 +18,7 @@ export default function Sites() {
         },
       });
       const parsedData = JSON.parse(data.data);
+      console.log(data.data);
       setDisplayData(
         parsedData.map(({ serverdescription, serveraddress }, index) => {
           return (
@@ -31,7 +32,7 @@ export default function Sites() {
         })
       );
     } catch (error) {
-      console.log("the err", error);
+      console.log("Your site list is empty");
     }
   };
 

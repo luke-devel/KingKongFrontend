@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import Axios from "axios";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(req.body);
   if (!req.cookies.usertoken) {
     return res.json({ message: "Opps! An error has occured." });
   } else {
@@ -20,25 +21,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       if (authRes && authRes.data.message === "Authenticated") {
         if (req.body.checkMember === "true") {
           // user page, check for member status
-          const checkPaidRes = await Axios(
-            `${process.env.REQ_URL}/api/checkpaiduser`,
-            {
-              method: "POST",
-              headers: {
-                Accept: "application/json",
-              },
-              data: {
-                userToken: req.cookies.usertoken,
-              },
-            }
-          );
-          if (checkPaidRes.data.message === "Authenticated Paid Member") {
-            return res.json({ message: "Authenticated Paid Member" });
-          } else {
-            return res.json({ message: "Opps! Something went wrong." });
-          }
+          const checkPaidRes = await Axios(`${process.env.REQ_URL}/api/checkpaiduser`, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+            },
+            data: {
+              userToken: req.cookies.usertoken,
+            },
+          });
+          console.log('checkPaidRes');
+          return res.json({ message: "Authenticated Here" });
         } else {
-          // Authed, but not paid user
+          // not user page
           return res.json({ message: "Authenticated" });
         }
       } else {
@@ -47,8 +42,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       if (req.body.checkMember === "true") {
       }
     } catch (error) {
-      console.log("Error in checkauth api route: ", error);
-      return res.json({ message: "Opps! Something went wrong." });
+      console.log('Error in checkauth api route: ', error);
+      
     }
   }
 };
