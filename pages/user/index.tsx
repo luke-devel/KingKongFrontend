@@ -5,8 +5,8 @@ import Header from "../../components/UserHeader";
 import Footer from "../../components/Footer";
 import Grid, { GridSpacing } from "@material-ui/core/Grid";
 import Sites from "../../components/Sites";
+import BackupSites from "../../components/BackupSites";
 import Link from "next/link";
-import Box from "@material-ui/core/Box";
 import Router from "next/router";
 
 export default function User() {
@@ -146,33 +146,7 @@ export default function User() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <a href="#">To Do</a>
-                          </td>
-                          <td>
-                            <a href="www.mytshirts.com">To Do</a>
-                          </td>
-                          <td>
-                            <a href="#">To Do</a>
-                          </td>
-                          <td>
-                            <a href="#">9/7/2010</a>
-                          </td>
-                          <td className="imgtd">
-                            <a href="#">
-                              <img
-                                className="tbimg"
-                                src="img/restore (1).png"
-                              />
-                            </a>
-                          </td>
-                          <td className="imgtd">
-                            <a href="#">
-                              <img className="tbimg" src="img/remove 1.png" />
-                            </a>
-                          </td>
-                        </tr>
+                       <BackupSites/>
                       </tbody>
                     </table>
                   </div>
@@ -181,14 +155,22 @@ export default function User() {
                 <div className="row" style={{ display: "block" }}>
                   <div className="headtb2">
                     <a
-                      href="#"
                       className="heada"
                       style={{ textDecoration: "underline" }}
                     >
-                      My Subscriptions
+                      My Subscriptions:
+                    </a>
+                   
+                  </div>
+                  <div className="headtb2">
+                  <a
+                      className="heada"
+                     
+                    >
+                      Active.
                     </a>
                   </div>
-                  <table className="halftb">
+                  {/* <table className="halftb">
                     <thead>
                       <tr>
                         <th>
@@ -215,7 +197,7 @@ export default function User() {
                         </td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table> */}
                 </div>
 
                 <div
