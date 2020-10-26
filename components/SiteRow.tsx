@@ -1,4 +1,5 @@
 import Axios from "axios";
+import Router from "next/router";
 
 export default function SiteRow({ count, siteName, siteLink, serverID }) {
   const handleBackup = async (serverID, ftpListCount) => {
@@ -10,7 +11,11 @@ export default function SiteRow({ count, siteName, siteLink, serverID }) {
         ftpListCount: ftpListCount,
       },
     });
-    console.log('RES: ', addBackupRes);
+    if (addBackupRes) {
+      Router.reload();
+    } else {
+      alert("Error. Please try again or contact support.");
+    }
   };
 
   return (
