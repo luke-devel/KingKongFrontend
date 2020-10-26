@@ -16,6 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         userToken: req.cookies.usertoken,
       },
     });
+    console.log('addPaidUserRes', addPaidUserRes);
     if (addPaidUserRes && addPaidUserRes.data.message === "Success") {
       return res.json({ message: "Success" });
     } else {
