@@ -56,6 +56,13 @@ export default function UserHeader() {
     checkAuth();
   }, []);
 
+  const logOut = () => {
+    // set loggedIn cookie to false, and logging user out, sending them back to index
+    console.log("Logging user out.");
+    Cookie.remove("usertoken");
+    Router.push("/");
+  };
+  
   const checkAuth = async () => {
     try {
       const resData = await Axios(`/api/checkauth`, {

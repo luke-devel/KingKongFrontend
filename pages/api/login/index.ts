@@ -10,7 +10,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
   switch (req.method) {
     case "POST":
-      console.log("we posted");
       try {
         Axios(`${process.env.REQ_URL}/api/login`, {
           method: "POST",
@@ -20,7 +19,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           },
         })
           .then((response) => {
-            console.log(response.data);
             if(response.data.authToken){
               res.json({ authToken: response.data.authToken });
             }
@@ -29,7 +27,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
             }
           })
           .catch((err) => {
-            console.log("err");
+            console.log("err in /api/login: ", err);
             return res.json({ message: "Opps! Something went wrong." });
           });
       } catch (error) {

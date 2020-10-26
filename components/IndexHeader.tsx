@@ -42,7 +42,7 @@ const StyledButton = withStyles({
 const logOut = () => {
   // set loggedIn cookie to false, and logging user out, sending them back to index
   Cookie.remove("usertoken");
-  Router.reload();
+  Router.push('/logout');
 };
 
 export default function IndexHeader() {
