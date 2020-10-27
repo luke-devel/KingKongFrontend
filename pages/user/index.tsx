@@ -11,7 +11,8 @@ import Router from "next/router";
 
 export default function User() {
   const [auth, setAuth] = useState(false);
-
+  const [menuStatus, setMenuStatus] = useState(1);
+  
   useEffect(() => {
     // Update the document title using the browser API
     checkAuth();
@@ -66,12 +67,12 @@ export default function User() {
                 margin: 0,
               }}
             >
-              <div className="row" style={{ display: "block", margin: 0 }}>
+              <div className="row" style={{ display: "block"}}>
                 <div className="headtb" style={{ margin: 0 }}>
                   <a
                     href=""
                     className="heada"
-                    style={{ textDecoration: "underline" }}
+                    style={{ textDecoration: "underline", marginLeft: "2vw" }}
                   >
                     My Sites
                   </a>
@@ -79,7 +80,7 @@ export default function User() {
                     <a
                       className="headaa"
                       style={{
-                        zIndex: 0,
+                        zIndex: menuStatus,
                         fontSize: 20,
                         minWidth: 150,
                         maxWidth: 160,
@@ -205,11 +206,12 @@ export default function User() {
                   style={{
                     display: "block",
                     backgroundImage: `url('img/Union2.png')`,
-                    paddingTop: 110,
+                    backgroundPosition: 'center',
+                    paddingTop: 80,
                     paddingBottom: 0,
                   }}
                 >
-                  <h3>Need to change/remove subscription?</h3>
+                  <h3 style={{fontSize: 'calc(1.5vh + 2vw)', paddingBottom: 0}}>Need to change/remove subscription?</h3>
 
                   <div className="secbtn2">
                     <button>Request a change</button>
