@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import Axios from "axios";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log(req.cookies);
   try {
     const backendRes = await Axios(`${process.env.REQ_URL}/api/contact`, {
       method: "PUT",
@@ -10,7 +9,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         Accept: "application/json",
       },
       data: {
-        userToken: req.cookies.usertoken,
         fullname: req.body.fullName,
         email: req.body.email,
         message: req.body.message,
