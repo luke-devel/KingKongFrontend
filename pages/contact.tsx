@@ -180,7 +180,7 @@ export default function AddSite() {
         <DialogActions style={{ justifyContent: "center" }}>
           <StyledButton
             onClick={() => Router.reload()}
-            style={{ marginBottom: "2vh", fontSize: "6vw" }}
+            style={{ marginBottom: "2vh", fontSize: "calc(1.5vh + 2vh)" }}
           >
             Close
           </StyledButton>
