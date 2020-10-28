@@ -2,20 +2,29 @@ import { NextApiRequest, NextApiResponse } from "next";
 import Axios from "axios";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { id } = req.query;
-  console.log('yeah we got i t', id);
-  // if (!req.dat.id || !req.headers.email) {
-  //   res.status(405).json("no headers");
-  // }
-    res.status(253).json("hi");
-
-  const backendRes = await Axios(`${process.env.REQ_URL}/api/query/${id}`, {
-    method: "GET",
-    headers:{
-      Accept: "application/json"
+  console.log(req.cookies);
+  try {
+    const backendRes = await Axios(`${process.env.REQ_URL}/api/contact`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+      },
+      data: {
+        userToken: req.cookies.usertoken,
+        fullname: req.body.fullName,
+        email: req.body.email,
+        message: req.body.message,
+      },
+    });
+    console.log("backendRes", backendRes);
+    if (backendRes && backendRes.data.message === "Success") {
+      // success in contact form db row
+      res.json({ message: "Success" });
+    } else {
+      // err in contact form db row
+      res.json({ message: "Opps! An error has occured." });
     }
-  });
-  console.log(backendRes.status);
-
-  backendRes.status === 253 && res.status(253).json(JSON.parse(backendRes.data));
+  } catch (error) {
+    console.log("the err is here ");
+  }
 };
