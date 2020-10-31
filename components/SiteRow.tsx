@@ -19,7 +19,7 @@ export default function SiteRow({ count, siteName, siteLink, serverID }) {
   };
 
   return (
-    <tr>
+    <tr> 
       <td>
         <a>{siteName}</a>
       </td>
@@ -33,7 +33,7 @@ export default function SiteRow({ count, siteName, siteLink, serverID }) {
           onClick={() => handleBackup(serverID, count)}
         >
           <img
-            style={{ cursor: "pointer", position: "absolute", zIndex: 1 }}
+            style={{ cursor: "pointer",  zIndex: 1 }}
             className="tbimg"
             src="/img/cloud-computing.png"
           />
@@ -43,7 +43,7 @@ export default function SiteRow({ count, siteName, siteLink, serverID }) {
         <a id={serverID} style={{ margin: 0 }}>
           <img
             onClick={() => console.log(serverID)}
-            style={{ cursor: "pointer", position: "absolute", zIndex: 1 }}
+            style={{ cursor: "pointer", zIndex: 1 }}
             className="tbimg"
             src="/img/remove 1.png"
           />

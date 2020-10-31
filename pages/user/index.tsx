@@ -91,8 +91,8 @@ export default function User() {
                     </a>
                   </Link>
                 </div>
-                <div className="">
-                  <table>
+                <div >
+                  <table  style={{marginLeft: '2.5vw'}}>
                     <thead>
                       <tr>
                         <th>
@@ -134,6 +134,9 @@ export default function User() {
                           </th>
                           <th>
                             <a href="#">ID</a>
+                          </th>
+                          <th>
+                            <a href="#">Status</a>
                           </th>
                           <th>
                             <a href="#">Last Backup</a>
