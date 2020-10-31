@@ -288,8 +288,7 @@ img.mac{
 .priced{
     font-weight: 500;
     font-size: 67px;
-    line-height: 101px;
-	margin: 10px auto 30px auto;
+    line-height: 10vh;
 	
 }
 .priced span{	
