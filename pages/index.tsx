@@ -16,8 +16,8 @@ const bottomStyle = {
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "contain",
-  maxHeight: '40vh',
-  marginBottom: '10vh',
+  maxHeight: '50vh',
+  marginBottom: "calc((.2em + 2.2vmin) + (.2em + 2.2vmax))",
   flexDirection: "column" as "column",
   textAlign: "center" as "center",
   lineHeight: 0,
@@ -281,7 +281,7 @@ export default function Home() {
         <div className="rowbottom" style={bottomStyle}>
         <h3 style={{ fontSize: "calc((.2em + 1.3vmin) + (.2em + 1.3vmax))" }}>Simple, Transparent Pricing.</h3>
 
-          <h1 style={{  fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))", marginTop: 'calc(7vh + 2vw)' }}>Any site, Any size, ONE PRICE</h1>
+          <h1 style={{ fontSize: "calc((.2em + 1.8vmin) + (.2em + 1.8vmax))", marginTop: 'calc(7vh + 2vw)' }}>Any site, Any size, ONE PRICE</h1>
 
           <p style={{ fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))", marginTop: 'calc(7vh + 2vw)'}}>Unlimited WebSites & Usage</p>
 
@@ -291,7 +291,7 @@ export default function Home() {
           <div className="secbtn2" style={{marginTop: '1vh'}}>
             {!auth ? (
               <Link href="/pricing" >
-                <button style={{ cursor: "pointer", marginTop: 0 , marginBottom: 100}}>Secure my website</button>
+                <button style={{ cursor: "pointer", marginTop: 0 }}>Secure my website</button>
               </Link>
             ) : (
               <Link href="/user">

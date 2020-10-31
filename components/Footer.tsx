@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-export default function index() {
+export default function Footer() {
   return (
-    <footer style={{ bottom: 0 }}>
+    <footer style={{ bottom: 0, maxHeight: 500 }}>
       <div className="logo">
         <a href="/" className="logo">
           <img src="/img/logo.png" />
