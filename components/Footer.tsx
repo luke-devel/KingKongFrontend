@@ -77,8 +77,8 @@ export default function index() {
             </a>
           </div>
 
-          <div className="footmenu" style={{maxHeight: "35vh"}}>
-            <ul style={{height: "30vh"}}>
+          <div className="footmenu" style={{marginTop: "-30vh"}}>
+            <ul >
               <Link href="/pricing">
                 <li>
                   <a style={{ cursor: "pointer" }}>Pricing </a>

@@ -291,7 +291,7 @@ export default function Home() {
             style={{ marginTop: 10, marginBottom: 10 }}
           >
             <h1
-              style={{ fontSize: "calc((.2em + 1.5vmin) + (.2em + 1.5vmax))" , marginBottom: 0}}
+              style={{ fontSize: "calc((.2em + 1.2vmin) + (.2em + 1.2vmax))" , marginBottom: 0}}
             >
               Military Grade Protection
             </h1>
@@ -310,7 +310,7 @@ export default function Home() {
                     style={{
                       color: "#ffffff",
                       marginTop: 0,
-                      fontSize: "calc((.2em + .8vmin) + (.2em + .8vmax))",
+                      fontSize: "calc((.2em + .6vmin) + (.2em + .6vmax))",
                     }}
                   >
                     Your data is safe.
@@ -403,15 +403,16 @@ export default function Home() {
           <div className="row" style={bottomStyle}>
             <h3
               style={{
-                marginBottom: 100
+                marginBottom: -50,
               }}
             >
               Simple, Transparent Pricing.
             </h3>
             <h1
               style={{
-                marginTop: 50,
-                fontSize: "calc((.13em + 1.5vmin) + (.13em + 1.5vmax))",
+                marginTop: '20vh',
+                paddingTop: 10,
+                fontSize: "calc((.13em + 1.2vmin) + (.13em + 1.2vmax))",
               }}
             >
               Any site, Any size, ONE PRICE
@@ -420,13 +421,14 @@ export default function Home() {
             <p
               style={{
                 marginBottom: 0,
+                marginTop: '8vh',
                 fontSize: "calc((.13em + 1.4vmin) + (.13em + 1.4vmax))",
               }}
             >
               Unlimited WebSites & Usage
             </p>
 
-            <div className="priced" >
+            <div className="priced" style={{marginTop: 10}}>
               <sup>$</sup>0.99 / <span>day</span>
             </div>
             <div className="secbtn2" style={{ marginTop: 0, marginBottom: '3vh'}}>
