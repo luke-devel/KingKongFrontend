@@ -16,9 +16,10 @@ const bottomStyle = {
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "contain",
+  maxHeight: '40vh',
+  marginBottom: '10vh',
   flexDirection: "column" as "column",
   textAlign: "center" as "center",
-  paddingTop: "280px",
   lineHeight: 0,
 };
 
@@ -270,30 +271,31 @@ export default function Home() {
             <h1>
               Dedicated Personal <br /> Relationship Manager
             </h1>
-            <p>
+            <p style={{marginBottom: "5vh"}}>
               Lost a file? Errors in your Site? Your help is one chat away.
               Quickly connect to your Manager on Phone.
             </p>
           </div>
         </div>
 
-        <div className="row" style={bottomStyle}>
-          <h3 style={{ fontSize: "2.8em" }}>Simple, Transparent Pricing.</h3>
-          <h1 style={{ fontSize: "4em" }}>Any site, Any size, ONE PRICE</h1>
+        <div className="rowbottom" style={bottomStyle}>
+        <h3 style={{ fontSize: "calc((.2em + 1.3vmin) + (.2em + 1.3vmax))" }}>Simple, Transparent Pricing.</h3>
 
-          <p>Unlimited WebSites & Usage</p>
+          <h1 style={{  fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))", marginTop: 'calc(7vh + 2vw)' }}>Any site, Any size, ONE PRICE</h1>
 
-          <div className="priced">
+          <p style={{ fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))", marginTop: 'calc(7vh + 2vw)'}}>Unlimited WebSites & Usage</p>
+
+          <div className="priced" style={{marginTop: 0, marginBottom: 0}}>
             <sup>$</sup>0.99 / <span>day</span>
           </div>
-          <div className="secbtn2">
+          <div className="secbtn2" style={{marginTop: '1vh'}}>
             {!auth ? (
-              <Link href="/pricing">
-                <button style={{ cursor: "pointer" }}>Secure my website</button>
+              <Link href="/pricing" >
+                <button style={{ cursor: "pointer", marginTop: 0 , marginBottom: 100}}>Secure my website</button>
               </Link>
             ) : (
               <Link href="/user">
-                <button style={{ cursor: "pointer" }}>Secure my website</button>
+                <button style={{ cursor: "pointer", marginTop: 0 }}>Secure my website</button>
               </Link>
             )}
           </div>
