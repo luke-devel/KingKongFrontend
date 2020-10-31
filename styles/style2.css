@@ -466,7 +466,7 @@ li a.userp {
 }
 
 .footmenu li a #showmob {
-  display: none !important;
+  display: none ;
 }
 nav a.logo {
   margin: 0;
@@ -531,7 +531,7 @@ nav a.logo {
   }
   a.logbtn {
     width: 100px;
-    display: flex !important;
+    display: flex ;
     font-size: 14px;
     justify-content: center;
     align-items: center;
@@ -540,7 +540,7 @@ nav a.logo {
     text-align: center;
   }
   .nav {
-    display: flex !important;
+    display: flex ;
     flex-direction: row-reverse;
     position: absolute;
     height: 100vh;
@@ -557,7 +557,7 @@ nav a.logo {
   }
   ul.navul,
   .lastone {
-    display: none !important;
+    display: none ;
   }
   .header {
     text-align: center;
@@ -709,12 +709,12 @@ nav a.logo {
   }
   .fq h2 {
     font-weight: 500;
-    font-size: 20px !important;
-    line-height: 30px !important;
+    font-size: 20px ;
+    line-height: 30px ;
   }
   #hidme,
   #hh h3 {
-    display: none !important;
+    display: none ;
   }
   #showme {
     margin: 10px auto;
@@ -742,7 +742,7 @@ nav a.logo {
   }
   #hh h4 {
     padding: 30px 0px 0px 0px;
-    display: block !important;
+    display: block ;
     font-size: 22px;
     font-weight: 500;
   }
@@ -841,16 +841,16 @@ button#hidme {
   }
   .row h3 {
     line-height: 0px;
-    font-size: small !important;
+    font-size: small ;
   }
   .row h1 {
     line-height: 0px;
-    font-size: 40px !important;
+    font-size: 40px ;
     line-height: 40px;
   }
 
   .nav {
-    display: flex !important;
+    display: flex ;
     flex-direction: row-reverse;
     position: absolute;
     height: 100vh;
@@ -887,7 +887,7 @@ button#hidme {
   height: 40px;
 }
  .lcol h1 {
-  font-size: 30px !important;
+  font-size: 30px ;
   line-height: 40px;
 }
 

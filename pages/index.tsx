@@ -44,6 +44,7 @@ export default function Home() {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top right",
         backgroundSize: "contain",
+        minWidth: '100vw'
       }}
     >
       <Header />
@@ -51,7 +52,7 @@ export default function Home() {
         <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>
           One platform to secure all your websites.
         </h1>
-        <h3 style={{ fontSize: "calc((.13em + 2vmin) + (.13em + 2vmax))" }}>Backup & Restore in ONE CLICK.</h3>
+        <h3 style={{ fontSize: "calc((.13em + 1.4vmin) + (.13em + 1.3vmax))" }}>Backup & Restore in ONE CLICK.</h3>
         <p >
           30,000 websites are hacked every day. Over 10 thousand sites are
           lost due to broken Backup files.
