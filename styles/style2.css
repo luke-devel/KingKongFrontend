@@ -117,6 +117,9 @@ color: #FFFFFF;
 	padding-right: 40px;
 	align-content: center;
 }
+@media (max-width: 500px) {
+    .twoop li { width: 100%; } /* On small screens, show one logo per row */
+}
 .twoopc li{
 	justify-content: center;
 	display: flex;

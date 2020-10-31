@@ -36,9 +36,9 @@ export default function Footer() {
       </div>
 
       <div className="footabt">
-        <Link href="tel:123-456-7890">
+        <Link href="tel:+33780774300">
 
-        <p>+33-78-774300</p>
+        <p>+33 780774300</p>
         </Link>
         <Link href="mailto:contact@kingkongbackups.com">
           <p style={{cursor: "pointer"}}>contact@kingkongbackups.com</p>

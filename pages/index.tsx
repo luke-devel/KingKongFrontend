@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import tawkTo from "tawkto-react";
 import Header from "../components/IndexHeader";
 import Footer from "../components/Footer";
+import { useMediaQuery } from "react-responsive";
 
 const colStyles = {
   backgroundImage: `url('img/Union1.png')`,
@@ -16,7 +17,7 @@ const bottomStyle = {
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "contain",
-  maxHeight: '50vh',
+  maxHeight: "50vh",
   marginBottom: "calc((.2em + 2.2vmin) + (.2em + 2.2vmax))",
   flexDirection: "column" as "column",
   textAlign: "center" as "center",
@@ -24,6 +25,9 @@ const bottomStyle = {
 };
 
 export default function Home() {
+  const isTabletOrMobileDevice = useMediaQuery({
+    query: "(max-device-width: 1224px)",
+  });
   const [auth, setAuth] = React.useState(() => {
     if (Cookie.get("userdata")) {
       return true;
@@ -64,16 +68,40 @@ export default function Home() {
           </p>
 
           <div className="twoop">
-            <ul>
-              <li>
-                <img src="img/tick.png" />{" "}
-                <p style={{ color: "#ffffff" }}>30-day risk free money back</p>
-              </li>{" "}
-              <li>
-                <img src="img/tick.png" />
-                <p style={{ color: "#ffffff" }}>Cancel anytime</p>
-              </li>
-            </ul>
+            {isTabletOrMobileDevice ? (
+              <>
+                <ul>
+                  <li style={{ width: "100vh" }}>
+                    <img src="img/tick.png" />{" "}
+                    <p style={{ color: "#ffffff" }}>
+                      30-day risk free money back
+                    </p>
+                  </li>
+                </ul>
+                <ul>
+
+                  <li style={{ width: "100vh", marginBottom: '2vh' }}>
+                    <img src="img/tick.png" />
+                    <p style={{ color: "#ffffff" }}>Cancel anytime</p>
+                  </li>{" "}
+                </ul>
+              </>
+            ) : (
+              <>
+                <ul>
+                  <li>
+                    <img src="img/tick.png" />{" "}
+                    <p style={{ color: "#ffffff" }}>
+                      30-day risk free money back
+                    </p>
+                  </li>
+                  <li>
+                    <img src="img/tick.png" />
+                    <p style={{ color: "#ffffff" }}>Cancel anytime</p>
+                  </li>
+                </ul>
+              </>
+            )}
           </div>
           <div className="secbtn">
             <Link href="/pricing">
@@ -211,9 +239,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="milsection" style={{marginTop: 10, marginBottom: 10}}>
-          <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>Military Grade Protection</h1>
-          <p style={{marginTop: "calc(.5vh + .5vw)"}}>
+        <div className="milsection" style={{ marginTop: 10, marginBottom: 10 }}>
+          <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>
+            Military Grade Protection
+          </h1>
+          <p style={{ marginTop: "calc(.5vh + .5vw)" }}>
             Our servers are securely based in
             <span style={{ color: "white" }}> Germany</span>, end to end
             encrypted.
@@ -224,7 +254,14 @@ export default function Home() {
             <ul>
               <li>
                 <img src="img/tick.png" />{" "}
-                <p style={{ color: "#ffffff", fontSize: "calc((.1em + 1.2vmin) + (.1em + 1.2vmax))", lineHeight: "10vh" , marginTop: 0}}>
+                <p
+                  style={{
+                    color: "#ffffff",
+                    fontSize: "calc((.1em + 1.2vmin) + (.1em + 1.2vmax))",
+                    lineHeight: "10vh",
+                    marginTop: 0,
+                  }}
+                >
                   Your data is safe.
                 </p>
               </li>
@@ -271,7 +308,7 @@ export default function Home() {
             <h1>
               Dedicated Personal <br /> Relationship Manager
             </h1>
-            <p style={{marginBottom: "5vh"}}>
+            <p style={{ marginBottom: "5vh" }}>
               Lost a file? Errors in your Site? Your help is one chat away.
               Quickly connect to your Manager on Phone.
             </p>
@@ -279,23 +316,43 @@ export default function Home() {
         </div>
 
         <div className="rowbottom" style={bottomStyle}>
-        <h3 style={{ fontSize: "calc((.2em + 1.3vmin) + (.2em + 1.3vmax))" }}>Simple, Transparent Pricing.</h3>
+          <h3 style={{ fontSize: "calc((.2em + 1.3vmin) + (.2em + 1.3vmax))" }}>
+            Simple, Transparent Pricing.
+          </h3>
 
-          <h1 style={{ fontSize: "calc((.2em + 1.8vmin) + (.2em + 1.8vmax))", marginTop: 'calc(7vh + 2vw)' }}>Any site, Any size, ONE PRICE</h1>
+          <h1
+            style={{
+              fontSize: "calc((.2em + 1.8vmin) + (.2em + 1.8vmax))",
+              marginTop: "calc(7vh + 2vw)",
+            }}
+          >
+            Any site, Any size, ONE PRICE
+          </h1>
 
-          <p style={{ fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))", marginTop: 'calc(7vh + 2vw)'}}>Unlimited WebSites & Usage</p>
+          <p
+            style={{
+              fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))",
+              marginTop: "calc(7vh + 2vw)",
+            }}
+          >
+            Unlimited WebSites & Usage
+          </p>
 
-          <div className="priced" style={{marginTop: 0, marginBottom: 0}}>
+          <div className="priced" style={{ marginTop: 0, marginBottom: 0 }}>
             <sup>$</sup>0.99 / <span>day</span>
           </div>
-          <div className="secbtn2" style={{marginTop: '1vh'}}>
+          <div className="secbtn2" style={{ marginTop: "1vh" }}>
             {!auth ? (
-              <Link href="/pricing" >
-                <button style={{ cursor: "pointer", marginTop: 0 }}>Secure my website</button>
+              <Link href="/pricing">
+                <button style={{ cursor: "pointer", marginTop: 0 }}>
+                  Secure my website
+                </button>
               </Link>
             ) : (
               <Link href="/user">
-                <button style={{ cursor: "pointer", marginTop: 0 }}>Secure my website</button>
+                <button style={{ cursor: "pointer", marginTop: 0 }}>
+                  Secure my website
+                </button>
               </Link>
             )}
           </div>
