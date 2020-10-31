@@ -2,7 +2,7 @@ import Link from "next/link";
 import Cookie from "js-cookie";
 import React, { useEffect } from "react";
 import tawkTo from "tawkto-react";
-import Header from "../components/Header";
+import Header from "../components/IndexHeader";
 import Footer from "../components/Footer";
 
 const colStyles = {

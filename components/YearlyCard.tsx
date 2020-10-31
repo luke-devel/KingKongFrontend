@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
-const StyledButton = withStyles({
+const StyledButtonYearly = withStyles({
   root: {
     // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     borderRadius: 5,
@@ -114,7 +114,7 @@ export default function YearlyCard() {
           >
             Secure Stripe Checkout
           </h3>
-          <StyledButton onClick={handleChoice}>Choose</StyledButton>
+          <StyledButtonYearly onClick={handleChoice}>Choose</StyledButtonYearly>
         </CardContent>
       </Card>
     </div>

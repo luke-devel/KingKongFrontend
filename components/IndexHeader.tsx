@@ -79,7 +79,7 @@ export default function IndexHeader() {
 
   return (
     <header style={{ margin: 0 }}>
-      <nav style={{ padding: "1em" }}>
+      <nav style={{ padding: 0}}> 
         <Link href="/">
           <img
             src="/img/logo.png"

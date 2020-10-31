@@ -62,7 +62,7 @@ export default function Header() {
     Cookie.remove("usertoken");
     Router.push("/");
   };
-  
+
   const checkAuth = async () => {
     try {
       const resData = await Axios(`/api/checkauth`, {
@@ -88,18 +88,18 @@ export default function Header() {
 
   return (
     <header style={{ margin: 0 }}>
-      <nav style={{ padding: "1em" }}>
-        <div >
-        <Link href="/">
-          <img
-            src="/img/logo.png"
-            height="70"
-            width="70"
-            style={{ cursor: "pointer", zIndex: 1 }}
-          />
-        </Link>
+      <nav style={{ padding: 0 }}>
+        <div>
+          <Link href="/">
+            <img
+              src="/img/logo.png"
+              height="70"
+              width="70"
+              style={{ cursor: "pointer", zIndex: 1 }}
+            />
+          </Link>
         </div>
-       
+
         <ul className="navul">
           <li>
             {!auth ? (

@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-const StyledButton = withStyles({
+const StyledButtonMonthly = withStyles({
   root: {
     borderRadius: 5,
     backgroundColor:
@@ -117,7 +117,7 @@ export default function MonthlyCard() {
             {" "}
             Secure Stripe Checkout
           </h3>
-          <StyledButton onClick={handleChoice}>Choose</StyledButton>
+          <StyledButtonMonthly onClick={handleChoice}>Choose</StyledButtonMonthly>
         </CardContent>
       </Card>
     </div>
