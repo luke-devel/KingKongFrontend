@@ -226,7 +226,7 @@ img.mac{
 .milsection h1{
     font-weight: 500;
     font-size: 48px;
-    line-height: 120px;
+    line-height: 10vh;
 	text-align: center;
 }
 .milsection p{
