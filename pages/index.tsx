@@ -212,7 +212,7 @@ export default function Home() {
 
         <div className="milsection" style={{marginTop: 10, marginBottom: 10}}>
           <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>Military Grade Protection</h1>
-          <p style={{marginTop: 0}}>
+          <p style={{marginTop: "calc(.5vh + .5vw)"}}>
             Our servers are securely based in
             <span style={{ color: "white" }}> Germany</span>, end to end
             encrypted.
@@ -223,7 +223,7 @@ export default function Home() {
             <ul>
               <li>
                 <img src="img/tick.png" />{" "}
-                <p style={{ color: "#ffffff", fontSize: "larger", marginTop: 0 }}>
+                <p style={{ color: "#ffffff", fontSize: "calc((.1em + 1.2vmin) + (.1em + 1.2vmax))", lineHeight: "10vh" , marginTop: 0}}>
                   Your data is safe.
                 </p>
               </li>
