@@ -23,7 +23,7 @@ export default function BackupSites() {
       
       let count = 0;
       setDisplayData(
-        parsedData.map(({ serverdescription, serveraddress }, index) => {
+        parsedData.map(({ serverdescription, serveraddress, backupStatus }, index) => {
           var tempCount = count;
           count++;
           return (
@@ -31,6 +31,7 @@ export default function BackupSites() {
               count={tempCount}
               backupName={serverdescription}
               backupAddress={serveraddress}
+              backupStatus={backupStatus}
               backupID={count}
               backupDate={moment().format('L')}
               key={index}
