@@ -44,20 +44,20 @@ export default function BackupSiteRow({
         <a>{backupDate}</a>
       </td>
       <td className="imgtd">
-        <a>
+        <a onClick={()=> console.log('restore')}>
           <img
             className="tbimg"
             src="img/restore (1).png"
-            style={{ cursor: "pointer", zIndex: 1 }}
+            style={{ cursor: "pointer", position: "absolute", zIndex: 1 }}
           />
         </a>
       </td>
       <td className="imgtd">
-        <a>
+      <a onClick={()=> console.log('removeBackup, ', backupID)}>
           <img
             className="tbimg"
             src="img/remove 1.png"
-            style={{ cursor: "pointer", zIndex: 1 }}
+            style={{ cursor: "pointer", position: "absolute", zIndex: 1 }}
           />
         </a>
       </td>

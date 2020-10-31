@@ -88,7 +88,12 @@ export default function ContactHeader() {
     <header style={{ margin: 0 }}>
       <nav style={{ padding: "1em" }}>
         <Link href="/">
-          <img src="/img/logo.png" height="95" width="90" />
+          <img
+            src="/img/logo.png"
+            height="70"
+            width="70"
+            style={{ cursor: "pointer", zIndex: 1 }}
+          />
         </Link>
         <ul className="navul">
           <li>
@@ -133,7 +138,7 @@ export default function ContactHeader() {
           </li>
         </ul>
 
-        <div className="nav" style={{zIndex: 1}}>
+        <div className="nav" style={{ zIndex: 1 }}>
           <a
             href="#menu"
             id="toggle"

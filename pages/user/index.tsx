@@ -12,7 +12,7 @@ import Router from "next/router";
 export default function User() {
   const [auth, setAuth] = useState(false);
   const [menuStatus, setMenuStatus] = useState(1);
-  
+
   useEffect(() => {
     // Update the document title using the browser API
     checkAuth();
@@ -33,7 +33,7 @@ export default function User() {
         setAuth(true);
       } else {
         console.log("Not a paid member.");
-        alert("You are not a paid member. Please subscirbe first.")
+        alert("You are not a paid member. Please subscirbe first.");
         Router.push("/pricing");
       }
     } catch (error) {
@@ -67,7 +67,7 @@ export default function User() {
                 margin: 0,
               }}
             >
-              <div className="row" style={{ display: "block"}}>
+              <div className="row" style={{ display: "block" }}>
                 <div className="headtb" style={{ margin: 0 }}>
                   <a
                     href=""
@@ -91,21 +91,21 @@ export default function User() {
                     </a>
                   </Link>
                 </div>
-                <div >
-                  <table  style={{marginLeft: '2.5vw'}}>
+                <div>
+                  <table style={{ marginLeft: "2.5vw" }}>
                     <thead>
                       <tr>
                         <th>
-                          <a href="#">Name</a>
+                          <a>Name</a>
                         </th>
                         <th>
-                          <a href="#">URL</a>
+                          <a>URL</a>
                         </th>
                         <th className="imgtd">
-                          <a href="#">Backup</a>
+                          <a>Backup</a>
                         </th>
                         <th className="imgtd">
-                          <a href="#">Remove</a>
+                          <a>Remove</a>
                         </th>
                       </tr>
                     </thead>
@@ -127,30 +127,30 @@ export default function User() {
                       <thead>
                         <tr>
                           <th>
-                            <a href="#">Name</a>
+                            <a>Name</a>
                           </th>
                           <th>
-                            <a href="#">URL</a>
+                            <a>URL</a>
                           </th>
                           <th>
-                            <a href="#">ID</a>
+                            <a>ID</a>
                           </th>
                           <th>
-                            <a href="#">Status</a>
+                            <a>Status</a>
                           </th>
                           <th>
-                            <a href="#">Last Backup</a>
+                            <a>Last Backup</a>
                           </th>
                           <th className="imgtd">
-                            <a href="#">Restore</a>
+                            <a>Restore</a>
                           </th>
                           <th className="imgtd">
-                            <a href="#">Remove</a>
+                            <a>Remove</a>
                           </th>
                         </tr>
                       </thead>
                       <tbody>
-                       <BackupSites/>
+                        <BackupSites />
                       </tbody>
                     </table>
                   </div>
@@ -164,15 +164,9 @@ export default function User() {
                     >
                       My Subscriptions:
                     </a>
-                   
                   </div>
                   <div className="headtb2">
-                  <a
-                      className="heada"
-                     
-                    >
-                      Active.
-                    </a>
+                    <a className="heada">Active.</a>
                   </div>
                   {/* <table className="halftb">
                     <thead>
@@ -209,12 +203,16 @@ export default function User() {
                   style={{
                     display: "block",
                     backgroundImage: `url('img/Union2.png')`,
-                    backgroundPosition: 'center',
+                    backgroundPosition: "center",
                     paddingTop: 80,
                     paddingBottom: 0,
                   }}
                 >
-                  <h3 style={{fontSize: 'calc(1.5vh + 2vw)', paddingBottom: 0}}>Need to change/remove subscription?</h3>
+                  <h3
+                    style={{ fontSize: "calc(1.5vh + 2vw)", paddingBottom: 0 }}
+                  >
+                    Need to change/remove subscription?
+                  </h3>
 
                   <div className="secbtn2">
                     <button>Request a change</button>

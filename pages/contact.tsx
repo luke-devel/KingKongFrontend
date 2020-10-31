@@ -3,7 +3,7 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>;
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 import { useRouter } from "next/router";
 import Axios from "axios";
-import Header from "../components/Header";
+import Header from "../components/ContactHeader";
 import Footer from "../components/Footer";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";

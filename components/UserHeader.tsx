@@ -88,13 +88,13 @@ export default function UserHeader() {
   };
   return (
     <header style={{ margin: 0 }}>
-      <nav style={{ padding: "1em" }}>
+      <nav >
         <Link href="/">
           <img
             src="/img/logo.png"
-            height="95"
-            width="90"
-            style={{ cursor: "pointer" }}
+            height="70"
+            width="70"
+            style={{ cursor: "pointer", zIndex: 1 }}
           />
         </Link>
         <ul className="navul">
