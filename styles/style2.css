@@ -101,6 +101,7 @@ footer {
 .footmenu {
   font-weight: 300;
   flex: 1;
+  max-height: 250px;
 }
 .footmenu li a {
   font-family: Roboto;

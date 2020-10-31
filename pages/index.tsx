@@ -281,7 +281,7 @@ export default function Home() {
         <div className="rowbottom" style={bottomStyle}>
         <h3 style={{ fontSize: "calc((.2em + 1.3vmin) + (.2em + 1.3vmax))" }}>Simple, Transparent Pricing.</h3>
 
-          <h1 style={{  fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))", marginTop: 'calc(7vh + 2vw)' }}>Any site, Any size, ONE PRICE</h1>
+          <h1 style={{ fontSize: "calc((.2em + 1.8vmin) + (.2em + 1.8vmax))", marginTop: 'calc(7vh + 2vw)' }}>Any site, Any size, ONE PRICE</h1>
 
           <p style={{ fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))", marginTop: 'calc(7vh + 2vw)'}}>Unlimited WebSites & Usage</p>
 
