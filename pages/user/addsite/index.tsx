@@ -236,7 +236,7 @@ export default function AddSite() {
               onChange={serverDescriptionChange}
               style={{ width: "40vh" }}
             />
-            <label>Server Address</label>
+            <label>Server IP or URL</label>
             <input
               type="email"
               name="address"

@@ -74,7 +74,7 @@ export default function User() {
                     className="heada"
                     style={{ textDecoration: "underline", marginLeft: "2vw" }}
                   >
-                    My Sites
+                    My Sites:
                   </a>
                   <Link href="/user/addsite">
                     <a
@@ -116,13 +116,17 @@ export default function User() {
                   <div className="row" style={{ display: "block" }}>
                     <div className="headtb2" style={{ marginBottom: 0 }}>
                       <a
-                        href="#"
                         className="heada"
                         style={{ textDecoration: "underline" }}
                       >
-                        My Backups
+                        My Backups:
                       </a>
                     </div>
+                    <p style={{ margin: 10, fontSize: '2vw', color: "white", textAlign: "left", paddingLeft: '5vw'}}>Status codes:</p>
+                    <p style={{ margin: 10,fontSize: '2vw', color: "white", textAlign: "left", paddingLeft: '5vw'}}>Yellow = Pending</p>
+                    <p style={{ margin: 10,fontSize: '2vw', color: "white", textAlign: "left", paddingLeft: '5vw'}}>Green = Backup Complete</p>
+                    <p style={{margin: 10, fontSize: '2vw', color: "white", textAlign: "left", paddingLeft: '5vw'}}>Red = Error, try adding your site again</p>
+
                     <table>
                       <thead>
                         <tr>

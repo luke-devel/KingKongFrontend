@@ -38,6 +38,9 @@ export default function BackupSiteRow({
           {backupStatus === "active" && (
             <FiberManualRecordIcon style={{ color: "green" }} />
           )}
+          {backupStatus === "fail" && (
+            <FiberManualRecordIcon style={{ color: "red" }} />
+          )}
         </a>
       </th>
       <td>
