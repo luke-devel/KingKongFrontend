@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Grid, { GridSpacing } from "@material-ui/core/Grid";
-import Router from "next/router";
-import Cookie from "js-cookie";
 import Header from "../components/PricingHeader";
 import Footer from "../components/Footer";
 import YearlyCard from "../components/YearlyCard";
@@ -39,32 +35,6 @@ export default function Pricing() {
       console.log("err in auth process");
     }
   };
-
-  const StyledButton = withStyles({
-    root: {
-      // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      borderRadius: 5,
-      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
-      border: "1px solid #ffffff",
-      fontSize: "calc(2vw + 1.5vh)",
-      color: "white",
-      padding: "0 30px",
-      fontWeight: "bold",
-      // position: "absolute",
-      bottom: 0,
-      "&:hover": {
-        // fontStyle: "italic",
-        fontWeight: "bold",
-        backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
-        color: "#black",
-        transform: "scale(1.05)",
-        transitionDuration: ".5s",
-      },
-    },
-    label: {
-      textTransform: "capitalize",
-    },
-  })(Button);
 
   return (
     <div>

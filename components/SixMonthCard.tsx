@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-const StyledButton = withStyles({
+const StyledButtonSixMonth = withStyles({
   root: {
     // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     borderRadius: 5,
@@ -119,7 +119,7 @@ export default function SixMonthCard() {
             {" "}
             Secure Stripe Checkout
           </h3>
-          <StyledButton onClick={handleChoice}>Choose</StyledButton>
+          <StyledButtonSixMonth onClick={handleChoice}>Choose</StyledButtonSixMonth>
         </CardContent>
       </Card>
     </div>

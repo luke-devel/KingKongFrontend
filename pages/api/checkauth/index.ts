@@ -37,6 +37,25 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           } else {
             return res.json({ message: "Opps! Something went wrong." });
           }
+        } else if (req.body.checkAdmin === "true") {
+          // admin page, check for admin status
+          const checkPaidRes = await Axios(
+            `${process.env.REQ_URL}/api/checkadmin`,
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+              },
+              data: {
+                userToken: req.cookies.usertoken,
+              },
+            }
+          );
+          if (checkPaidRes.data.message === "Authenticated") {
+            return res.json({ message: "Authenticated" });
+          } else {
+            return res.json({ message: "Opps! Something went wrong." });
+          }
         } else {
           // Authed, but not paid user
           return res.json({ message: "Authenticated" });

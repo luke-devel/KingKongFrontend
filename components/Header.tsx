@@ -46,7 +46,7 @@ const logOut = () => {
   Router.push("/");
 };
 
-export default function UserHeader() {
+export default function Header() {
   const [menuToggle, setMenuToggle] = useState("off");
   const [auth, setAuth] = useState(false);
   const [zIndexMenu, setzIndexMenu] = useState(0);
@@ -62,7 +62,7 @@ export default function UserHeader() {
     Cookie.remove("usertoken");
     Router.push("/");
   };
-  
+
   const checkAuth = async () => {
     try {
       const resData = await Axios(`/api/checkauth`, {
@@ -88,15 +88,18 @@ export default function UserHeader() {
 
   return (
     <header style={{ margin: 0 }}>
-      <nav style={{ padding: "1em" }}>
-        <Link href="/">
-          <img
-            src="/img/logo.png"
-            height="95"
-            width="90"
-            style={{ cursor: "pointer" }}
-          />
-        </Link>
+      <nav style={{ padding: 0 }}>
+        <div>
+          <Link href="/">
+            <img
+              src="/img/logo.png"
+              height="70"
+              width="70"
+              style={{ cursor: "pointer", zIndex: 1 }}
+            />
+          </Link>
+        </div>
+
         <ul className="navul">
           <li>
             {!auth ? (

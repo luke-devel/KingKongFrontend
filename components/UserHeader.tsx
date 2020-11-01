@@ -51,7 +51,6 @@ export default function UserHeader() {
   const [auth, setAuth] = useState(false);
   const [indexNum, setIndexNum] = useState(0);
 
-  
   useEffect(() => {
     // Update the document title using the browser API
     checkAuth();
@@ -77,7 +76,7 @@ export default function UserHeader() {
 
   const toggleMenu = () => {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
-    indexNum === 0 ? setIndexNum(10) : setIndexNum(0)
+    indexNum === 0 ? setIndexNum(10) : setIndexNum(0);
   };
 
   const logOut = () => {
@@ -88,13 +87,13 @@ export default function UserHeader() {
   };
   return (
     <header style={{ margin: 0 }}>
-      <nav style={{ padding: "1em" }}>
+      <nav style={{ padding: 0 }}>
         <Link href="/">
           <img
             src="/img/logo.png"
-            height="95"
-            width="90"
-            style={{ cursor: "pointer" }}
+            height="70"
+            width="70"
+            style={{ cursor: "pointer", zIndex: 1 }}
           />
         </Link>
         <ul className="navul">
