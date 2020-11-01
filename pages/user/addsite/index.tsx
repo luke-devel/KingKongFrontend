@@ -17,6 +17,7 @@ import Cookie from "js-cookie";
 export default function AddSite() {
   const router = useRouter();
 
+  const [serverType, setServerType] = useState("");
   const [serverDescription, setServerDescription] = useState("");
   const [serverAddress, setServerAddress] = useState("");
   const [serverPort, setServerPort] = useState("");
@@ -91,6 +92,11 @@ export default function AddSite() {
     setServerAddress(e.target.value);
   };
 
+  const serverTypeChange = (e: InputEvent) => {
+    setServerType(e.target.value);
+  };
+
+
   const serverPortChange = (e: InputEvent) => {
     setServerPort(e.target.value);
   };
@@ -109,10 +115,11 @@ export default function AddSite() {
 
   const onSubmit = async (event: ButtonEvent) => {
     setIsAllowed(false);
-    console.log(serverAddress, serverPort, serverUsername, serverPassword);
+    console.log(serverType.toLowerCase(), serverAddress, serverPort, serverUsername, serverPassword);
     Axios(`/api/addsite`, {
       method: "POST",
-      headers: {
+      data: {
+        servertype: serverType.toLowerCase(),
         serverdescription: serverDescription,
         serveraddress: serverAddress,
         serverport: serverPort,
@@ -210,11 +217,18 @@ export default function AddSite() {
                 fontStyle: "italic",
                 fontSize: "3vh",
                 marginTop: 0,
-                marginBottom: 0,
+                marginBottom: '3vh',
               }}
             >
               And let us handle the rest.
             </h5>
+            <label>Server type (FTP or SFTP)</label>
+            <input
+              type="email"
+              name="servertype"
+              onChange={serverTypeChange}
+              style={{ width: "40vh" }}
+            />
             <label>Server Name</label>
             <input
               type="email"
@@ -222,7 +236,7 @@ export default function AddSite() {
               onChange={serverDescriptionChange}
               style={{ width: "40vh" }}
             />
-            <label>Server Address</label>
+            <label>Server IP or URL</label>
             <input
               type="email"
               name="address"

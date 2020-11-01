@@ -5,40 +5,45 @@ import jwt from "jsonwebtoken";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (
-    !req.headers.serveraddress ||
-    !req.headers.serverport ||
-    !req.headers.serverusername ||
-    !req.headers.serverpassword ||
-    !req.headers.serverdescription
+    !req.body.servertype ||
+    !req.body.serveraddress ||
+    !req.body.serverport ||
+    !req.body.serverusername ||
+    !req.body.serverpassword ||
+    !req.body.serverdescription
   ) {
-    res.status(401).json("bad request");
+    return res.json("Oops! An error has occured.");
   }
   switch (req.method) {
     case "POST":
-      try {
-        const letsResponse = await Axios(
-          `${process.env.REQ_URL}/api/addsite`,
-          {
-            method: "POST",
-            headers: {
-              serverdescription: req.headers.serverdescription,
-              serveraddress: req.headers.serveraddress,
-              serverport: req.headers.serverport,
-              serverusername: req.headers.serverusername,
-              serverpassword: req.headers.serverpassword,
-              token: req.cookies.usertoken,
-            },
+      if (req.body.servertype === "ftp" || req.body.servertype === "sftp") {
+        try {
+          const letsResponse = await Axios(
+            `${process.env.REQ_URL}/api/addsite`,
+            {
+              method: "POST",
+              data: {
+                servertype: req.body.servertype,
+                serverdescription: req.body.serverdescription,
+                serveraddress: req.body.serveraddress,
+                serverport: req.body.serverport,
+                serverusername: req.body.serverusername,
+                serverpassword: req.body.serverpassword,
+                token: req.cookies.usertoken,
+              },
+            }
+          );
+          if (letsResponse.data.message === "Success") {
+            res.json({ message: "Success" });
+          } else {
+            res.json({ message: "Opps! Something went wrong" });
           }
-        );
-        if(letsResponse.data.message === 'Success'){
-          res.json({ message: "Success" });
+        } catch (error) {
+          console.log("heres the err", error);
+          return res.json("Oops! An error has occured.");
         }
-        else{
-          res.json({ message: "Opps! Something went wrong" });
-        }
-      } catch (error) {
-        console.log("heres the err");
-        res.status(401).json("bad request");
+      } else {
+        return res.json("Oops! An error has occured.");
       }
 
       break;

@@ -8,6 +8,7 @@ import Sites from "../../components/Sites";
 import BackupSites from "../../components/BackupSites";
 import Link from "next/link";
 import Router from "next/router";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
 export default function User() {
   const [auth, setAuth] = useState(false);
@@ -74,7 +75,7 @@ export default function User() {
                     className="heada"
                     style={{ textDecoration: "underline", marginLeft: "2vw" }}
                   >
-                    My Sites
+                    My Sites:
                   </a>
                   <Link href="/user/addsite">
                     <a
@@ -116,11 +117,10 @@ export default function User() {
                   <div className="row" style={{ display: "block" }}>
                     <div className="headtb2" style={{ marginBottom: 0 }}>
                       <a
-                        href="#"
                         className="heada"
                         style={{ textDecoration: "underline" }}
                       >
-                        My Backups
+                        My Backups:
                       </a>
                     </div>
                     <table>
@@ -155,8 +155,64 @@ export default function User() {
                     </table>
                   </div>
                 </div>
+                <p
+                  style={{
+                    margin: 10,
 
-                <div className="row" style={{ display: "block" }}>
+                    fontSize: "calc((.2em + 1.5vmin) + (.2em + 1.5vmax))",
+                    color: "white",
+                    textAlign: "left",
+                    paddingLeft: "5vw",
+                  }}
+                >
+                  Status codes:
+                </p>
+                <p
+                  style={{
+                    margin: 10,
+                    fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))",
+
+                    color: "white",
+                    textAlign: "left",
+                    paddingLeft: "5vw",
+                  }}
+                >
+                  {" "}
+                  <FiberManualRecordIcon style={{ color: "yellow" }} /> =
+                  Pending - Upload in progress
+                </p>
+                <p
+                  style={{
+                    margin: 10,
+                    marginTop: 0,
+                    fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))",
+
+                    color: "white",
+                    textAlign: "left",
+                    paddingLeft: "5vw",
+                  }}
+                >
+                  <FiberManualRecordIcon style={{ color: "green" }} /> = Backup
+                  Complete
+                </p>
+                <p
+                  style={{
+                    margin: 10,
+                    fontSize: "calc((.2em + 1vmin) + (.2em + 1vmax))",
+
+                    color: "white",
+                    textAlign: "left",
+                    paddingLeft: "5vw",
+                  }}
+                >
+                  <FiberManualRecordIcon style={{ color: "red" }} /> = Error -
+                  Try adding your site again
+                </p>
+
+                <div
+                  className="row"
+                  style={{ display: "block", marginTop: 30 }}
+                >
                   <div className="headtb2">
                     <a
                       className="heada"
