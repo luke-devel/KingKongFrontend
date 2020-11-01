@@ -87,7 +87,7 @@ export default function YearlyCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>0.99 / <span>day</span>
+            <sup>$</sup>0.99 / <span style={{ fontSize: "4vh" }}>day</span>
           </div>
           <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
             Yearly Billing
@@ -112,7 +112,7 @@ export default function YearlyCard() {
               fontSize: "3vh",
             }}
           >
-            Secure Stripe Checkout
+            Secured Stripe Checkout
           </h3>
           <StyledButtonYearly onClick={handleChoice}>Choose</StyledButtonYearly>
         </CardContent>

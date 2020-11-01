@@ -91,7 +91,7 @@ export default function SixMonthCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>1.49 / <span>day</span>
+            <sup>$</sup>1.49 / <span style={{ fontSize: "4vh" }}>day</span>
           </div>
           <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
             Six Months Billing
@@ -117,9 +117,11 @@ export default function SixMonthCard() {
             }}
           >
             {" "}
-            Secure Stripe Checkout
+            Secured Stripe Checkout
           </h3>
-          <StyledButtonSixMonth onClick={handleChoice}>Choose</StyledButtonSixMonth>
+          <StyledButtonSixMonth onClick={handleChoice}>
+            Choose
+          </StyledButtonSixMonth>
         </CardContent>
       </Card>
     </div>

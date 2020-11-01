@@ -14,6 +14,7 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 10,
     minWidth: 300,
+    minHeight: 500,
     background:
       "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     boxShadow:
@@ -90,32 +91,24 @@ export default function MonthlyCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>1.99 / <span>day</span>
+            <sup>$</sup>1.99 / <span style={{ fontSize: "4vh" }}>day</span>
           </div>
           <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
             Monthly Billing
           </h3>
-          <h3
-            style={{
-              fontWeight: 500,
-              color: "white",
-              fontSize: "4vh",
-              marginBottom: 0,
-            }}
-          >
-            No Discount
-          </h3>
+        
           <Stripe />
           <h3
             style={{
               margin: 0,
+              paddingTop: 10,
               fontWeight: 500,
               color: "white",
               fontSize: "3vh",
             }}
           >
-            {" "}
-            Secure Stripe Checkout
+
+            Secured Stripe Checkout
           </h3>
           <StyledButtonMonthly onClick={handleChoice}>Choose</StyledButtonMonthly>
         </CardContent>
