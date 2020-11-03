@@ -87,7 +87,7 @@ export default function Header() {
   };
 
   return (
-    <header style={{ margin: 0 }}>
+    <header >
       <nav style={{ padding: 0 }}>
         <div>
           <Link href="/">

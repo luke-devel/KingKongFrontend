@@ -172,7 +172,7 @@ export default function Register() {
     }
   };
   return (
-    <div>
+    <div className="registerdiv">
       <Dialog
         open={dupEmailOpen}
         onClose={handleDupEmailClose}
@@ -240,6 +240,7 @@ export default function Register() {
           </StyledButton>
         </DialogActions>
       </Dialog>
+      <Header />
 
       <div
         style={{
@@ -249,7 +250,6 @@ export default function Register() {
           backgroundSize: "contain",
         }}
       >
-        <Header />
         <div
           id="register"
           className="container"
@@ -267,7 +267,7 @@ export default function Register() {
             <h1
               style={{
                 textAlign: "center",
-                marginTop: "2vh",
+                marginTop: "4vh",
                 margin: 0,
                 width: "100%",
               }}

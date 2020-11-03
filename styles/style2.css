@@ -751,10 +751,11 @@ a.logbtn{
 .nav{
 	display: flex!important;
     flex-direction: row-reverse;
-    width: 100%;
+    width: 150%;
 	margin: 0px auto;
     position: absolute;
-    top: 0;
+	top: 0;
+	max-height: 450px;
     
 }
 #menu{

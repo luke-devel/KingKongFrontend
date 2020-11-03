@@ -56,7 +56,7 @@ export default function Home() {
         <div className="header" style={{ marginTop: "5vh" }}>
           {isTabletOrMobileDevice ? (
             //! Mobile
-            <>
+            <div className="mobiletop">
               <h1
                 style={{
                   fontSize: "calc((.2em + 3vmin) + (.2em + 3vmax))",
@@ -68,7 +68,6 @@ export default function Home() {
               </h1>{" "}
               <h3
                 style={{
-                  fontSize: "calc((.10em + 1.1vmin) + (.10em + 1.1vmax))",
                   marginTop: "4vh",
                   fontWeight: 500,
                   marginBottom: 5,
@@ -97,7 +96,7 @@ export default function Home() {
                   Over 10 thousand sites are lost due to broken Backup files.
                 </p>
               </div>
-            </>
+            </div>
           ) : (
             //! Desktop
             <>
@@ -143,7 +142,7 @@ export default function Home() {
                     </div>
                   </li>{" "}
                 </ul>
-                <div className="secbtn">
+                <div className="secbtn" style={{marginTop: "7vh"}}>
                   <Link href="/pricing">
                     <button style={{ cursor: "pointer" }}>
                       Secure my website

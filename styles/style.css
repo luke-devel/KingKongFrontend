@@ -3,6 +3,11 @@
 * {
   padding: 0;
 }
+@media (max-width: 768px) {
+  .registerdiv{
+    width: 150%;
+  }
+}
 
 body {
   background: #212121;
@@ -179,7 +184,9 @@ footer {
   opacity: 1;
   visibility: visible;
 }
-
+mobiletop .h3{
+  font-size: "calc((.10em + 1vmin) + (.10em + 1vmax))";
+}
 /* menu appearance*/
 #menu {
   position: relative;
