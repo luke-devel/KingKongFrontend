@@ -85,17 +85,17 @@ export default function ContactHeader() {
   };
 
   return (
-    <header style={{ margin: 0 }}>
+    <header style={{width: "100%",  marginLeft: 0, marginRight: 0}}>
       <nav style={{ padding: 0 }}>
         <Link href="/">
           <img
             src="/img/logo.png"
             height="70"
             width="70"
-            style={{ cursor: "pointer", zIndex: 1 }}
+            style={{ cursor: "pointer", zIndex: 1 , marginLeft: '2vw'}}
           />
         </Link>
-        <ul className="navul">
+        <ul className="navul" style={{marginRight: '4vw'}}>
           <li>
             {!auth ? (
               <Link href="/pricing">

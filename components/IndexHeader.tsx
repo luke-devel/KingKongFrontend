@@ -78,7 +78,7 @@ export default function IndexHeader() {
   };
 
   return (
-    <header >
+    <header>
       <nav style={{ padding: 0}}> 
         <Link href="/">
           <img
@@ -129,7 +129,7 @@ export default function IndexHeader() {
           </li>
         </ul>
 
-        <div className="nav">
+        <div className="nav"style={{width: "100%"}} >
           <a
             href="#menu"
             id="toggle"

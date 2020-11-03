@@ -96,7 +96,6 @@ export default function AddSite() {
     setServerType(e.target.value);
   };
 
-
   const serverPortChange = (e: InputEvent) => {
     setServerPort(e.target.value);
   };
@@ -115,7 +114,13 @@ export default function AddSite() {
 
   const onSubmit = async (event: ButtonEvent) => {
     setIsAllowed(false);
-    console.log(serverType.toLowerCase(), serverAddress, serverPort, serverUsername, serverPassword);
+    console.log(
+      serverType.toLowerCase(),
+      serverAddress,
+      serverPort,
+      serverUsername,
+      serverPassword
+    );
     Axios(`/api/addsite`, {
       method: "POST",
       data: {
@@ -128,17 +133,16 @@ export default function AddSite() {
       },
     })
       .then((res) => {
-        if(res.data.message === 'Success'){
-          Router.push('/user')
-        }
-        else{
-          setOtherErrorAlert(true)
+        if (res.data.message === "Success") {
+          Router.push("/user");
+        } else {
+          setOtherErrorAlert(true);
         }
       })
       .catch((err) => {
         //! to handle err here
         console.log("handle errerr addsite main,", err.response.status);
-        if(err.response.status === 401){
+        if (err.response.status === 401) {
           setOtherErrorAlert(true);
         }
       });
@@ -187,7 +191,7 @@ export default function AddSite() {
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.7)", marginTop: "-17vh", zIndex: 100 }}
+          style={{ transform: "scale(0.85)", marginTop: "-15vh", zIndex: 100 }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -195,9 +199,8 @@ export default function AddSite() {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              width: "25em",
               paddingTop: "5vh",
-              zIndex: 100
+              zIndex: 100,
             }}
           >
             <h4
@@ -217,52 +220,34 @@ export default function AddSite() {
                 fontStyle: "italic",
                 fontSize: "3vh",
                 marginTop: 0,
-                marginBottom: '3vh',
+                marginBottom: "3vh",
               }}
             >
               And let us handle the rest.
             </h5>
-            <label>Server type (FTP or SFTP)</label>
-            <input
-              type="email"
-              name="servertype"
-              onChange={serverTypeChange}
-              style={{ width: "40vh" }}
-            />
-            <label>Server Name</label>
+            <label style={{ fontSize: 30 }}>Server type (FTP or SFTP)</label>
+            <input type="email" name="servertype" onChange={serverTypeChange} />
+            <label style={{ fontSize: 30 }}> Server Name</label>
             <input
               type="email"
               name="description"
               onChange={serverDescriptionChange}
-              style={{ width: "40vh" }}
             />
-            <label>Server IP or URL</label>
-            <input
-              type="email"
-              name="address"
-              onChange={serverAddressChange}
-              style={{ width: "40vh" }}
-            />
-            <label>Server Port</label>
-            <input
-              type="email"
-              name="port"
-              onChange={serverPortChange}
-              style={{ width: "40vh" }}
-            />
-            <label>Server Username</label>
+            <label style={{ fontSize: 30 }}>Server IP or URL</label>
+            <input type="email" name="address" onChange={serverAddressChange} />
+            <label style={{ fontSize: 30 }}>Server Port</label>
+            <input type="email" name="port" onChange={serverPortChange} />
+            <label style={{ fontSize: 30 }}>Server Username</label>
             <input
               type="email"
               name="username"
               onChange={serverUsernameChange}
-              style={{ width: "40vh" }}
             />
-            <label>Server Password</label>
+            <label style={{ fontSize: 30 }}>Server Password</label>
             <input
               type="email"
               name="serverpassword"
               onChange={serverPasswordChange}
-              style={{ width: "40vh" }}
             />
             <div
               className="signupbtn"

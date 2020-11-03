@@ -1,5 +1,6 @@
 import Header from "../components/FaqHeader";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 export default function FAQ() {
   return (
@@ -146,9 +147,11 @@ export default function FAQ() {
           <div id="hidme" className="secbtn2">
             <button id="hidme">Contact us</button>
           </div>
-          <div id="showme" className="secbtn2">
-            <button>Request a change</button>
-          </div>
+          <Link href="/contact">
+            <div id="showme" className="secbtn2">
+              <button>Request a change</button>
+            </div>
+          </Link>
         </div>
       </div>
 

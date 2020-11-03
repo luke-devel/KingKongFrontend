@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Axios from "axios";
 import Link from "next/link";
 import Router from "next/router";
 import { withStyles } from "@material-ui/core/styles";
 import { NoSsr } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import Cookie from "js-cookie";
+import Axios from "axios";
 
 const StyledButton = withStyles({
   root: {
@@ -41,12 +41,11 @@ const StyledButton = withStyles({
 
 const logOut = () => {
   // set loggedIn cookie to false, and logging user out, sending them back to index
-  console.log("Logging user out.");
   Cookie.remove("usertoken");
-  Router.push("/");
+  Router.push('/logout');
 };
 
-export default function PricingHeader() {
+export default function RegisterHeader() {
   const [menuToggle, setMenuToggle] = useState("off");
   const [auth, setAuth] = useState(false);
 
@@ -65,8 +64,9 @@ export default function PricingHeader() {
       });
       if (resData.data.message === "Authenticated") {
         setAuth(true);
-      } else {
-        console.log("No Auth");
+      }
+      else{
+        console.log('No Auth');
       }
     } catch (error) {
       console.log("err in auth process");
@@ -77,16 +77,9 @@ export default function PricingHeader() {
     menuToggle === "off" ? setMenuToggle("on") : setMenuToggle("off");
   };
 
-  const logOut = () => {
-    // set loggedIn cookie to false, and logging user out, sending them back to index
-    console.log("Logging user out.");
-    Cookie.remove("usertoken");
-    Router.push("/");
-  };
-
   return (
-    <header  >
-      <nav style={{ padding: 0 }}>
+    <header >
+      <nav style={{ padding: 0}}> 
         <Link href="/">
           <img
             src="/img/logo.png"
@@ -99,10 +92,7 @@ export default function PricingHeader() {
           <li>
             {!auth ? (
               <Link href="/pricing">
-                <a
-                  className="price"
-                  style={{ fontSize: 20, borderBottom: "2px solid white" }}
-                >
+                <a className="price" style={{ fontSize: 20 }}>
                   Pricing
                 </a>
               </Link>
@@ -121,7 +111,9 @@ export default function PricingHeader() {
           </li>
           <li>
             <Link href="/faq">
-              <a className="price">FAQ</a>
+              <a className="price" href="/faq">
+                FAQ
+              </a>
             </Link>
           </li>
           <li>
@@ -137,7 +129,7 @@ export default function PricingHeader() {
           </li>
         </ul>
 
-        <div className="nav">
+        <div className="nav"style={{width: "150%"}} >
           <a
             href="#menu"
             id="toggle"
@@ -150,7 +142,7 @@ export default function PricingHeader() {
           >
             <span></span>
           </a>
-          <div id="menu">
+          <div id="menu" style={{ zIndex: 400 }}>
             <ul>
               <li>
                 <Link href="/">

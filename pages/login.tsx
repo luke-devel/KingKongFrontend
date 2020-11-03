@@ -256,7 +256,6 @@ export default function Register() {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              width: "25em",
               paddingTop: 10,
             }}
           >

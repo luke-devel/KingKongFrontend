@@ -3,7 +3,7 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>;
 type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 import { useRouter } from "next/router";
 import Axios from "axios";
-import Header from "../components/Header";
+import Header from "../components/RegisterHeader";
 import Footer from "../components/Footer";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -172,7 +172,7 @@ export default function Register() {
     }
   };
   return (
-    <div>
+    <div className="registerdiv">
       <Dialog
         open={dupEmailOpen}
         onClose={handleDupEmailClose}
@@ -240,6 +240,7 @@ export default function Register() {
           </StyledButton>
         </DialogActions>
       </Dialog>
+      <Header />
 
       <div
         style={{
@@ -249,11 +250,10 @@ export default function Register() {
           backgroundSize: "contain",
         }}
       >
-        <Header />
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.8)", marginTop: "-5vh" }}
+          style={{ marginTop: "-5vh" }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -261,28 +261,27 @@ export default function Register() {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              width: "25em",
             }}
           >
             <h1
               style={{
                 textAlign: "center",
-                marginTop: "2vh",
                 margin: 0,
+                paddingTop: "4vh",
                 width: "100%",
               }}
             >
               Register
             </h1>
-            <label style={{ marginTop: 5 }}>Full Name</label>
+            <label style={{ marginTop: 5, fontSize: 30 }}>Full Name</label>
             <input type="text" name="fullname" onChange={nameChange} />
             {/* <label>Phone Number</label>
             <input type="text" name="phoneno" onChange={phoneNumberChange} /> */}
-            <label>Email Address</label>
+            <label style={{fontSize: 30}}>Email Address</label>
             <input type="email" name="emailadd" onChange={emailChange} />
-            <label>Password</label>
+            <label style={{fontSize: 30}}>Password</label>
             <input type="password" name="password" onChange={passwordChange} />
-            <label>Confirm Password</label>
+            <label style={{fontSize: 30}}>Confirm Password</label>
             <input
               type="password"
               name="password2"
