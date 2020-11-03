@@ -58,6 +58,9 @@ header{
 		background-position: top right;
 		background-size: contain;
 		margin-bottom: 90px;
+		margin-left: 2vw;
+		margin-right: 5vw;
+		margin-top: 1.5vh;
 }
 
 p{
