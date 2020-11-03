@@ -55,13 +55,13 @@ export default function Home() {
         <Header />
         <div className="header" style={{ marginTop: "5vh" }}>
           {isTabletOrMobileDevice ? (
-            // Mobile
+            //! Mobile
             <>
               <h1
                 style={{
                   fontSize: "calc((.2em + 3vmin) + (.2em + 3vmax))",
                   padding: 50,
-                  paddingBottom: 30,
+                  paddingBottom: 0,
                 }}
               >
                 One platform to secure all your websites.
@@ -81,7 +81,7 @@ export default function Home() {
                   style={{
                     fontSize: "3.9vw",
                     width: "100vw",
-                    marginTop: "1vh",
+                    marginTop: 0,
                     marginBottom: 0,
                   }}
                 >
@@ -99,7 +99,7 @@ export default function Home() {
               </div>
             </>
           ) : (
-            // Desktop
+            //! Desktop
             <>
               <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>
                 One platform to secure all your websites.
