@@ -54,59 +54,129 @@ export default function Home() {
       >
         <Header />
         <div className="header" style={{ marginTop: "5vh" }}>
-          <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>
-            One platform to secure all your websites.
-          </h1>
-          <h3
-            style={{ fontSize: "calc((.13em + 1.4vmin) + (.13em + 1.3vmax))" }}
-          >
-            Backup & Restore in ONE CLICK.
-          </h3>
-          <p>
-            30,000 websites are hacked every day. Over 10 thousand sites are
-            lost due to broken Backup files.
-          </p>
+          {isTabletOrMobileDevice ? (
+            //! Mobile
+            <>
+              <h1
+                style={{
+                  fontSize: "calc((.2em + 3vmin) + (.2em + 3vmax))",
+                  padding: 50,
+                  paddingBottom: 0,
+                }}
+              >
+                One platform to secure all your websites.
+              </h1>{" "}
+              <h3
+                style={{
+                  fontSize: "calc((.10em + 1.1vmin) + (.10em + 1.1vmax))",
+                  marginTop: "4vh",
+                  fontWeight: 500,
+                  marginBottom: 5,
+                }}
+              >
+                Backup & Restore in ONE CLICK.
+              </h3>
+              <div style={{ textAlign: "center" }}>
+                <p
+                  style={{
+                    fontSize: "3.9vw",
+                    width: "100vw",
+                    marginTop: 0,
+                    marginBottom: 0,
+                  }}
+                >
+                  30,000 websites are hacked every day.
+                </p>
+                <p
+                  style={{
+                    fontSize: "3.7vw",
+                    width: "100vw",
+                    marginTop: 0,
+                  }}
+                >
+                  Over 10 thousand sites are lost due to broken Backup files.
+                </p>
+              </div>
+            </>
+          ) : (
+            //! Desktop
+            <>
+              <h1 style={{ fontSize: "calc((.2em + 2vmin) + (.2em + 2vmax))" }}>
+                One platform to secure all your websites.
+              </h1>{" "}
+              <h3
+                style={{
+                  fontSize: "calc((.13em + 2.15vmin) + (.13em + 2.15vmax))", marginTop: 0
+                }}
+              >
+                Backup & Restore in ONE CLICK.
+              </h3>
+              <p>
+                30,000 websites are hacked every day. Over 10 thousand sites are
+                lost due to broken Backup files.
+              </p>
+            </>
+          )}
 
           <div className="twoop">
             {isTabletOrMobileDevice ? (
+              // Mobile
               <>
-                <ul>
-                  <li style={{ width: "100vh" }}>
-                    <img src="img/tick.png" />{" "}
-                    <p style={{ color: "#ffffff" }}>
+                <ul style={{ paddingLeft: 20 }}>
+                  <li style={{ width: "70%" }}>
+                    <div
+                      style={{
+                        color: "#ffffff",
+                        fontSize: "3.6vw",
+                        width: "100%",
+                        paddingRight: 0,
+                      }}
+                    >
+                      <img style={{ paddingRight: 10 }} src="img/tick.png" />
                       30-day risk free money back
-                    </p>
+                    </div>
                   </li>
-                </ul>
-                <ul>
-
-                  <li style={{ width: "100vh", marginBottom: '2vh' }}>
-                    <img src="img/tick.png" />
-                    <p style={{ color: "#ffffff" }}>Cancel anytime</p>
+                  <li style={{ width: "50%" }}>
+                    <div style={{ color: "#ffffff", fontSize: "3.8vw" }}>
+                      <img style={{ paddingRight: 8 }} src="img/tick.png" />
+                      Cancel anytime
+                    </div>
                   </li>{" "}
                 </ul>
+                <div className="secbtn">
+                  <Link href="/pricing">
+                    <button style={{ cursor: "pointer" }}>
+                      Secure my website
+                    </button>
+                  </Link>
+                </div>
               </>
             ) : (
+              // Desktop
               <>
-                <ul>
+                <ul style={{ marginBottom: 0 }}>
                   <li>
                     <img src="img/tick.png" />{" "}
-                    <p style={{ color: "#ffffff" }}>
+                    <p style={{ color: "#ffffff", marginTop: 0 }}>
                       30-day risk free money back
                     </p>
                   </li>
-                  <li>
+                  <li style={{ textAlign: "left" }}>
                     <img src="img/tick.png" />
-                    <p style={{ color: "#ffffff" }}>Cancel anytime</p>
+                    <p style={{ color: "#ffffff", marginTop: 0 }}>
+                      Cancel anytime
+                    </p>
                   </li>
                 </ul>
+                <div className="secbtn" style={{marginTop: '2vh'}}>
+                  <Link href="/pricing">
+                    <button style={{ cursor: "pointer" }}>
+                      Secure my website
+                    </button>
+                  </Link>
+                </div>
               </>
             )}
-          </div>
-          <div className="secbtn">
-            <Link href="/pricing">
-              <button style={{ cursor: "pointer" }}>Secure my website</button>
-            </Link>
           </div>
         </div>
       </div>

@@ -190,7 +190,6 @@ footer {
   margin: 0px auto;
   text-align: center;
   background: #212121;
-
   border-radius: 4px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
   /* just for this demo */
@@ -564,20 +563,20 @@ nav a.logo {
     width: 90%;
     margin: 0px auto 0px auto;
   }
-  .twoop ul {
-    display: block;  /* Remove bullet points; allow greater control of positioning */
-    padding: 0;      /* Override defaults for lists */
-    margin: 0;       /* Override defaults for lists */
-    width: 100%;     /* Get the row full width */
+  .twoop ul{
+    text-align: center;
+    display: flex;
+    list-style: none;	
+    justify-content: center;
   }
-  .twoop li {
-    display: inline-block; /* Get all images to show in a row */
-    width: 50%;            /* Show 4 logos per row */
-    text-align: center;    /* Centre align the images */
-}
-@media (max-width: 500px) {
-    .twoop li { width: 100%; } /* On small screens, show one logo per row */
-}
+  .twoop li{
+    justify-content: center;
+    display: flex;
+    align-items: baseline;
+    padding-right: 40px;
+    align-content: center;
+    width: 50%;
+  }
   .secbtn2 button {
     font-weight: bold;
     font-size: 16px;
