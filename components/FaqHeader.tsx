@@ -59,7 +59,7 @@ export default function FaqHeader() {
   };
 
   return (
-    <header style={{ margin: 0 }}>
+    <header>
       <nav style={{ padding: 0 }}>
         <Link href="/">
           <img

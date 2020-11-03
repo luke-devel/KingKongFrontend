@@ -85,7 +85,7 @@ export default function ContactHeader() {
   };
 
   return (
-    <header style={{ margin: 0 }}>
+    <header style={{width: "100%"}}>
       <nav style={{ padding: 0 }}>
         <Link href="/">
           <img

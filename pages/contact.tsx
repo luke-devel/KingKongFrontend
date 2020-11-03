@@ -206,7 +206,6 @@ export default function AddSite() {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              width: "25em",
               paddingTop: "5vh",
               zIndex: 100,
             }}
