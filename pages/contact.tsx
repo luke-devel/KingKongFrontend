@@ -23,7 +23,6 @@ export default function AddSite() {
   const [otherErrorAlert, setOtherErrorAlert] = useState(false);
   const [successAlert, setSuccessAlert] = useState(false);
 
-
   const StyledButton2 = withStyles({
     root: {
       // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -151,7 +150,7 @@ export default function AddSite() {
           </StyledButton>
         </DialogActions>
       </Dialog>
-     
+
       <Dialog
         open={successAlert}
         onClose={handleSuccessAlertClose}
@@ -165,17 +164,19 @@ export default function AddSite() {
           },
         }}
       >
-         <DialogTitle
+        <DialogTitle
           id="alert-dialog-title"
-          style={{ color: "white", fontSize: "", textAlign: 'center' }}
+          style={{ color: "white", fontSize: "", textAlign: "center" }}
         >
           {"Thank You!"}
         </DialogTitle>
         <DialogTitle
           id="alert-dialog-title"
-          style={{ color: "white", fontSize: "", textAlign: 'center' }}
+          style={{ color: "white", fontSize: "", textAlign: "center" }}
         >
-          {"Your contact form was successfully submitted. We will get back to you via email shortly."}
+          {
+            "Your contact form was successfully submitted. We will get back to you via email shortly."
+          }
         </DialogTitle>
         <DialogActions style={{ justifyContent: "center" }}>
           <StyledButton
@@ -198,7 +199,7 @@ export default function AddSite() {
         <div
           id="register"
           className="container"
-          style={{ transform: "scale(0.85)", marginTop: "-5vh", zIndex: 100 }}
+          style={{ marginTop: "-5vh", zIndex: 100 }}
         >
           {/* need to fix for different screen sizes */}
           <form
@@ -216,32 +217,17 @@ export default function AddSite() {
                 marginTop: "3vh",
                 marginBottom: "2vh",
                 width: "100%",
-                fontSize: "4vh",
+                fontSize: 40 ,
               }}
             >
               Contact Us
             </h4>
-            <label>Full Name</label>
-            <input
-              type="email"
-              name="fullname"
-              onChange={fullNameChange}
-              style={{ width: "40vh" }}
-            />
-            <label>Email Address</label>
-            <input
-              type="email"
-              name="email"
-              onChange={emailChange}
-              style={{ width: "40vh" }}
-            />
-            <label>Message</label>
-            <input
-              type="email"
-              name="port"
-              onChange={messageChange}
-              style={{ width: "40vh" }}
-            />
+            <label style={{ fontSize: 30 }}>Full Name</label>
+            <input type="email" name="fullname" onChange={fullNameChange} />
+            <label style={{ fontSize: 30 }}>Email Address</label>
+            <input type="email" name="email" onChange={emailChange} />
+            <label style={{ fontSize: 30 }}>Message</label>
+            <input type="email" name="port" onChange={messageChange} />
 
             <div
               className="signupbtn"
