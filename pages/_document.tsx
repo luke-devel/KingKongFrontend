@@ -11,6 +11,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=0.41, maximum-scale=1" />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,900&display=swap"
             rel="stylesheet"

@@ -19,7 +19,7 @@ height: 120px;
 }
 
 nav{
-	width: 90%;
+	width: 100%;
     margin: 0px auto;
 	display: flex;
 	padding-top: 20px;
@@ -116,9 +116,6 @@ color: #FFFFFF;
 	align-items: baseline;
 	padding-right: 40px;
 	align-content: center;
-}
-@media (max-width: 500px) {
-    .twoop li { width: 100%; } /* On small screens, show one logo per row */
 }
 .twoopc li{
 	justify-content: center;
@@ -545,6 +542,7 @@ a.log{
 /* Important styles */
 #toggle {
   display: block;
+  padding-right: 20px;
   width: 28px;
   height: 30px;align-items:center;
   margin: 30px auto 5px auto;  
@@ -750,8 +748,8 @@ a.logbtn{
 .nav{
 	display: flex!important;
     flex-direction: row-reverse;
-    width: 90%;
-    margin: 0px auto;
+    width: 100%;
+	margin: 0px auto;
     position: absolute;
     top: 0;
     
@@ -768,7 +766,7 @@ ul.navul, .secbtn1, .lastone, .hidep{
 }
 .header{
 	text-align: center;
-	width: 90%;
+	width: 100%;
 	margin: 40px auto 0px auto;
 }
 .twoop ul{
@@ -776,8 +774,9 @@ ul.navul, .secbtn1, .lastone, .hidep{
 
 }
 .twoop li{
-	width: 25%;
+	width: 50%;
 	padding-right: 10px;
+	display: flex;
 }
 .secbtn button{
    font-weight: 500;
