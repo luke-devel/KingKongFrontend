@@ -17,7 +17,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <meta name="image" property="og:image" content="https://kingkongbackups.com/img/logo.png"/>
+        <meta name="image" property="og:image:secure_url" content="https://kingkongbackups.com/img/logo.png"/>
         <meta name="title" property="og:title" content="King Kong Backups"/>
         <meta name="description" property="og:description" content="Securely backup your websites."/>
           <link
