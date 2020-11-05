@@ -1,10 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import Stripe from "./Stripe";
 import { withStyles } from "@material-ui/core/styles";
 import Cookie from "js-cookie";
@@ -14,7 +12,7 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 10,
     minWidth: 300,
-    minHeight: 440 ,
+    minHeight: 440,
     background:
       "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     boxShadow:
@@ -93,10 +91,17 @@ export default function MonthlyCard() {
           >
             <sup>$</sup>1.99 / <span style={{ fontSize: "4vh" }}>day</span>
           </div>
-          <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
+          <h3
+            style={{
+              fontWeight: 500,
+              color: "white",
+              fontSize: "4vh",
+              marginBottom: 60,
+            }}
+          >
             Monthly Billing
           </h3>
-        
+
           <Stripe />
           <h3
             style={{
@@ -107,10 +112,11 @@ export default function MonthlyCard() {
               fontSize: "3vh",
             }}
           >
-
             Secured Stripe Checkout
           </h3>
-          <StyledButtonMonthly onClick={handleChoice}>Choose</StyledButtonMonthly>
+          <StyledButtonMonthly onClick={handleChoice}>
+            Choose
+          </StyledButtonMonthly>
         </CardContent>
       </Card>
     </div>
