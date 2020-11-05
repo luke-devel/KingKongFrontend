@@ -10,6 +10,7 @@ const colStyles = {
   backgroundImage: `url('img/Union1.png')`,
   backgroundRepeat: "no-repeat",
   justifyContent: "center",
+  padding: 40px 0px 0px 85px;
 };
 
 const bottomStyle = {
