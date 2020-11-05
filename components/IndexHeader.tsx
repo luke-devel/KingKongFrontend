@@ -78,7 +78,7 @@ export default function IndexHeader() {
   };
 
   return (
-    <header>
+    <header >
       <nav style={{ padding: 0}}> 
         <Link href="/">
           <img

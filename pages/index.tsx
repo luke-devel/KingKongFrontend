@@ -26,7 +26,7 @@ const bottomStyle = {
 
 export default function Home() {
   const isTabletOrMobileDevice = useMediaQuery({
-    query: "(max-device-width: 1224px)",
+    query: "(max-device-width: 700px)",
   });
   const [auth, setAuth] = React.useState(() => {
     if (Cookie.get("userdata")) {
@@ -49,10 +49,11 @@ export default function Home() {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top right",
           backgroundSize: "contain",
-          minWidth: "100vw",
+          minWidth: "100%",
         }}
       >
         <Header />
+
         <div className="header" style={{ marginTop: "5vh" }}>
           {isTabletOrMobileDevice ? (
             //! Mobile
@@ -105,12 +106,17 @@ export default function Home() {
               </h1>{" "}
               <h3
                 style={{
-                  fontSize: "calc((.13em + 2.15vmin) + (.13em + 2.15vmax))", marginTop: 0
+                  fontSize: "calc((.13em + 2.15vmin) + (.13em + 2.15vmax))",
+                  marginTop: 0,
                 }}
               >
                 Backup & Restore in ONE CLICK.
               </h3>
-              <p>
+              <p
+                style={{
+                  fontSize: "calc((.10em + 1vmin) + (.10em + 1vmax))",
+                }}
+              >
                 30,000 websites are hacked every day. Over 10 thousand sites are
                 lost due to broken Backup files.
               </p>
@@ -119,7 +125,7 @@ export default function Home() {
 
           <div className="twoop">
             {isTabletOrMobileDevice ? (
-              // Mobile
+              //! Mobile
               <>
                 <ul style={{ paddingLeft: 20 }}>
                   <li style={{ width: "70%" }}>
@@ -142,7 +148,7 @@ export default function Home() {
                     </div>
                   </li>{" "}
                 </ul>
-                <div className="secbtn" style={{marginTop: "7vh"}}>
+                <div className="secbtn" style={{ marginTop: "7vh" }}>
                   <Link href="/pricing">
                     <button style={{ cursor: "pointer" }}>
                       Secure my website
@@ -151,23 +157,23 @@ export default function Home() {
                 </div>
               </>
             ) : (
-              // Desktop
+              //! Desktop
               <>
                 <ul style={{ marginBottom: 0 }}>
                   <li>
                     <img src="img/tick.png" />{" "}
-                    <p style={{ color: "#ffffff", marginTop: 0 }}>
+                    <p style={{ color: "#ffffff", marginTop: 10, fontSize: "calc((.05em + .9vmin) + (.05em + .9vmax))" }}>
                       30-day risk free money back
                     </p>
                   </li>
                   <li style={{ textAlign: "left" }}>
                     <img src="img/tick.png" />
-                    <p style={{ color: "#ffffff", marginTop: 0 }}>
+                    <p style={{ color: "#ffffff", marginTop: 10, fontSize: "calc((.05em + .9vmin) + (.05em + .9vmax))"  }}>
                       Cancel anytime
                     </p>
                   </li>
                 </ul>
-                <div className="secbtn" style={{marginTop: '2vh'}}>
+                <div className="secbtn" style={{ marginTop: "2vh" }}>
                   <Link href="/pricing">
                     <button style={{ cursor: "pointer" }}>
                       Secure my website
@@ -426,8 +432,9 @@ export default function Home() {
             )}
           </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
+
     </div>
   );
 }
