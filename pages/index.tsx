@@ -26,7 +26,7 @@ const bottomStyle = {
 
 export default function Home() {
   const isTabletOrMobileDevice = useMediaQuery({
-    query: "(max-device-width: 1224px)",
+    query: "(max-device-width: 700px)",
   });
   const [auth, setAuth] = React.useState(() => {
     if (Cookie.get("userdata")) {
