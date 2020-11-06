@@ -771,7 +771,7 @@ ul.navul, .secbtn1, .lastone, .hidep{
 .header{
 	text-align: center;
 	width: 100%;
-	margin: 40px auto 0px auto;
+	margin: 40px 10px 0px 10px;
 }
 .twoop ul{
 	    padding-inline-start: 0px;
@@ -799,6 +799,11 @@ color:#212121;
 
 	flex-direction: column;
 }
+	
+.container {
+	font-size:1.2em;
+	}
+	
 .rightcol, .leftcol{
 	width: 100%;
 	margin: 20px auto;
@@ -980,8 +985,14 @@ p#newli, p#newp{
 }
 .priced{
     font-weight: 500;
-font-size: 100;
+font-size: 70px;
 }
+.footabt p:nth-child(1) {
+	font-size:1.1em;
+	}
+.footabt p:nth-child(2) {
+	font-size: 1.2em;
+	}
 .priced sup{
     font-weight: 500;
 font-size: 28px;
