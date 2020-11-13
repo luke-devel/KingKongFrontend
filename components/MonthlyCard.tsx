@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     borderRadius: 10,
     minWidth: 300,
     minHeight: 440,
+    maxHeight: 520,
     background:
       "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     boxShadow:
@@ -89,7 +90,7 @@ export default function MonthlyCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>1.99 / <span style={{ fontSize: "4vh" }}>day</span>
+            <sup>$</sup>59.99 / <span style={{ fontSize: "4vh" }}>Month</span>
           </div>
           <h3
             style={{
