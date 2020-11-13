@@ -14,6 +14,8 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 10,
     minWidth: 300,
+    minHeight: 440,
+    maxHeight: 520,
     background:
       "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     boxShadow:
@@ -91,7 +93,7 @@ export default function SixMonthCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>1.49 / <span style={{ fontSize: "4vh" }}>day</span>
+            <sup>$</sup>269.99 / <span style={{ fontSize: "4vh" }}></span>
           </div>
           <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
             Six Months Billing

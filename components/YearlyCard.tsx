@@ -14,6 +14,8 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 10,
     minWidth: 300,
+    minHeight: 440,
+    maxHeight: 520,
     background: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     boxShadow: "-15px -15px 22px rgba(44, 44, 44, 0.5), 15px 15px 22px rgba(28, 26, 26, 0.5)",
     maxWidth: 400,
@@ -87,10 +89,10 @@ export default function YearlyCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>0.99 / <span style={{ fontSize: "4vh" }}>day</span>
+            <sup>$</sup>359.99 / <span style={{ fontSize: "4vh" }}>Year</span>
           </div>
           <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
-            Yearly Billing
+            14 Day Free Trial
           </h3>
           <h3
             style={{
