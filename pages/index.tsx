@@ -150,7 +150,17 @@ export default function Home() {
                 </ul>
                 <div className="secbtn" style={{ marginTop: "4vh" }}>
                   <Link href="/pricing">
-                    <button style={{ cursor: "pointer" }}>
+                    <button
+                      style={{
+                        cursor: "pointer",
+                        maxWidth: "80vw",
+                        paddingRight: 30,
+                        paddingLeft: 30,
+                        paddingTop: 20,
+                        paddingBottom: 20,
+                        fontSize: "4.5vw",
+                      }}
+                    >
                       Start Your Free 14 Day Trial
                     </button>
                   </Link>
@@ -212,15 +222,68 @@ export default function Home() {
               one simple and easy to use dashboard. Just enter your FTP details
               and we start.
             </p>
-            <div className="secbtn1" style={{ cursor: "pointer" }}>
-              {!auth ? (
-                <Link href="/pricing">
-                  <button style={{ cursor: "pointer" }}>Backup Now</button>
-                </Link>
+            <div
+              className="secbtn1"
+              style={{ cursor: "pointer", display: "unset" }}
+            >
+              {isTabletOrMobileDevice ? (
+                //! Mobile
+                <>
+                  {!auth ? (
+                    <Link href="/pricing">
+                      <button
+                        style={{
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                          fontSize: 16,
+                          padding: "18px 27px",
+                          lineHeight: "19px",
+                        }}
+                      >
+                        Backup Now
+                      </button>
+                    </Link>
+                  ) : (
+                    <Link href="/user">
+                      <button
+                        style={{
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                          fontSize: 16,
+                          padding: "18px 27px",
+                          lineHeight: "19px",
+                        }}
+                      >
+                        Backup Now
+                      </button>
+                    </Link>
+                  )}
+                </>
               ) : (
-                <Link href="/user">
-                  <button style={{ cursor: "pointer" }}>Backup Now</button>
-                </Link>
+                //! Desktop
+                <>
+                  {!auth ? (
+                    <Link href="/pricing">
+                      <button
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        Backup Now
+                      </button>
+                    </Link>
+                  ) : (
+                    <Link href="/user">
+                      <button
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        Backup Now
+                      </button>
+                    </Link>
+                  )}
+                </>
               )}
             </div>
           </div>
