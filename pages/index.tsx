@@ -488,10 +488,7 @@ export default function Home() {
             Unlimited WebSites & Usage
           </p>
 
-          <div className="priced" style={{ marginTop: 0, marginBottom: 0 }}>
-            <sup>$</sup>0.99 / <span>day</span>
-          </div>
-          <div className="secbtn2" style={{ marginTop: "1vh" }}>
+          <div className="secbtn2" style={{ marginTop: "5vh" }}>
             {!auth ? (
               <Link href="/pricing">
                 <button style={{ cursor: "pointer", marginTop: 0 }}>
