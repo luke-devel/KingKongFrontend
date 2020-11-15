@@ -132,26 +132,26 @@ export default function Home() {
                     <div
                       style={{
                         color: "#ffffff",
-                        fontSize: "3.6vw",
+                        fontSize: "3.8vw",
                         width: "100%",
                         paddingRight: 0,
                       }}
                     >
                       <img style={{ paddingRight: 10 }} src="img/tick.png" />
-                      30-day risk free money back
+                      14-Day Risk Free Trial
                     </div>
                   </li>
-                  <li style={{ width: "50%" }}>
+                  <li style={{ width: "65%" }}>
                     <div style={{ color: "#ffffff", fontSize: "3.8vw" }}>
                       <img style={{ paddingRight: 8 }} src="img/tick.png" />
-                      Cancel anytime
+                      Unlimited Features
                     </div>
                   </li>{" "}
                 </ul>
-                <div className="secbtn" style={{ marginTop: "7vh" }}>
+                <div className="secbtn" style={{ marginTop: "4vh" }}>
                   <Link href="/pricing">
                     <button style={{ cursor: "pointer" }}>
-                      Secure my website
+                      Start Your Free 14 Day Trial
                     </button>
                   </Link>
                 </div>
@@ -162,21 +162,33 @@ export default function Home() {
                 <ul style={{ marginBottom: 0 }}>
                   <li>
                     <img src="img/tick.png" />{" "}
-                    <p style={{ color: "#ffffff", marginTop: 10, fontSize: "calc((.05em + .9vmin) + (.05em + .9vmax))" }}>
-                      30-day risk free money back
+                    <p
+                      style={{
+                        color: "#ffffff",
+                        marginTop: 10,
+                        fontSize: "calc((.05em + .9vmin) + (.05em + .9vmax))",
+                      }}
+                    >
+                      14-Day Risk Free Trial
                     </p>
                   </li>
                   <li style={{ textAlign: "left" }}>
                     <img src="img/tick.png" />
-                    <p style={{ color: "#ffffff", marginTop: 10, fontSize: "calc((.05em + .9vmin) + (.05em + .9vmax))"  }}>
-                      Cancel anytime
+                    <p
+                      style={{
+                        color: "#ffffff",
+                        marginTop: 10,
+                        fontSize: "calc((.05em + .9vmin) + (.05em + .9vmax))",
+                      }}
+                    >
+                      Unlimited Features
                     </p>
                   </li>
                 </ul>
                 <div className="secbtn" style={{ marginTop: "2vh" }}>
                   <Link href="/pricing">
                     <button style={{ cursor: "pointer" }}>
-                      Secure my website
+                      Start Your Free 14 Day Trial
                     </button>
                   </Link>
                 </div>
@@ -434,7 +446,6 @@ export default function Home() {
         </div>
       </div>
       <Footer />
-
     </div>
   );
 }
