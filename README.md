@@ -1,10 +1,8 @@
 # [KingKongBackups.com](https://kingkongbackups.com)
 # [View Backend Here](https://github.com/luke-devel/KingKongBackend)
 ![King Kong Backups Homepage](https://kingkongbackups.com/img/KingKongBackups.png)
-## Technology Used:
-* [**AWS Lightsail CentOS VPS**](https://lightsail.aws.amazon.com/) - Backend Linux VPS Hosted in Germany
+## Frontend Technology Used:
 * [**Node.js**](https://nodejs.org/en/) - Backend Runtime
-* [**Express**](https://github.com/expressjs/express) - Backend API Server
 * [**Next.js Deployed on Vercel (Frontend)**](https://github.com/vercel/next.js) - (uses [**Babel**](https://babeljs.io/) and [**Webpack**](https://webpack.js.org/))
 * [**TypeScript**](https://github.com/microsoft/TypeScript) - Frontend Code is only TypeScript and CSS
 * [**React**](https://github.com/facebook/react) - Frontend Framework
