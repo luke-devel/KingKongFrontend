@@ -6,7 +6,7 @@
 * [**Node.js**](https://nodejs.org/en/) - Backend Runtime
 * [**Express**](https://github.com/expressjs/express) - Backend API Server
 * [**Next.js Deployed on Vercel (Frontend)**](https://github.com/vercel/next.js) - (uses [**Babel**](https://babeljs.io/) and [**Webpack**](https://webpack.js.org/))
-* [**TypeScript**](https://github.com/microsoft/TypeScript) - Frontend is 100% TypeScript
+* [**TypeScript**](https://github.com/microsoft/TypeScript) - Frontend Code is only TypeScript and CSS
 * [**React**](https://github.com/facebook/react) - Frontend Framework
 * [**Axios**](https://github.com/axios/axios) - HTTP Client
 * [**bcrypt**](https://github.com/kelektiv/node.bcrypt.js) - Hashed Password Encryption
