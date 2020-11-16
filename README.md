@@ -1,5 +1,4 @@
-# [KingKongBackups.com](https://kingkongbackups.com)
-# [View Backend Here](https://github.com/luke-devel/KingKongBackend)
+# [KingKongBackups.com](https://kingkongbackups.com) // [View Backend Here](https://github.com/luke-devel/KingKongBackend)
 ![King Kong Backups Homepage](https://kingkongbackups.com/img/KingKongBackups.png)
 ## Frontend Technology Used:
 * [**Node.js**](https://nodejs.org/en/) - Backend Runtime
