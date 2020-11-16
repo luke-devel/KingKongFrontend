@@ -1,5 +1,6 @@
 # [KingKongBackups.com](https://kingkongbackups.com)
 # [View Backend Here](https://github.com/luke-devel/KingKongBackend)
+![King Kong Backups Homepage](https://kingkongbackups.com/img/KingKongBackups.png)
 ## Technology Used:
 * [**AWS Lightsail CentOS VPS**](https://lightsail.aws.amazon.com/) - Backend Linux VPS Hosted in Germany
 * [**Node.js**](https://nodejs.org/en/) - Backend Runtime
@@ -18,4 +19,4 @@
 * The frontend is hosted on Vercel and runs using serverless functions on the frontend. The frontend uses Next.js, which implements AWS Serverless Lamda Functions which then talk to the physical AWS Lightsail VPS on the backend with the MySQL Database.
 * We used Stripe for payments, so I set up and implemented the Stripe API in Node.js The users give us their FTP or SFTP server information, and using Node I connect to their FTP or SFTP server and download the entirety of their root directory onto the Linux CentOS Lightsail VPS server. There can also be an automated Cron Job using Shell Scripts on ato automate entire website backups on a schedule. Their FTP files are then stored on an AWS S3 Database Bucket with PGP Encryption. 
 
-![King Kong Backups Homepage](https://kingkongbackups.com/img/KingKongBackups.png)
+
