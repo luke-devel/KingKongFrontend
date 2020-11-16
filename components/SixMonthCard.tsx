@@ -93,7 +93,7 @@ export default function SixMonthCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>269.99 / <span style={{ fontSize: "4vh" }}></span>
+            <sup>$</sup>134.99 / <span style={{ fontSize: "4vh" }}></span>
           </div>
           <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
             Six Months Billing

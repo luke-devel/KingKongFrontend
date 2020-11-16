@@ -766,7 +766,7 @@ a.logbtn{
 	justify-content: center;
 }
 ul.navul, .secbtn1, .lastone, .hidep{
-	display: none!important;
+	display: none;
 }
 .header{
 	text-align: center;

@@ -90,7 +90,7 @@ export default function MonthlyCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>59.99 / <span style={{ fontSize: "4vh" }}>Month</span>
+            <sup>$</sup>29.99 / <span style={{ fontSize: "4vh" }}>Month</span>
           </div>
           <h3
             style={{

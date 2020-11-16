@@ -89,7 +89,7 @@ export default function YearlyCard() {
               marginTop: "3vh",
             }}
           >
-            <sup>$</sup>359.99 / <span style={{ fontSize: "4vh" }}>Year</span>
+            <sup>$</sup>179.99 / <span style={{ fontSize: "4vh" }}>Year</span>
           </div>
           <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
             14 Day Free Trial
