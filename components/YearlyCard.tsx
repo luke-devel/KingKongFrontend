@@ -13,12 +13,14 @@ import Router from "next/router";
 const useStyles = makeStyles({
   root: {
     borderRadius: 10,
-    minWidth: 300,
-    minHeight: 440,
-    maxHeight: 520,
-    background: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
-    boxShadow: "-15px -15px 22px rgba(44, 44, 44, 0.5), 15px 15px 22px rgba(28, 26, 26, 0.5)",
-    maxWidth: 400,
+    minWidth: 310,
+    minHeight: 480,
+    maxHeight: 480,
+    background:
+      "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+    boxShadow:
+      "-15px -15px 22px rgba(44, 44, 44, 0.5), 15px 15px 22px rgba(28, 26, 26, 0.5)",
+    maxWidth: 310,
   },
   bullet: {
     display: "inline-block",
@@ -36,7 +38,8 @@ const StyledButtonYearly = withStyles({
   root: {
     // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     borderRadius: 5,
-    backgroundColor:"linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+    backgroundColor:
+      "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     border: "2px solid #ffffff",
     fontSize: "4.5vh",
     color: "white",
@@ -46,7 +49,8 @@ const StyledButtonYearly = withStyles({
     "&:hover": {
       fontStyle: "italic",
       fontWeight: "bold",
-      backgroundColor: "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
+      backgroundColor:
+        "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
       color: "#black",
       transform: "scale(1.05)",
       transitionDuration: ".5s",
@@ -62,10 +66,9 @@ export default function YearlyCard() {
 
   const handleChoice = () => {
     Cookie.set("planChoice", "1");
-    if(Cookie.get('usertoken')){
+    if (Cookie.get("usertoken")) {
       Router.push("/checkout/landing");
-    }
-    else{
+    } else {
       Router.push("/register");
     }
   };
@@ -77,6 +80,7 @@ export default function YearlyCard() {
         alignContent: "center",
         alignItems: "center",
         textAlign: "center",
+        position: "relative",
       }}
     >
       <Card className={classes.root}>
@@ -85,38 +89,60 @@ export default function YearlyCard() {
             style={{
               fontWeight: 500,
               color: "white",
-              fontSize: "6vh",
+              fontSize: "4vh",
               marginTop: "3vh",
             }}
           >
             <sup>$</sup>179.99 / <span style={{ fontSize: "4vh" }}>Year</span>
           </div>
-          <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
-            14 Day Free Trial
-          </h3>
-          <h3
+          <div
             style={{
-              fontWeight: 500,
-              color: "white",
-              fontSize: "4vh",
-              marginBottom: 0,
+              position: "absolute",
+              top: 90,
+              textAlign: "center",
+              width: 280,
             }}
           >
-            {" "}
-            50% OFF
-          </h3>
-          <Stripe />
-          <h3
-            style={{
-              margin: 0,
-              fontWeight: 500,
-              color: "white",
-              fontSize: "3vh",
-            }}
-          >
-            Secured Stripe Checkout
-          </h3>
-          <StyledButtonYearly onClick={handleChoice}>Choose</StyledButtonYearly>
+            <h3
+              style={{
+                fontWeight: 500,
+                color: "white",
+                fontSize: "4vh",
+                marginBottom: 0,
+                marginTop: 20,
+              }}
+            >
+              50% OFF
+            </h3>
+            <h3
+              style={{
+                fontWeight: 500,
+                color: "white",
+                fontSize: "4vh",
+                marginTop: 10,
+              }}
+            >
+              14 Day Free Trial
+            </h3>
+          </div>
+
+          <div style={{ position: "absolute", top: "210px" }}>
+            <Stripe />
+            <h3
+              style={{
+                margin: 0,
+                paddingTop: 10,
+                fontWeight: 500,
+                color: "white",
+                fontSize: "3vh",
+              }}
+            >
+              Secured Stripe Checkout
+            </h3>
+            <StyledButtonYearly onClick={handleChoice}>
+              Choose
+            </StyledButtonYearly>
+          </div>
         </CardContent>
       </Card>
     </div>
