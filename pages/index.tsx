@@ -492,13 +492,13 @@ export default function Home() {
             {!auth ? (
               <Link href="/pricing">
                 <button style={{ cursor: "pointer", marginTop: 0 }}>
-                  Secure my website
+                  Start Your Free 14 Day Trial
                 </button>
               </Link>
             ) : (
               <Link href="/user">
                 <button style={{ cursor: "pointer", marginTop: 0 }}>
-                  Secure my website
+                  Start Your Free 14 Day Trial
                 </button>
               </Link>
             )}

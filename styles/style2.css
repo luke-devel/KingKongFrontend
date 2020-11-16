@@ -162,11 +162,11 @@ color: #FFFFFF;
 .secbtn button, .secbtn1 button, .secbtn2 button{	
     padding: 20px 27px;	background: white;
     border-radius: 10px;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 20px;
     line-height: 30px;
     border:none;
-    color:#212121;
+	color:#212121;
 }
 .upbtn button{
 	width: 377px;
@@ -783,7 +783,7 @@ ul.navul, .secbtn1, .lastone, .hidep{
 	display: flex;
 }
 .secbtn button{
-   font-weight: 500;
+   font-weight: bold;
 font-size: 20px;
 line-height: 27px;
 color:#212121;
