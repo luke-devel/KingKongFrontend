@@ -13,14 +13,14 @@ import Router from "next/router";
 const useStyles = makeStyles({
   root: {
     borderRadius: 10,
-    minWidth: 300,
-    minHeight: 440,
-    maxHeight: 520,
+    minWidth: 310,
+    minHeight: 480,
+    maxHeight: 480,
     background:
       "linear-gradient(144.8deg, rgba(10, 9, 9, 0.5) 0%, rgba(56, 56, 56, 0.5) 100%), #212121",
     boxShadow:
       "-15px -15px 22px rgba(44, 44, 44, 0.5), 15px 15px 22px rgba(28, 26, 26, 0.5)",
-    maxWidth: 400,
+    maxWidth: 310,
   },
   bullet: {
     display: "inline-block",
@@ -81,6 +81,7 @@ export default function SixMonthCard() {
         alignContent: "center",
         alignItems: "center",
         textAlign: "center",
+        position: "relative",
       }}
     >
       <Card className={classes.root}>
@@ -89,41 +90,52 @@ export default function SixMonthCard() {
             style={{
               fontWeight: 500,
               color: "white",
-              fontSize: "6vh",
+              fontSize: "3.5vh",
               marginTop: "3vh",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
             }}
           >
-            <sup>$</sup>134.99 / <span style={{ fontSize: "4vh" }}></span>
+            <sup>$</sup>134.99 / 6 Months
+            <span style={{ fontSize: "4vh" }}></span>
           </div>
-          <h3 style={{ fontWeight: 500, color: "white", fontSize: "4vh" }}>
-            Six Months Billing
-          </h3>
-          <h3
+          <div
             style={{
-              fontWeight: 500,
-              color: "white",
-              fontSize: "4vh",
-              marginBottom: 0,
+              position: "absolute",
+              top: 90,
+              textAlign: "center",
+              width: 280,
             }}
           >
-            {" "}
-            30% OFF
-          </h3>
-          <Stripe />
-          <h3
-            style={{
-              margin: 0,
-              fontWeight: 500,
-              color: "white",
-              fontSize: "3vh",
-            }}
-          >
-            {" "}
-            Secured Stripe Checkout
-          </h3>
-          <StyledButtonSixMonth onClick={handleChoice}>
-            Choose
-          </StyledButtonSixMonth>
+            <h3
+              style={{
+                fontWeight: 500,
+                color: "white",
+                fontSize: "4vh",
+                marginBottom: 0,
+                marginTop: 20,
+              }}
+            >
+              30% OFF
+            </h3>
+          </div>
+          <div style={{ position: "absolute", top: "210px" }}>
+            <Stripe />
+            <h3
+              style={{
+                margin: 0,
+                paddingTop: 10,
+                fontWeight: 500,
+                color: "white",
+                fontSize: "3vh",
+              }}
+            >
+              Secured Stripe Checkout
+            </h3>
+            <StyledButtonSixMonth onClick={handleChoice}>
+              Choose
+            </StyledButtonSixMonth>
+          </div>
         </CardContent>
       </Card>
     </div>
