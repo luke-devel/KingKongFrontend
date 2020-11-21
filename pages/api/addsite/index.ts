@@ -36,6 +36,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           if (letsResponse.data.message === "Success") {
             res.json({ message: "Success" });
           } else {
+            console.log(letsResponse.data);
             res.json({ message: "Opps! Something went wrong" });
           }
         } catch (error) {
