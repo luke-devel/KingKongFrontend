@@ -18,9 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           userToken: req.cookies.usertoken,
         },
       });
-      console.log(backendRes.data);
-      res.json({ message: backendRes.data });
-      backendRes.status === 253 && res.json({ message: "Success" });
+      backendRes.data === 'Success' && res.json({ message: "Success" });
     } catch (error) {
       console.log(error);
       res.json({ message: "No sites present." });

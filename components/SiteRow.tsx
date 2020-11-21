@@ -18,16 +18,14 @@ export default function SiteRow({ count, siteName, siteLink, serverID }) {
     }
   };
   const handleRemove = async (serverID) => {
-    console.log(serverID);
     const removeBackupRes = await Axios(`/api/removesite`, {
       method: "POST",
       data: {
         serverRowID: serverID,
       },
     });
-    if (removeBackupRes) {
-      console.log('ppp', removeBackupRes)
-      // Router.reload();
+    if (removeBackupRes.data.message === 'Success') {
+      Router.reload();
     } else {
       alert("Error. Please try again or contact support.");
     }
