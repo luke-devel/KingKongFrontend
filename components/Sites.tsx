@@ -18,6 +18,7 @@ export default function Sites() {
         },
       });
       const parsedData = JSON.parse(data.data);
+      console.log(parsedData);
       let count = 0;
       setDisplayData(
         parsedData.map(({ serverdescription, serveraddress }, index) => {
@@ -28,7 +29,7 @@ export default function Sites() {
               count={tempCount}
               siteName={serverdescription}
               siteLink={serveraddress}
-              serverID={data.rowId}
+              serverID={index + 1}
               key={index}
             />
           );

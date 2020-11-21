@@ -8,24 +8,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } else {
     try {
       const decodedToken = jwt_decode(req.cookies.usertoken);
-      const backendRes = await Axios(
-        `${process.env.REQ_URL}/api/query/${decodedToken.sub}`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-          data: {
-            userToken: req.cookies.usertoken,
-          },
-        }
-      );
-      console.log(backendRes.data);
-      
-      backendRes.status === 253 && res.json({ rowId: backendRes.data.rowId, data: backendRes.data.data });
+      const backendRes = await Axios(`${process.env.REQ_URL}/api/removesite`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        data: {
+          serverRowID: req.body.serverRowID,
+          userToken: req.cookies.usertoken,
+        },
+      });
+      backendRes.data === 'Success' && res.json({ message: "Success" });
     } catch (error) {
+      console.log(error);
       res.json({ message: "No sites present." });
-
     }
   }
 };

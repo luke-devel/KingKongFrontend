@@ -17,6 +17,19 @@ export default function SiteRow({ count, siteName, siteLink, serverID }) {
       alert("Error. Please try again or contact support.");
     }
   };
+  const handleRemove = async (serverID) => {
+    const removeBackupRes = await Axios(`/api/removesite`, {
+      method: "POST",
+      data: {
+        serverRowID: serverID,
+      },
+    });
+    if (removeBackupRes.data.message === 'Success') {
+      Router.reload();
+    } else {
+      alert("Error. Please try again or contact support.");
+    }
+  };
 
   return (
     <tr>
@@ -43,7 +56,7 @@ export default function SiteRow({ count, siteName, siteLink, serverID }) {
         <a
           id={serverID}
           style={{ margin: 0 }}
-          onClick={() => console.log("hande remove site", serverID)}
+          onClick={() => handleRemove(serverID)}
         >
           <img
             style={{ cursor: "pointer", position: "absolute", zIndex: 1 }}
