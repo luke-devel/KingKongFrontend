@@ -13,6 +13,7 @@ export default function CheckoutLanding() {
   const [planChoice, setPlanChoice] = useState(Cookie.get("planChoice"));
 
   useEffect(() => {
+  console.log(process.env.NEXT_PUBLIC_PUB_HOST_NAME);
     // Update the document title using the browser API
     switch (planChoice) {
       case "1":
